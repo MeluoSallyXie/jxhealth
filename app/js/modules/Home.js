@@ -8,7 +8,7 @@ export default React.createClass({
     render() {
     return (
         <div>
-            <HomeNav />
+            <HomeNav description="泌乳调理" />
         </div>
     );
 }
