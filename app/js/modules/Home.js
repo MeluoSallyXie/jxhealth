@@ -9,6 +9,8 @@ export default React.createClass({
     return (
         <div>
             <HomeNav description="泌乳调理" />
+            <HomeNav description="产后恢复" />
+            <HomeNav description="营养膳食" />
         </div>
     );
 }
