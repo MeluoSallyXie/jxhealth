@@ -2,7 +2,7 @@
  * Created by sally on 2017/2/11.
  */
 import React from 'react'
-var HomeNav = require('./../components/HomeNav');
+import HomeNav from '../components/HomeNav'
 
 export default React.createClass({
     render() {

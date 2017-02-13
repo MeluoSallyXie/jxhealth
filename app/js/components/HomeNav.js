@@ -16,3 +16,4 @@ var HomeNav = React.createClass({
         );
     }
 });
+module.exports = HomeNav;
