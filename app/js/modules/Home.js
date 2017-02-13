@@ -7,7 +7,7 @@ export default React.createClass({
     render() {
     return <div className="homenav nav1">
         <img src="app/image/homenavimg1.png" />
-        <p>泌乳调理</p>
+        <div>泌乳调理</div>
         </div>
 }
 })
