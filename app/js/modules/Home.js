@@ -10,6 +10,6 @@ export default React.createClass({
         <div>
             <HomeNav />
         </div>
-    )
+    );
 }
 })
