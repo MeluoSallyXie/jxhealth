@@ -9,7 +9,7 @@ var ReactDOM = require('react-dom');
 var HomeNav = React.createClass({
     render: function() {
         return (
-            <div className={this.props.class}>
+            <div className={this.props.className}>
             <img src={this.props.srcimg} />
             <div>{this.props.description}</div>
             </div>
