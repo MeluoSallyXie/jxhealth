@@ -19,6 +19,7 @@ var BottomFooter = React.createClass({
                 <div className="footer_mobile"></div>
                 <footer className="footer_mobile v2_footwrap">
                     <table>
+                        <tbody>
                         <tr>
                             <td width="33%">
                                 <a href="#"><img
@@ -34,6 +35,7 @@ var BottomFooter = React.createClass({
                                     src="app/image/wechatfooter/footeruser.png"/><p >订单中心</p></a>
                             </td>
                         </tr>
+                        </tbody>
                     </table>
                 </footer>
             </div>
