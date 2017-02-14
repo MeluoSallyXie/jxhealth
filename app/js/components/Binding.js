@@ -46,7 +46,7 @@ var Binding = React.createClass({
                     <tr>
                         <td>服务区域</td>
                         <td>
-                            <input id="address" name="district" className="formcontroller" type="text" readonly="readonly" placeholder="选择区域"/>
+                            <input id="address" name="district" className="formcontroller" type="text" readOnly="" placeholder="选择区域"/>
                             <input id="addressvalue" type="hidden"/>
                         </td>
                     </tr>
