@@ -15,7 +15,7 @@ export default React.createClass({
         };
         var productlist = data.products.map(function (product) {
             return (
-                <ProductItem id={product.id} thumb={product.thumb} name={product.name} price={product.price}
+                <ProductItem key={product.id} thumb={product.thumb} name={product.name} price={product.price}
                              service_timer={product.service_timer}/>
             );
         });
