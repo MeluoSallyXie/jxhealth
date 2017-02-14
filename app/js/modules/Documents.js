@@ -6,8 +6,13 @@ import { Link } from 'react-router'
 import Document from '../components/Document'
 
 export default React.createClass({
-    render: function () {
+    componentDidMount:function() {
         document.body.style.backgroundColor="#eee";
+    },
+    componentWillUnmount:function() {
+        document.body.style.backgroundColor="white";
+    },
+    render: function () {
         var data = {
             documents: [
                 {id: 1, title:"测试"},
