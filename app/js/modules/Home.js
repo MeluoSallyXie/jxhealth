@@ -11,7 +11,7 @@ export default React.createClass({
     render: function () {
         return (
             <div>
-                <Link to="/repos">
+                <Link to="/productcategory/20">
                     <HomeNav description="泌乳调理" srcimg="app/image/homenavimg1.png" className="homenav nav1" state="0"/>
                 </Link>
                 <HomeNav description="产后恢复" srcimg="app/image/homenavimg2.png" className="homenav nav2" state="1"/>
