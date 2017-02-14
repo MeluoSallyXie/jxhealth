@@ -33,11 +33,11 @@ var ProductItem = React.createClass({
                     <table>
                         <tbody>
                         <tr>
-                            <td style="width: 33%;" class="title">{this.props.name}</td>
+                            <td width="33%" className="title">{this.props.name}</td>
                             <td className="money">
                                 ￥<label className="moneyNum">{this.props.price}</label>
                             </td>
-                            <td style="width: 33%;">
+                            <td width="33%">
                             <span className="time">
                                {this.props.service_timer}分钟
                             </span>
