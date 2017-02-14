@@ -11,7 +11,7 @@ export default React.createClass({
         return (
             <div>
                 <div className="orderTitle">绑定手机</div>
-                <Binding realname="" telephone="" />
+                <Binding />
             </div>
         );
     }
