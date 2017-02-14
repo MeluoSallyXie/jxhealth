@@ -15,7 +15,7 @@ var ProductItem = React.createClass({
                 <table>
                     <tr>
                         <td width="50%" className="title">{this.props.name}</td>
-                        <td className="money" className="borderRNone">
+                        <td className="money borderRNone">
                             ￥<label className="moneyNum">{this.props.price}</label>
                         </td>
                     </tr>
