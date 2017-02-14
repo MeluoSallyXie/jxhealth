@@ -5,7 +5,7 @@
 
 var React = require('react');
 var ReactDOM = require('react-dom');
-class Binding extends ReactComponent {
+class Binding extends React.Component {
     constructor(props) {
         super(props);
         this.state = {realname: '',telephone:"",smscode:"",district:"",address_1:""};
