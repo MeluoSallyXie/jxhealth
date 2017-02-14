@@ -13,12 +13,14 @@ var ProductItem = React.createClass({
             <div className="productItem">
                 <a href="#"><img src={this.props.thumb}/></a>
                 <table>
+                    <tbody>
                     <tr>
                         <td width="50%" className="title">{this.props.name}</td>
                         <td className="money borderRNone">
                             ￥<label className="moneyNum">{this.props.price}</label>
                         </td>
                     </tr>
+                    </tbody>
                 </table>
             </div>
         );
