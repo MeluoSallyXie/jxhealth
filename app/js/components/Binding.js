@@ -5,10 +5,12 @@
 
 var React = require('react');
 var ReactDOM = require('react-dom');
+require("../lib/util");
+
 class Binding extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {realname: '',telephone:"",smscode:"",district:"",address_1:""};
+        this.state = {realname: '',telephone:"",smscode:"",district:"",addressvalue:"",address_1:""};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -19,20 +21,26 @@ class Binding extends React.Component {
             [name]: value
         });
     }
-    handleSubmit(){
-        /*if ($("[name='realname']").val().trim().length < 1 || $("[name='realname']").val().trim().length > 32) {
-         alertConfirm("姓名格式不正确");
-         }else if ($("[name='telephone']").val().trim().length < 1 || $("[name='telephone']").val().trim().length > 11) {
-         alertConfirm("手机号码格式不正确");
-         }else if ($("[name='smscode']").val().trim().length != 6) {
-         alertConfirm("验证码格式不正确");
-         }else if($("[id='addressvalue']").val().trim().length < 1){
-         alertConfirm("服务区域不能为空");
-         }else if($("[name='address_1']").val().trim().length < 1 ){
-         alertConfirm("详细地址不能为空");
-         }else {
-         $("#bindingform").submit();
-         }*/
+    handleSubmit(event){
+        if(this.state.realname.trim().length<1||this.state.realname.trim().length>32){
+            alert("姓名格式不正确");
+        }
+        else if(this.state.telephone.trim().length<1||this.state.telephone.trim().length>11){
+            alert("手机号码格式不正确");
+        }
+        else if(this.state.smscode.trim().length!=6){
+            alert("验证码格式不正确")
+        }
+        else if(this.state.addressvalue.trim().length<1){
+            alert("服务区域不能为空")
+        }
+        else if(this.state.address_1.trim().length<1){
+            alert("详细地址不能为空");
+        }
+        else {
+            //submit
+            event.preventDefault();
+        }
     }
     render() {
         return (
@@ -74,7 +82,7 @@ class Binding extends React.Component {
                         <td>服务区域</td>
                         <td>
                             <input id="address" name="district" className="formcontroller" type="text" readOnly="" placeholder="选择区域" value={this.state.district} onChange={this.handleChange}/>
-                            <input id="addressvalue" type="hidden"/>
+                            <input id="addressvalue" type="hidden" name="addressvalue" value={this.state.addressvalue} onChange={this.handleChange} />
                         </td>
                     </tr>
                     <tr>
