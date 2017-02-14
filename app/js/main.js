@@ -16,5 +16,5 @@ render((
         <Route path="/binding" component={WechatBinding}/>
         <Route path="/repos" component={Repos}/>
     </Router>
-), document.body);
+), document.getElementById('app'));
 
