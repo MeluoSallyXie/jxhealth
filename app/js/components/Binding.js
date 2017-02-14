@@ -42,6 +42,9 @@ class Binding extends React.Component {
             event.preventDefault();
         }
     }
+    sendMsg(){
+        //发送验证码
+    }
     render() {
         return (
             <form action="" method="post"  className="form-horizontal" id="bindingform">
@@ -70,7 +73,7 @@ class Binding extends React.Component {
                                     <td>
                                         <input type="text" name="smscode" id="verificationcode" onChange={this.handleChange} />
                                     </td>
-                                    <td className="sendMsgBtn" id="btnSendCode">
+                                    <td className="sendMsgBtn" id="btnSendCode" onclick={this.sendMsg}>
                                         发送验证码
                                     </td>
                                 </tr>

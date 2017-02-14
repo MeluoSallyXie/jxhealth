@@ -2,7 +2,8 @@
  * Created by sally on 2017/2/14.
  */
 import React from 'react'
-import ProductItem from '../components/ProductItem'
+import { Link } from 'react-router'
+import HomeNav from '../components/HomeNav'
 import BottomFooter from '../components/BottomFooter'
 
 export default React.createClass({
@@ -14,18 +15,15 @@ export default React.createClass({
                 {id: 3, thumb: "app/image/temp/productlist1.png", name: "产后开奶", price: 499, service_timer: 0}
             ]
         };
-        var productlist = data.products.map(function (product) {
+        var documentlist = data.products.map(function (product) {
             return (
                 <ProductItem key={product.id} thumb={product.thumb} name={product.name} price={product.price}
                              service_timer={product.service_timer}/>
             );
         });
         return (
-            <div>
-                <div className="productlist">
-                    {productlist}
-                </div>
-                <BottomFooter />
+            <div className="productlist">
+                {documentlist}
             </div>
         );
     }
