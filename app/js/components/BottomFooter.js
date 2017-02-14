@@ -16,7 +16,26 @@ var BottomFooter = React.createClass({
     render: function () {
         return (
             <div>
-                11111
+                <div className="footer_mobile"></div>
+                <footer className="footer_mobile v2_footwrap">
+                    <table>
+                        <tr>
+                            <td width="33%">
+                                <a href="#"><img
+                                    src="app/image/wechatfooter/footerhome_active.png"/><p
+                                    style="color: #fe8e19">服务首页</p></a>
+                            </td>
+                            <td>
+                                <a href="#"><img
+                                    src="app/image/wechatfooter/footerdoc.png"/><p >权威文章</p></a>
+                            </td>
+                            <td width="33%">
+                                <a href="#"><img
+                                    src="app/image/wechatfooter/footeruser.png"/><p >订单中心</p></a>
+                            </td>
+                        </tr>
+                    </table>
+                </footer>
             </div>
         );
     }

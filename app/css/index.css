@@ -99,7 +99,8 @@ select.formcontroller{
 
 .v2_footwrap table{
     padding-bottom: 1rem;
-    width: 100%;background-color: #3b3a3d;text-align: center
+    width: 100%;background-color: #3b3a3d;text-align: center;
+    border-collapse:collapse;border-spacing:0;
 }
 .v2_footwrap table img{
     width: 3rem;
