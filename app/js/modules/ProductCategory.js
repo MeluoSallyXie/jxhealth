@@ -5,10 +5,22 @@ import React from 'react'
 import ProductItem from '../components/ProductItem'
 
 export default React.createClass({
-    render() {
+    render: function () {
+        var data = {
+            products: [
+                {thumb: "app/image/temp/productlist1.png", name: "产后开奶", price: 499, service_timer: 50},
+                {thumb: "app/image/temp/productlist1.png", name: "产后开奶", price: 499, service_timer: 50},
+                {thumb: "app/image/temp/productlist1.png", name: "产后开奶", price: 499, service_timer: 0}
+            ]
+        };
+        var productlist=data.products.map(function(product){
+            return (
+                <ProductItem thumb={product.thumb} name={product.name} price={product.price} service_timer={product.service_timer}/>
+            );
+        });
         return (
             <div className="productlist">
-                <ProductItem thumb="app/image/temp/productlist1.png" name="产后开奶" price="499" service_timer="50" />
+                {productlist}
             </div>
         );
     }
