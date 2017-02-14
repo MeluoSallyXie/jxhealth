@@ -43,7 +43,6 @@ var Binding = React.createClass({
                     <tr>
                         <td>服务区域</td>
                         <td>
-                            <!--<input type="text" name="address" class="formcontroller"/>-->
                             <input id="address" name="district" className="formcontroller" type="text" readonly="" placeholder="选择区域"/>
                             <input id="addressvalue" type="hidden"/>
                         </td>
@@ -55,7 +54,6 @@ var Binding = React.createClass({
                         </td>
                     </tr>
                 </table>
-                <!--?php echo $provs_data; ?-->
                 <div className="bindBottom">
                     <span className="whitebtn active bindBtn" id="register_submitbtn">提交</span>
                 </div>
