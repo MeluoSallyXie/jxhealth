@@ -10,7 +10,7 @@ export default React.createClass({
     render: function () {
         return (
             <div>
-                <div class="orderTitle">绑定手机</div>
+                <div className="orderTitle">绑定手机</div>
                 <Binding realname="" telephone="" />
             </div>
         );
