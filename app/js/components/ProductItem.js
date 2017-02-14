@@ -8,7 +8,6 @@ var ReactDOM = require('react-dom');
 
 var ProductItem = React.createClass({
     render: function () {
-        var itemStyle = {borderright: "none"};
         var item;
         item = (
             <div className="productItem">
@@ -16,7 +15,7 @@ var ProductItem = React.createClass({
                 <table>
                     <tr>
                         <td width="50%" className="title">{this.props.name}</td>
-                        <td className="money" style={{border-right:itemStyle.borderright}}>
+                        <td className="money" className="borderRNone">
                             ￥<label className="moneyNum">{this.props.price}</label>
                         </td>
                     </tr>
