@@ -9,7 +9,7 @@ var ReactDOM = require('react-dom');
 var Binding = React.createClass({
     render: function () {
         return (
-            <form action="" method="post" enctype="multipart/form-data" className="form-horizontal" id="bindingform">
+            <form action="" method="post"  className="form-horizontal" id="bindingform">
                 <table className="bind">
                     <tbody>
                     <tr>
@@ -30,6 +30,7 @@ var Binding = React.createClass({
                         </td>
                         <td>
                             <table className="sendMsg">
+                                <tbody>
                                 <tr>
                                     <td>
                                         <input type="text" name="smscode" id="verificationcode" />
@@ -38,13 +39,14 @@ var Binding = React.createClass({
                                         发送验证码
                                     </td>
                                 </tr>
+                                </tbody>
                             </table>
                         </td>
                     </tr>
                     <tr>
                         <td>服务区域</td>
                         <td>
-                            <input id="address" name="district" className="formcontroller" type="text" readonly="" placeholder="选择区域"/>
+                            <input id="address" name="district" className="formcontroller" type="text" readonly="readonly" placeholder="选择区域"/>
                             <input id="addressvalue" type="hidden"/>
                         </td>
                     </tr>
