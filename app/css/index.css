@@ -115,6 +115,10 @@ select.formcontroller{
     padding-bottom:0.4rem;
 }
 
+.v2_footwrap table p.active{
+    color: #fe8e19;
+}
+
 .v2_footwrap table .active{
     color: #EDA268;
 }

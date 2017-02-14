@@ -24,7 +24,7 @@ var BottomFooter = React.createClass({
                             <td width="33%">
                                 <a href="#"><img
                                     src="app/image/wechatfooter/footerhome_active.png"/><p
-                                    style="color: #fe8e19">服务首页</p></a>
+                                    className="active">服务首页</p></a>
                             </td>
                             <td>
                                 <a href="#"><img
