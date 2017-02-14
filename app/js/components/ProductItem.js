@@ -10,13 +10,13 @@ var ProductItem = React.createClass({
     render: function() {
         var item;
         item=(
-            <div class="productItem">
+            <div className="productItem">
                 <a href="#"><img src={this.props.thumb}/></a>
                 <table>
                     <tr>
-                        <td style="width: 50%;" class="title">{this.props.name}</td>
-                        <td class="money" style="border-right: none;">
-                            ￥<label class="moneyNum">{this.props.price}</label>
+                        <td style={{width: 50%}} className="title">{this.props.name}</td>
+                        <td className="money" style="border-right: none;">
+                            ￥<label className="moneyNum">{this.props.price}</label>
                         </td>
                     </tr>
                 </table>
