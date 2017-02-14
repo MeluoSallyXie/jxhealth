@@ -7,15 +7,16 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 var ProductItem = React.createClass({
-    render: function() {
+    render: function () {
+        var itemStyle = {borderright: "none"};
         var item;
-        item=(
+        item = (
             <div className="productItem">
                 <a href="#"><img src={this.props.thumb}/></a>
                 <table>
                     <tr>
-                        <td style={{width: 50%}} className="title">{this.props.name}</td>
-                        <td className="money" style="border-right: none;">
+                        <td width="50%" className="title">{this.props.name}</td>
+                        <td className="money" style={{border-right:itemStyle.borderright}}>
                             ￥<label className="moneyNum">{this.props.price}</label>
                         </td>
                     </tr>
