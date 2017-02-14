@@ -11,6 +11,7 @@ var Binding = React.createClass({
         return (
             <form action="" method="post" enctype="multipart/form-data" className="form-horizontal" id="bindingform">
                 <table className="bind">
+                    <tbody>
                     <tr>
                         <td>姓名</td>
                         <td className="colwidth">
@@ -53,6 +54,7 @@ var Binding = React.createClass({
                             <input type="text" name="address_1" className="formcontroller" value=""/>
                         </td>
                     </tr>
+                    </tbody>
                 </table>
                 <div className="bindBottom">
                     <span className="whitebtn active bindBtn" id="register_submitbtn">提交</span>
