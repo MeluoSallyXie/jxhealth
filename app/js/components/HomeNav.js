@@ -8,7 +8,9 @@ var ReactDOM = require('react-dom');
 
 var HomeNav = React.createClass({
     handleClick:function(){
-        alert("此服务暂未开放");
+        if(this.props.state=="1"){
+            alert("此服务暂未开放");
+        }
     },
     render: function() {
         return (
