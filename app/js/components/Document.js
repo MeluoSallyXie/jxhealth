@@ -6,22 +6,12 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var ProductItem = React.createClass({
+var Document = React.createClass({
     render: function () {
         var item;
         item = (
-            <div className="productItem">
-                <a href="#"><img src={this.props.thumb}/></a>
-                <table>
-                    <tbody>
-                    <tr>
-                        <td width="50%" className="title">{this.props.name}</td>
-                        <td className="money borderRNone">
-                            ￥<label className="moneyNum">{this.props.price}</label>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+            <div className="userinfoList">
+                <a href="#" >{this.props.title}<img src="app/image/userinfoimg3.png" /></a>
             </div>
         );
         return item;

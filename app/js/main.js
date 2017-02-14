@@ -7,7 +7,7 @@ import { Router, Route, hashHistory } from 'react-router'
 import Home from './modules/Home'
 import ProductCategory from './modules/ProductCategory'
 import WechatBinding from './modules/WechatBinding'
-import Documents from './modules/Documents'
+import Documents from './lib/Documents'
 import Repos from './modules/Repos'
 
 render((
