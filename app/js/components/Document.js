@@ -5,7 +5,7 @@ import { Link } from 'react-router'
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var DocumentDetail = React.createClass({
+var Document = React.createClass({
     render: function () {
         var item;
         item = (
@@ -16,4 +16,4 @@ var DocumentDetail = React.createClass({
         return item;
     }
 });
-module.exports = DocumentDetail;
+module.exports = Document;
