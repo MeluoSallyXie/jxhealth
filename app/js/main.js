@@ -9,7 +9,9 @@ import ProductCategory from './modules/ProductCategory'
 import WechatBinding from './modules/WechatBinding'
 import Documents from './modules/Documents'
 import Document from './modules/Document'
+import Advise from './modules/Advise'
 import Repos from './modules/Repos'
+
 
 render((
     <Router history={hashHistory}>
@@ -18,6 +20,7 @@ render((
         <Route path="/binding" component={WechatBinding}/>
         <Route path="/documents" component={Documents}/>
         <Route path="/documents/:id" component={Document}/>
+        <Route path="/advise" component={Advise}/>
         <Route path="/repos" component={Repos}/>
     </Router>
 ), document.getElementById('app'));
