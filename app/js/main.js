@@ -8,6 +8,7 @@ import Home from './modules/Home'
 import ProductCategory from './modules/ProductCategory'
 import WechatBinding from './modules/WechatBinding'
 import Documents from './modules/Documents'
+import Document from './modules/Document'
 import Repos from './modules/Repos'
 
 render((
@@ -16,7 +17,7 @@ render((
         <Route path="/productcategory/:id" component={ProductCategory}/>
         <Route path="/binding" component={WechatBinding}/>
         <Route path="/documents" component={Documents}/>
-        <Route path="/documents/:id" component={DocDetail}/>
+        <Route path="/documents/:id" component={Document}/>
         <Route path="/repos" component={Repos}/>
     </Router>
 ), document.getElementById('app'));
