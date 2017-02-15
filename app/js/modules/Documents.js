@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import { Link } from 'react-router'
-import DocumentDetail from '../components/DocumentDetail'
+import Document from '../components/Document'
 
 export default React.createClass({
     componentDidMount:function() {
