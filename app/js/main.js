@@ -17,7 +17,7 @@ render((
         <Route path="/productcategory/:id" component={ProductCategory}/>
         <Route path="/binding" component={WechatBinding}/>
         <Route path="/documents" component={Documents}/>
-        <Route path="/document/:id" component={Document}/>
+        <Route path="/documents/:id" component={Document}/>
         <Route path="/repos" component={Repos}/>
     </Router>
 ), document.getElementById('app'));
