@@ -1,4 +1,7 @@
 /**
+ * Created by sally on 2017/2/15.
+ */
+/**
  * Created by sally on 2017/2/14.
  */
 import React from 'react'
@@ -14,21 +17,22 @@ export default React.createClass({
     },
     render: function () {
         var data = {
-            documents: [
-                {id: 1, title:"测试",action:"/documents/:1"},
-                {id: 2, title:"测试",action:"/documents/1"},
-                {id: 3, title:"测试",action:"/documents/1"}
+            info: [
+                {id: 1, title:"基本信息",action:"/repos"},
+                {id: 2, title:"产检计划",action:"/repos"},
+                {id: 3, title:"疫苗接种表",action:"/repos"}
             ]
         };
-        var documentlist = data.documents.map(function (document) {
+        var personalinfo = data.info.map(function (info) {
             return (
-                <Document key={document.id} title={document.title} action={document.action}/>
+                <Document key={info.id} title={info.title} action={info.action} />
             );
         });
         return (
             <div>
-                {documentlist}
+                {personalinfo}
             </div>
         );
     }
 })
+

@@ -11,7 +11,7 @@ var Document = React.createClass({
         var item;
         item = (
             <div className="userinfoList">
-                <a href="#" >{this.props.title}<img src="app/image/userinfoimg3.png" /></a>
+                <Link to={this.props.action} >{this.props.title}<img src="app/image/userinfoimg3.png" /></Link>
             </div>
         );
         return item;
