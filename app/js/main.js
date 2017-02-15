@@ -10,6 +10,7 @@ import WechatBinding from './modules/WechatBinding'
 import Documents from './modules/Documents'
 import Document from './modules/Document'
 import Advise from './modules/Advise'
+import PersonalInfo from './modules/PersonalInfo'
 import Repos from './modules/Repos'
 
 
@@ -21,6 +22,7 @@ render((
         <Route path="/documents" component={Documents}/>
         <Route path="/documents/:id" component={Document}/>
         <Route path="/advise" component={Advise}/>
+        <Route path="/personalinfo" component={PersonalInfo}/>
         <Route path="/repos" component={Repos}/>
     </Router>
 ), document.getElementById('app'));
