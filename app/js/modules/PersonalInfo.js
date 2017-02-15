@@ -6,7 +6,7 @@
  */
 import React from 'react'
 import { Link } from 'react-router'
-import Document from '../components/Document'
+import DocumentDetail from '../components/DocumentDetail'
 
 export default React.createClass({
     componentDidMount:function() {
@@ -25,7 +25,7 @@ export default React.createClass({
         };
         var personalinfo = data.info.map(function (info) {
             return (
-                <Document key={info.id} title={info.title} action={info.action} />
+                <DocumentDetail key={info.id} title={info.title} action={info.action} />
             );
         });
         return (

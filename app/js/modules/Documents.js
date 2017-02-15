@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import { Link } from 'react-router'
-import Document from '../components/Document'
+import DocumentDetail from '../components/DocumentDetail'
 
 export default React.createClass({
     componentDidMount:function() {
@@ -22,7 +22,7 @@ export default React.createClass({
         };
         var documentlist = data.documents.map(function (document) {
             return (
-                <Document key={document.id} title={document.title} action={document.action}/>
+                <DocumentDetail key={document.id} title={document.title} action={document.action}/>
             );
         });
         return (
