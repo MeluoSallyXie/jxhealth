@@ -2,7 +2,7 @@
  * Created by sally on 2017/2/14.
  */
 'use strict';
-
+import { Link } from 'react-router'
 var React = require('react');
 var ReactDOM = require('react-dom');
 
