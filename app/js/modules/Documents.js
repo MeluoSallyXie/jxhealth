@@ -15,14 +15,14 @@ export default React.createClass({
     render: function () {
         var data = {
             documents: [
-                {id: 1, title:"测试",action:"/documents/:1"},
+                {id: 1, title:"测试",action:"/documents/1"},
                 {id: 2, title:"测试",action:"/documents/1"},
                 {id: 3, title:"测试",action:"/documents/1"}
             ]
         };
         var documentlist = data.documents.map(function (document) {
             return (
-                <DocumentDetail key={document.id} title={document.title} action={document.action}/>
+                <Link to={this.props.action} ><DocumentDetail key={document.id} title={document.title} action={document.action}/></Link>
             );
         });
         return (
