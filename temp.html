@@ -14,21 +14,60 @@
 <input type="button" id="button" value="button" />
 <script>
 
-    $(document).ready(function(){
-
-        $("#button").click(function(){
-            //alert(this.name);
-            alert("test")
+    var http=require('http');
+    var querystring=require('querystring');
+    var postData={"product_id": 50};
+    var options={
+        hostname:'test.jinxingjk.com',
+        port:80,
+        path:'/product/product',
+        method:'POST',
+        header:{
+            //'Content-Type':'application/x-www-form-urlencoded',
+            'Content-Type':'application/x-www-form-urlencoded',
+            'Content-Length':Buffer.byteLength(querystring.stringify(postData))
+        }
+    }
+    var req=http.request(options, function(res) {
+        console.log('Status:',res.statusCode);
+        console.log('headers:',JSON.stringify(res.headers));
+        res.setEncoding('utf-8');
+        res.on('data',function(chun){
+            console.log('body分隔线---------------------------------\r\n');
+            console.info(chun);
+        });
+        res.on('end',function(){
+            console.log('No more data in response.********');
         });
     });
-    var Lily=function(id){
-        this.name="Lily";
-        $("body").click(function(){
-            alert(this.name);
-        });
-    }
+    req.on('error',function(err){
+        console.error(err);
+    });
+    req.write(JSON.stringify(postData));
+    req.end();
 
-    Lily("test");
+
+    jsonp(this.props.source, "", "callback", (data) => {
+        if(data.status) {
+            //如果组件渲染到了 DOM 中，isMounted() 返回 true。
+            //可以使用该方法保证 setState() 和 forceUpdate()
+            //在异步场景下的调用不会出错。
+            if(this.isMounted()) {
+                this.setState({
+                    imgUrls: data.data,
+                })
+                new Swiper ('#header .swiper-container', {
+                    loop: true,
+                    pagination: '.swiper-pagination',
+                    paginationClickable: true,
+                    autoplay : 3000,
+                    autoplayDisableOnInteraction : false,
+                })
+            }
+        }else {
+            alert(data.msg);
+        }
+    });
 </script>
 </body>
 </html>

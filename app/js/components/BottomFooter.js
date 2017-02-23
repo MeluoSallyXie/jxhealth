@@ -5,6 +5,7 @@
 
 var React = require('react');
 var ReactDOM = require('react-dom');
+import { Router, Route, Link,IndexLink, browserHistory } from 'react-router'
 
 var BottomFooter = React.createClass({
     render: function () {
@@ -16,13 +17,13 @@ var BottomFooter = React.createClass({
                         <tbody>
                         <tr>
                             <td width="33%">
-                                <a href="#"><img
+                                <IndexLink to="/" ><img
                                     src="app/image/wechatfooter/footerhome_active.png"/><p
-                                    className="active">服务首页</p></a>
+                                    className="active">服务首页</p></IndexLink>
                             </td>
                             <td>
-                                <a href="#"><img
-                                    src="app/image/wechatfooter/footerdoc.png"/><p >权威文章</p></a>
+                                <Link to="/pressall"><img
+                                    src="app/image/wechatfooter/footerdoc.png"/><p >权威文章</p></Link>
                             </td>
                             <td width="33%">
                                 <a href="#"><img

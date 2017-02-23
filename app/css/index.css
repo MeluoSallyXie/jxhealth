@@ -288,6 +288,11 @@ a:hover {
     margin-top: 1rem;
     margin-bottom: 0.2rem;
     text-align: left;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.bloglist table .left{
+    width: 14.25rem;
 }
 .bloglist table tr{
     height: 9.25rem;

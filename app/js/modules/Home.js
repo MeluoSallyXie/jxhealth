@@ -5,9 +5,15 @@ import React from 'react'
 import { Link } from 'react-router'
 import HomeNav from '../components/HomeNav'
 import BottomFooter from '../components/BottomFooter'
+let jsonp = require('../lib/jsonp');
 
 export default React.createClass({
-
+    componentDidMount: function () {
+        var postData = {"product_id": 50};
+        jsonp("/product/product", postData, "POST", function (data) {
+            alert("success");
+        });
+    },
     render: function () {
         return (
             <div>

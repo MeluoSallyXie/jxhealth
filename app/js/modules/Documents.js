@@ -22,7 +22,7 @@ export default React.createClass({
         };
         var documentlist = data.documents.map(function (document) {
             return (
-                <Link to={this.props.action} ><DocumentDetail key={document.id} title={document.title} action={document.action}/></Link>
+                <Link to={document.action} ><DocumentDetail key={document.id} title={document.title} action={document.action}/></Link>
             );
         });
         return (

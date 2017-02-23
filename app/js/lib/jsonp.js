@@ -1,54 +1,43 @@
-
+/**
+ * JSONP操作
+ * @param url : 请求的url
+ * @param data : 发送数据
+ * @param jsonpcallback : 服务器给出的JSONP端口的API名称
+ * @param callback : 执行JSONP获取数据的回调函数
+ */
 ;(function () {
-    /**
-     * JSONP操作
-     * @param url : 请求的url
-     * @param data : 发送数据
-     * @param jsonpcallback : 服务器给出的JSONP端口的API名称
-     * @param callback : 执行JSONP获取数据的回调函数
-     */
-    var jsonp = function (url, data, jsonpcallback, callback) {
-        var cbName = 'cb' + jsonp.count++;
-        var callbackName = 'window.jsonp.' + cbName;
-        window.jsonp[cbName] = function (jsonpData) {
-            try {
-                callback(jsonpData);
-            } finally {
-                script.parentNode.removeChild(script);
-                delete window.jsonp[cbName];
-            }
-        };
-        var script = document.createElement('script');
-        if (data) {
-            data = tool.encodeToURIString(data);
-        }
-        if (typeof jsonpcallback === 'string') {
-            var jsonpData = jsonpcallback + '=' + callbackName;
-        }
-        url = tool.hasSearch(url, data);
-        url = tool.hasSearch(url, jsonpData);
-        script.src = url;
-        document.body.appendChild(script);
+    var jsonp = function (url, data, method, callback) {
+        var http = require('http');
+         var querystring = require('querystring');
+         var postData = data;
+         var options = {
+         hostname: 'test.jinxingjk.com',
+         port: 80,
+         path: url,
+         method: method,
+         header: {
+         //'Content-Type':'application/x-www-form-urlencoded',
+         'Content-Type': 'application/x-www-form-urlencoded',
+         'Content-Length': Buffer.byteLength(querystring.stringify(postData))
+         }
+         }
+         var req = http.request(options, function (res) {
+         console.log('Status:', res.statusCode);
+         console.log('headers:', JSON.stringify(res.headers));
+         res.setEncoding('utf-8');
+         res.on('data', function (chun) {
+         callback(chun);
+         });
+         res.on('end', function () {
+         console.log('No more data in response.********');
+         });
+         });
+         req.on('error', function (err) {
+         console.error(err);
+         });
+         req.write(JSON.stringify(postData));
+         req.end();
     };
-    jsonp.count = 0;
     window.jsonp = jsonp;
-    var tool = {
-        encodeToURIString: function (data) {
-            if (!data) return '';
-            if (typeof data === 'string') return data;
-            var arr = [];
-            for (var n in data) {
-                if (!data.hasOwnProperty(n)) continue;
-                arr.push(encodeURIComponent(n) + '=' + encodeURIComponent(data[n]));
-            }
-            return arr.join('&');
-        },
-        hasSearch: function (url, padString) {
-            if (!padString) return url;
-            if (typeof padString !== 'string') return url;
-            return url + (/\?/.test(url) ? '&' : '?') + padString;
-        }
-    }
 })();
-
 module.exports = jsonp;
