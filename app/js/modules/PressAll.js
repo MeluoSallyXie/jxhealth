@@ -15,10 +15,10 @@ export default React.createClass({
     },
     componentDidMount: function () {
         var postData = null;
-        jsonp("/faq/documents", postData, "POST", function (data) {
+        jsonp("/press/all", postData, "POST", function (data) {
             if (data.code == 0) {
                 this.setState({
-                    presses: data.data.documents
+                    presses: data.data.presses
                 });
             }
             else {
@@ -34,9 +34,9 @@ export default React.createClass({
                 {id: 3, title: "测试", action: "/pressall/1", thumb: ""}
             ]
         };*/
-        var bloglist = data.state.presses.map(function (press) {
+        var bloglist = this.state.presses.map(function (press) {
             return (
-                <BlogItem key={press.faq_id} title={press.title} action={"/pressall/"+press.faq_id}/>
+                <BlogItem key={press.press_id} title={press.title} action={"/pressall/"+press.press_id} thumb={press.thumb}/>
             );
         });
         return (

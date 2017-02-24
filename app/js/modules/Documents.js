@@ -30,17 +30,17 @@ export default React.createClass({
         document.body.style.backgroundColor = "white";
     },
     render: function () {
-        var data = {
+        /*var data = {
             documents: [
                 {id: 1, title: "测试", action: "/documents/1"},
                 {id: 2, title: "测试", action: "/documents/1"},
                 {id: 3, title: "测试", action: "/documents/1"}
             ]
-        };
-        var documentlist = data.documents.map(function (document) {
+        };*/
+        var documentlist = this.state.documents.map(function (document) {
             return (
-                <Link to={document.action}><DocumentDetail key={document.id} title={document.title}
-                                                           action={document.action}/></Link>
+                <Link to={"/documents/"+document.faq_id}><DocumentDetail key={document.faq_id} title={document.title}
+                                                           action={"/documents/"+document.faq_id}/></Link>
             );
         });
         return (
