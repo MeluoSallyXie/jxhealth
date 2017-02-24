@@ -13,6 +13,9 @@ import Advise from './modules/Advise'
 import PersonalInfo from './modules/PersonalInfo'
 import PressAll from './modules/PressAll'
 import Press from './modules/Press'
+import VaccineMenu from './modules/VaccineMenu'
+import VaccineFree from './modules/VaccineFree'
+import Vaccine from './modules/Vaccine'
 import Repos from './modules/Repos'
 
 
@@ -27,7 +30,8 @@ render((
         <Route path="/personalinfo" component={PersonalInfo}/>
         <Route path="/pressall" component={PressAll}/>
         <Route path="/pressall/:id" component={Press}/>
-            <Route path="/repos" component={Repos}/>
+        <Route path="/vaccinemenu" component={VaccineMenu}/>
+        <Route path="/vaccine" component={Vaccine}/>
         <Route path="/repos" component={Repos}/>
     </Router>
 ), document.getElementById('app'));
