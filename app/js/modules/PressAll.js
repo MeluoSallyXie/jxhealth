@@ -6,6 +6,7 @@ import { Link } from 'react-router'
 import BlogItem from '../components/BlogItem'
 import BottomFooter from '../components/BottomFooter'
 let jsonp = require('../lib/jsonp');
+require("../lib/util");
 
 export default React.createClass({
     getInitialState: function () {
