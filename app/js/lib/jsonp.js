@@ -25,11 +25,12 @@
         var req = http.request(options, function (res) {
             console.log('Status:', res.statusCode);
             res.setEncoding('utf-8');
+            var responseString = '';
             res.on('data', function (data) {
-                console.log(typeof data);
-                callback(data);
+                responseString += data;
             });
             res.on('end', function () {
+                callback(responseString);
                 console.log('No more data in response.********');
             });
         });
