@@ -16,8 +16,6 @@ export default React.createClass({
         var postData = {"document_id": this.props.params.id};
         jsonp("/faq/document", postData, "POST", function (data) {
             if (data.code == 0) {
-                var answer = data.data.documents[0].answer.replaceBar();
-                console.log(answer);
                 this.setState({
                     title: data.data.documents[0].title,
                     answer: {__html: data.data.documents[0].answer},

@@ -8,7 +8,7 @@ export default React.createClass({
     getInitialState: function () {
         return {
             title: "",
-            description:""
+            description:{__html:""}
         };
     },
     componentDidMount: function () {
@@ -17,7 +17,7 @@ export default React.createClass({
             if (data.code == 0) {
                 this.setState({
                     title: data.data.title,
-                    description: data.data.description,
+                    description: {__html:data.data.description},
                 });
             }
             else {
@@ -30,8 +30,7 @@ export default React.createClass({
             <div>
                 <div className="wechatpress_maindiv">
                     <span className="wechatpress_title">{this.state.title}</span>
-                    <div>
-                        {this.state.description}
+                    <div dangerouslySetInnerHTML={this.state.description}>
                     </div>
                 </div>
                 <BottomFooter />
