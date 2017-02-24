@@ -19,7 +19,7 @@ export default React.createClass({
             if (data.code == 0) {
                 this.setState({
                     title: data.data.documents[0].title,
-                    answer: data.data.documents[0].answer,
+                    answer: data.data.documents[0].answer.replaceBar(),
                 });
             }
             else {
