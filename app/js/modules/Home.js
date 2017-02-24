@@ -10,10 +10,9 @@ let jsonp = require('../lib/jsonp');
 export default React.createClass({
     componentDidMount: function () {
         var postData = {"product_id": 50};
-        alert("test");
-        jsonp("/product/product", postData, "POST", function (data) {
+        /*jsonp("/product/product", postData, "POST", function (data) {
             alert("success");
-        });
+        });*/
     },
     render: function () {
         return (

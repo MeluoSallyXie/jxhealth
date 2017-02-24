@@ -27,7 +27,6 @@ render((
         <Route path="/personalinfo" component={PersonalInfo}/>
         <Route path="/pressall" component={PressAll}/>
         <Route path="/pressall/:id" component={Press}/>
-        <Route path="/pressall/:id" component={Press}/>
         <Route path="/repos" component={Repos}/>
     </Router>
 ), document.getElementById('app'));
