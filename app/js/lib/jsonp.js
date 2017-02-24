@@ -25,6 +25,7 @@
             console.log('Status:', res.statusCode);
             res.setEncoding('utf-8');
             res.on('data', function (data) {
+                console.log(data);
                 callback(data);
             });
             res.on('end', function () {

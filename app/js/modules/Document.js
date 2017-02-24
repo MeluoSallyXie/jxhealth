@@ -13,7 +13,8 @@ export default React.createClass({
         };
     },
     componentDidMount: function () {
-        var postData = {"document_id": 45};
+        var postData = {"document_id": this.props.params.id};
+        console.log(this.props.params.id);
         jsonp("/faq/document", postData, "POST", function (ret) {
             var data=JSON.parse(ret);
             if (data.code == 0) {
