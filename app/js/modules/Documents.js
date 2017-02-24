@@ -20,7 +20,7 @@ export default React.createClass({
             if (data.code == 0) {
                 var documentlist = data.data.documents.map(function (document, index) {
                     return (
-                        <Link to={"/documents/"+document.faq_id}><DocumentDetail key={index} title={document.title}
+                        <Link to={"/documents/"+document.faq_id} key={index}><DocumentDetail title={document.title}
                                                                                  action={"/documents/"+document.faq_id}/></Link>
                     );
                 });
