@@ -10,21 +10,27 @@ let jsonp = require('../lib/jsonp');
 export default React.createClass({
     getInitialState: function () {
         return {
-            presses: null
+            bloglist: ""
         };
     },
     componentDidMount: function () {
         var postData = null;
         jsonp("/press/all", postData, "POST", function (data) {
             if (data.code == 0) {
+
+                var bloglist = data.data.presses.map(function (press) {
+                    return (
+                        <BlogItem key={press.press_id} title={press.title} action={"/pressall/"+press.press_id} thumb={press.thumb}/>
+                    );
+                });
                 this.setState({
-                    presses: data.data.presses
+                    bloglist: bloglist
                 });
             }
             else {
-                alert(data.message)
+                console.error(data.message)
             }
-        });
+        }.bind(this));
     },
     render: function () {
         /*var data = {
@@ -34,15 +40,11 @@ export default React.createClass({
                 {id: 3, title: "测试", action: "/pressall/1", thumb: ""}
             ]
         };*/
-        var bloglist = this.state.presses.map(function (press) {
-            return (
-                <BlogItem key={press.press_id} title={press.title} action={"/pressall/"+press.press_id} thumb={press.thumb}/>
-            );
-        });
+
         return (
             <div>
                 <div className="bloglist">
-                    {bloglist}
+                    {this.state.bloglist}
                 </div>
                 <BottomFooter />
             </div>
