@@ -17,7 +17,7 @@
             method: method,
             header: {
                 //'Content-Type':'application/x-www-form-urlencoded',
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
                 'Content-Length': Buffer.byteLength(querystring.stringify(postData))
             }
         }
@@ -26,7 +26,6 @@
             res.setEncoding('utf-8');
             res.on('data', function (data) {
                 console.log(data);
-                console.log(typeof data)
                 callback(data);
             });
             res.on('end', function () {
