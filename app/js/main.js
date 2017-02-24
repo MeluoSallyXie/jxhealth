@@ -31,6 +31,7 @@ render((
         <Route path="/pressall" component={PressAll}/>
         <Route path="/pressall/:id" component={Press}/>
         <Route path="/vaccinemenu" component={VaccineMenu}/>
+        <Route path="/vaccinefree" component={VaccineFree}/>
         <Route path="/vaccine" component={Vaccine}/>
         <Route path="/repos" component={Repos}/>
     </Router>
