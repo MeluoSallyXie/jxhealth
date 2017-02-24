@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        var posturl="http://test.jinxingjk.com/press/press";
+        $.ajax({
+            type: "POST",
+            data: JSON.stringify({"press_id": 16}),
+            dataType: "json",
+            async: false,
+            url: posturl,
+            error: function () {
+                console.log("login loading failed!");
+            },
+            success: function (data) {
+                alert(data.code);
+            }
+        });
+    </script>
+</head>
+<body>
+1111111111
+</body>
+</html>
