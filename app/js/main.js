@@ -16,6 +16,7 @@ import Press from './modules/Press'
 import VaccineMenu from './modules/VaccineMenu'
 import VaccineFree from './modules/VaccineFree'
 import Vaccine from './modules/Vaccine'
+import BaseInfo from './modules/BaseInfo'
 import Repos from './modules/Repos'
 
 
@@ -33,6 +34,7 @@ render((
         <Route path="/vaccinemenu" component={VaccineMenu}/>
         <Route path="/vaccinefree" component={VaccineFree}/>
         <Route path="/vaccine" component={Vaccine}/>
+        <Route path="/baseinfo" component={BaseInfo}/>
         <Route path="/repos" component={Repos}/>
     </Router>
 ), document.getElementById('app'));

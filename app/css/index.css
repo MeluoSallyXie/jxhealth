@@ -375,6 +375,9 @@ a:hover {
     padding: 0;
     margin: 1rem auto;
 }
+.userinfo_content table .left{
+    width: 35%;
+}
 .userinfo_content table tr{
     height: 4rem;
 }

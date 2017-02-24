@@ -34,14 +34,6 @@ export default React.createClass({
         }.bind(this));
     },
     render: function () {
-        /*var data = {
-         presses: [
-         {id: 1, title: "测试", action: "/pressall/1", thumb: ""},
-         {id: 2, title: "测试", action: "/pressall/1", thumb: ""},
-         {id: 3, title: "测试", action: "/pressall/1", thumb: ""}
-         ]
-         };*/
-
         return (
             <div>
                 <div className="bloglist">

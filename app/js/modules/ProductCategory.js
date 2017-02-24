@@ -14,7 +14,6 @@ export default React.createClass({
     componentDidMount: function () {
         var postData = {"category_id":20};
         jsonp("/product/category", postData, "POST", function (data) {
-            //var data = eval("(" + ret + ")");
             if (data.code == 0) {
                 var productlist = data.products.map(function (product) {
                     return (
@@ -32,14 +31,6 @@ export default React.createClass({
         }.bind(this));
     },
     render: function () {
-        /*var data = {
-            products: [
-                {id: 1, thumb: "app/image/temp/productlist1.png", name: "产后开奶", price: 499, service_timer: 50},
-                {id: 2, thumb: "app/image/temp/productlist1.png", name: "产后开奶", price: 499, service_timer: 50},
-                {id: 3, thumb: "app/image/temp/productlist1.png", name: "产后开奶", price: 499, service_timer: 0}
-            ]
-        };*/
-
         return (
             <div>
                 <div className="productlist">
