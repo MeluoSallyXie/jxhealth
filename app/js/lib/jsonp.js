@@ -30,7 +30,7 @@
                 responseString += data;
             });
             res.on('end', function () {
-                callback(responseString);
+                callback(JSON.parse(responseString));
                 console.log('No more data in response.********');
             });
         });

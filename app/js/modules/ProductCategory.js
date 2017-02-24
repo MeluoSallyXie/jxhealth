@@ -13,8 +13,8 @@ export default React.createClass({
     },
     componentDidMount: function () {
         var postData = {"category_id":20};
-        jsonp("/product/category", postData, "POST", function (ret) {
-            var data = eval("(" + ret + ")");
+        jsonp("/product/category", postData, "POST", function (data) {
+            //var data = eval("(" + ret + ")");
             if (data.code == 0) {
                 var productlist = data.products.map(function (product) {
                     return (

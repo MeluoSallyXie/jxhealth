@@ -10,8 +10,8 @@ let jsonp = require('../lib/jsonp');
 export default React.createClass({
     componentDidMount: function () {
         var postData = null;
-        jsonp("/common/homem", postData, "POST", function (ret) {
-            var data= eval("(" + ret + ")");
+        jsonp("/common/homem", postData, "POST", function (data) {
+            //var data= eval("(" + ret + ")");
             if (data.code == 0) {
 
             }
