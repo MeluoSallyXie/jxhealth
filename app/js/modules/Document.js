@@ -3,19 +3,37 @@
  */
 import React from 'react'
 import { Link } from 'react-router'
+let jsonp = require('../lib/jsonp');
 
 export default React.createClass({
-    render: function () {
-        var data = {
-            title:"标题",answer:"内容"
+    getInitialState: function () {
+        return {
+            title: "",
+            answer:""
         };
+    },
+    componentDidMount: function () {
+        var postData = {"document_id": 35};
+        jsonp("/faq/document", postData, "POST", function (data) {
+            if (data.code == 0) {
+                this.setState({
+                    title: data.documents[0].title,
+                    answer: data.documents[0].answer,
+                });
+            }
+            else {
+                console.error(data.message)
+            }
+        }.bind(this));
+    },
+    render: function () {
         return (
             <div>
                 <div className="document_title">
-                    <label>{data.title}</label>
+                    <label>{this.state.title}</label>
                 </div>
                 <div className="document_answer">
-                    <p>{data.answer}</p>
+                    <p>{this.state.answer}</p>
                 </div>
             </div>
         );

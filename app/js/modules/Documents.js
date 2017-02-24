@@ -15,8 +15,7 @@ export default React.createClass({
     componentDidMount: function () {
         document.body.style.backgroundColor = "#eee";
         var postData = null;
-        jsonp("/faq/documents", postData, "POST", function (ret) {
-            var data = JSON.parse(ret);
+        jsonp("/faq/documents", postData, "POST", function (data) {
             if (data.code == 0) {
                 var documentlist = data.data.documents.map(function (document, index) {
                     return (
@@ -37,14 +36,6 @@ export default React.createClass({
         document.body.style.backgroundColor = "white";
     },
     render: function () {
-        /*var data = {
-         documents: [
-         {id: 1, title: "测试", action: "/documents/1"},
-         {id: 2, title: "测试", action: "/documents/1"},
-         {id: 3, title: "测试", action: "/documents/1"}
-         ]
-         };*/
-
         return (
             <div>
                 {this.state.documentlist}
