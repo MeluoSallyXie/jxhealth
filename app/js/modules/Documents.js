@@ -16,7 +16,7 @@ export default React.createClass({
         document.body.style.backgroundColor = "#eee";
         var postData = null;
         jsonp("/faq/documents", postData, "POST", function (ret) {
-            var data=JSON.parse(ret);
+            var data= eval("(" + ret + ")");
             if (data.code == 0) {
                 var documentlist = data.data.documents.map(function (document, index) {
                     return (
