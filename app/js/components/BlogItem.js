@@ -15,7 +15,7 @@ var BlogItem = React.createClass({
                     <tbody>
                     <tr>
                         <td className="left">
-                            <img src={this.props.thumb}/>
+                            <img src={ImgUrl+this.props.thumb}/>
                         </td>
                         <td>
                             <Link to={this.props.action}>{this.props.title}</Link>
