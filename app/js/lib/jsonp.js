@@ -25,8 +25,7 @@
             console.log('Status:', res.statusCode);
             res.setEncoding('utf-8');
             res.on('data', function (data) {
-                var ret=JSON.parse(data);
-                callback(ret);
+                callback(data);
             });
             res.on('end', function () {
                 console.log('No more data in response.********');

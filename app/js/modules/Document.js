@@ -13,8 +13,9 @@ export default React.createClass({
         };
     },
     componentDidMount: function () {
-        var postData = {"document_id": 35};
-        jsonp("/faq/document", postData, "POST", function (data) {
+        var postData = {"document_id": 45};
+        jsonp("/faq/document", postData, "POST", function (ret) {
+            var data=JSON.parse(ret);
             if (data.code == 0) {
                 this.setState({
                     title: data.documents[0].title,
