@@ -15,8 +15,8 @@ export default React.createClass({
     componentDidMount: function () {
         document.body.style.backgroundColor = "#eee";
         var postData = null;
-        jsonp("/faq/documents", postData, "POST", function (data) {
-            console.log("didmount "+data.code)
+        jsonp("/faq/documents", postData, "POST", function (ret) {
+            var data=JSON.parse(ret);
             if (data.code == 0) {
                 var documentlist = data.data.documents.map(function (document) {
                     return (
@@ -29,7 +29,7 @@ export default React.createClass({
                 });
             }
             else {
-                alert(data.message)
+                console.error(data.message)
             }
         }.bind(this));
     },
