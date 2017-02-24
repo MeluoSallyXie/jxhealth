@@ -23,10 +23,9 @@
         }
         var req = http.request(options, function (res) {
             console.log('Status:', res.statusCode);
-            console.log('headers:', JSON.stringify(res.headers));
             res.setEncoding('utf-8');
             res.on('data', function (chun) {
-                callback(chun);
+                callback(JSON.stringify(chun));
             });
             res.on('end', function () {
                 console.log('No more data in response.********');
