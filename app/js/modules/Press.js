@@ -14,7 +14,6 @@ export default React.createClass({
     componentDidMount: function () {
         var postData = {"press_id": this.props.params.id};
         jsonp("/press/press", postData, "POST", function (data) {
-            //var data= eval("(" + ret + ")");
             if (data.code == 0) {
                 this.setState({
                     title: data.data.title,
