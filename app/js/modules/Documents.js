@@ -25,7 +25,7 @@ export default React.createClass({
             else {
                 alert(data.message)
             }
-        });
+        }).bind(this);
     },
     componentWillUnmount: function () {
         document.body.style.backgroundColor = "white";
