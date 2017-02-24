@@ -14,9 +14,9 @@ export default React.createClass({
     },
     componentDidMount: function () {
         document.body.style.backgroundColor = "#eee";
-        var postData = {"product_id": 50};
+        var postData = null;
         jsonp("/faq/documents", postData, "POST", function (data) {
-            alert(data.code);
+            console.log("didmount "+data.code)
             if (data.code == 0) {
                 var documentlist = data.data.documents.map(function (document) {
                     return (
