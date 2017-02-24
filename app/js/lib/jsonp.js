@@ -24,8 +24,8 @@
         var req = http.request(options, function (res) {
             console.log('Status:', res.statusCode);
             res.setEncoding('utf-8');
-            res.on('data', (chunk) => {
-                console.log(`主体: ${chunk}`);
+            res.on('data', function (data) {
+                console.log(data);
             });
             res.on('end', function () {
                 console.log('No more data in response.********');
