@@ -16,8 +16,9 @@
             path: url,
             method: method,
             header: {
-                //'Content-Type':'application/x-www-form-urlencoded',
-                'Content-Type': 'application/json',
+                'Content-Type':'application/x-www-form-urlencoded',
+                //'Content-Type': 'application/json',
+                'Accept': 'application/json',
                 'Content-Length': Buffer.byteLength(querystring.stringify(postData))
             }
         }
