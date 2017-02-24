@@ -16,11 +16,11 @@ export default React.createClass({
         document.body.style.backgroundColor = "#eee";
         var postData = null;
         jsonp("/faq/documents", postData, "POST", function (ret) {
-            var data=JSON.parse(ret);
+            var data = JSON.parse(ret);
             if (data.code == 0) {
-                var documentlist = data.data.documents.map(function (document) {
+                var documentlist = data.data.documents.map(function (document, index) {
                     return (
-                        <Link to={"/documents/"+document.faq_id}><DocumentDetail key={document.faq_id} title={document.title}
+                        <Link to={"/documents/"+document.faq_id}><DocumentDetail key={index} title={document.title}
                                                                                  action={"/documents/"+document.faq_id}/></Link>
                     );
                 });
@@ -38,12 +38,12 @@ export default React.createClass({
     },
     render: function () {
         /*var data = {
-            documents: [
-                {id: 1, title: "测试", action: "/documents/1"},
-                {id: 2, title: "测试", action: "/documents/1"},
-                {id: 3, title: "测试", action: "/documents/1"}
-            ]
-        };*/
+         documents: [
+         {id: 1, title: "测试", action: "/documents/1"},
+         {id: 2, title: "测试", action: "/documents/1"},
+         {id: 3, title: "测试", action: "/documents/1"}
+         ]
+         };*/
 
         return (
             <div>
