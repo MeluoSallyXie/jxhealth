@@ -4,6 +4,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 let jsonp = require('../lib/jsonp');
+import ReactDOMServer from 'react-dom/server'
 
 export default React.createClass({
     getInitialState: function () {
@@ -35,7 +36,7 @@ export default React.createClass({
                     <label>{this.state.title}</label>
                 </div>
                 <div className="document_answer">
-                    <p>{this.state.answer}</p>
+                    <p>{ReactDOMServer.renderToString(this.state.answer)}</p>
                 </div>
             </div>
         );
