@@ -2,7 +2,7 @@
  * Created by sally on 2017/2/14.
  */
 'use strict';
-
+import { Router, Route, Link, browserHistory } from 'react-router'
 var React = require('react');
 var ReactDOM = require('react-dom');
 
@@ -12,7 +12,7 @@ var ProductItem = React.createClass({
         if(Number(this.props.service_timer)==0){
             item = (
                 <div className="productItem">
-                    <a href="#"><img src={this.props.thumb}/></a>
+                    <img src={this.props.thumb}/>
                     <table>
                         <tbody>
                         <tr>
