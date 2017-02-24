@@ -9,7 +9,7 @@ let jsonp = require('../lib/jsonp');
 export default React.createClass({
     getInitialState: function () {
         return {
-            documents: null
+            documentlist: ""
         };
     },
     componentDidMount: function () {
@@ -18,8 +18,14 @@ export default React.createClass({
         jsonp("/faq/documents", postData, "POST", function (data) {
             alert(data.code);
             if (data.code == 0) {
+                var documentlist = data.data.documents.map(function (document) {
+                    return (
+                        <Link to={"/documents/"+document.faq_id}><DocumentDetail key={document.faq_id} title={document.title}
+                                                                                 action={"/documents/"+document.faq_id}/></Link>
+                    );
+                });
                 this.setState({
-                    documents: data.data.documents
+                    documentlist: documentlist
                 });
             }
             else {
@@ -38,16 +44,10 @@ export default React.createClass({
                 {id: 3, title: "测试", action: "/documents/1"}
             ]
         };*/
-        console.log(this.state.documents);
-        var documentlist = this.state.documents.map(function (document) {
-            return (
-                <Link to={"/documents/"+document.faq_id}><DocumentDetail key={document.faq_id} title={document.title}
-                                                           action={"/documents/"+document.faq_id}/></Link>
-            );
-        });
+
         return (
             <div>
-                {documentlist}
+                {this.state.documentlist}
             </div>
         );
     }
