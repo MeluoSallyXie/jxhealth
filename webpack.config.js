@@ -12,17 +12,6 @@ module.exports = {
   },
   devServer: {
     hot: true,
-    inline: true,
-    proxy: {
-      '/product': {
-        target: 'http://localhost:8080',
-        host:'http://test.jinxingjk.com',
-        secure: false,
-        changeOrigin: true,
-        pathRewrite: {
-          '^/product': '/product'
-        }
-      }
-    }
+    inline: true
   }
 }
