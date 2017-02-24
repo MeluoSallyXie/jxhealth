@@ -15,9 +15,9 @@ export default React.createClass({
     },
     componentDidMount: function () {
         var postData = null;
-        jsonp("/press/all", postData, "POST", function (data) {
+        jsonp("/press/all", postData, "POST", function (ret) {
+            var data= eval("(" + ret + ")");
             if (data.code == 0) {
-
                 var bloglist = data.data.presses.map(function (press) {
                     return (
                         <BlogItem key={press.press_id} title={press.title} action={"/pressall/"+press.press_id} thumb={press.thumb}/>
