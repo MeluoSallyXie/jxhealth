@@ -26,7 +26,6 @@
             res.setEncoding('utf-8');
             res.on('data', function (data) {
                 console.log(typeof data);
-                console.log(data);
                 callback(data);
             });
             res.on('end', function () {

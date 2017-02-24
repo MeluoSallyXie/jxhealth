@@ -7,4 +7,4 @@ String.prototype.trim=function(){
 String.prototype.replaceBar=function(){
     return this.replace(/[\'\"\\\/\b\f\n\r\t]/g, '');
 }
-const ImgUrl="http://test.jinxingjk.com/";
+global.ImgUrl="http://test.jinxingjk.com/";

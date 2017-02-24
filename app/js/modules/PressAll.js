@@ -22,7 +22,7 @@ export default React.createClass({
                 var bloglist = data.data.presses.map(function (press) {
                     return (
                         <BlogItem key={press.press_id} title={press.title} action={"/pressall/"+press.press_id}
-                                  thumb={ImgUrl+press.thumb}/>
+                                  thumb={global.ImgUrl+press.thumb}/>
                     );
                 });
                 this.setState({
