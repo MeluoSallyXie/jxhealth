@@ -17,7 +17,7 @@ export default React.createClass({
             var data= eval("(" + ret + ")");
             if (data.code == 0) {
                 this.setState({
-                    title: data.data.heading_title,
+                    title: data.data.title,
                     description: data.data.description,
                 });
             }
