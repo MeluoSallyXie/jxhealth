@@ -4,7 +4,7 @@
 'use strict';
 import React from 'react'
 import { render } from 'react-dom'
-require('../css/swiper.min.css');
+require('../../css/swiper.min.css');
 let Swiper = require('../lib/swiper.min.js');
 
 var Header = React.createClass({
