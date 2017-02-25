@@ -17,6 +17,8 @@ import VaccineMenu from './modules/VaccineMenu'
 import VaccineFree from './modules/VaccineFree'
 import Vaccine from './modules/Vaccine'
 import BaseInfo from './modules/BaseInfo'
+import Shedule from './modules/Shedule'
+import Header from './components/Header'
 import Repos from './modules/Repos'
 
 
@@ -35,6 +37,8 @@ render((
         <Route path="/vaccinefree" component={VaccineFree}/>
         <Route path="/vaccine" component={Vaccine}/>
         <Route path="/baseinfo" component={BaseInfo}/>
+        <Route path="/shedule/:id" component={Shedule}/>
+        <Route path="/header" component={Header}/>
         <Route path="/repos" component={Repos}/>
     </Router>
 ), document.getElementById('app'));

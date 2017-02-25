@@ -11,7 +11,6 @@ export default React.createClass({
     componentDidMount: function () {
         var postData = null;
         jsonp("/common/homem", postData, "POST", function (data) {
-            //var data= eval("(" + ret + ")");
             if (data.code == 0) {
 
             }
@@ -23,6 +22,7 @@ export default React.createClass({
     render: function () {
         return (
             <div>
+
                 <Link to="/productcategory/20">
                     <HomeNav description="泌乳调理" srcimg="app/image/homenavimg1.png" className="homenav nav1" state="0"/>
                 </Link>
