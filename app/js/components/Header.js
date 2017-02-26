@@ -18,7 +18,7 @@ var Header = React.createClass({
     },
     render: function () {
         let countId = 0;
-        new Swiper('#header .swiper-container', {
+        new Swiper('#header.swiper-container', {
             loop: true,
             pagination: '.swiper-pagination',
             paginationClickable: true,
