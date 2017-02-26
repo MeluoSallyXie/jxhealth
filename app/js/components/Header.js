@@ -11,8 +11,8 @@ var Header = React.createClass({
     getInitialState: function () {
         return {
             imgUrls: [
-                {url: "http://opencart.meluo.net/image/catalog/%E4%B8%8A%E7%BA%BF%E5%9B%BE%E7%89%87(1).jpg"},
-                {url: "http://opencart.meluo.net/image/catalog/%E4%B8%8A%E7%BA%BF%E5%9B%BE%E7%89%87(1).jpg"}
+                {url: "/app/image/homenav1.png"},
+                {url: "/app/image/homenav2.png"}
             ]
         };
     },
