@@ -6,6 +6,7 @@ import { render } from 'react-dom'
 import { Router, Route, hashHistory } from 'react-router'
 import Home from './modules/Home'
 import ProductCategory from './modules/ProductCategory'
+import Product from './modules/Product'
 import WechatBinding from './modules/WechatBinding'
 import Documents from './modules/Documents'
 import Document from './modules/Document'
@@ -25,6 +26,7 @@ render((
     <Router history={hashHistory}>
         <Route path="/" component={Home}/>
         <Route path="/productcategory/:id" component={ProductCategory}/>
+        <Route path="/product/:id" component={Product}/>
         <Route path="/binding" component={WechatBinding}/>
         <Route path="/documents" component={Documents}/>
         <Route path="/documents/:id" component={Document}/>
