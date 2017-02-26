@@ -17,11 +17,12 @@ var Header = React.createClass({
         };
     },
     render: function () {
-        new Swiper('#header.swiper-container', {
+        new Swiper('.swiper-container', {
             loop: true,
             pagination: '.swiper-pagination',
             paginationClickable: true,
-            autoplay: 3000,
+            speed: 400,
+            autoplay: 1000,
             autoplayDisableOnInteraction: false,
         });
         return (
