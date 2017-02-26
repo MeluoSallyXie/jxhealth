@@ -11,8 +11,8 @@ var Header = React.createClass({
     getInitialState: function () {
         return {
             imgUrls: [
-                {url: "/app/image/homenav1.png"},
-                {url: "/app/image/homenav2.png"}
+                {url: "http://test.jinxingjk.com/jxhealth/app/image/homenav1.png"},
+                {url: "http://test.jinxingjk.com/jxhealth/app/image/homenav2.png"}
             ]
         };
     },
