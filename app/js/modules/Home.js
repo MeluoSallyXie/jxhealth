@@ -5,24 +5,14 @@ import React from 'react'
 import { Link } from 'react-router'
 import HomeNav from '../components/HomeNav'
 import BottomFooter from '../components/BottomFooter'
+import Header from '../components/Header'
 let jsonp = require('../lib/jsonp');
 
 export default React.createClass({
-    componentDidMount: function () {
-        var postData = null;
-        jsonp("/common/homem", postData, "POST", function (data) {
-            if (data.code == 0) {
-
-            }
-            else {
-                console.error(data.message)
-            }
-        }.bind(this));
-    },
     render: function () {
         return (
             <div>
-
+                <Header />
                 <Link to="/productcategory/20">
                     <HomeNav description="泌乳调理" srcimg="app/image/homenavimg1.png" className="homenav nav1" state="0"/>
                 </Link>

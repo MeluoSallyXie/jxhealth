@@ -16,15 +16,30 @@ var Header = React.createClass({
             ]
         };
     },
-    componentDidMount: function() {
-        new Swiper('#header .swiper-container', {
-            loop: true,
-            pagination: '.swiper-pagination',
-            paginationClickable: true,
-            speed: 1000,
-            autoplay: 1000,
-            autoplayDisableOnInteraction: false,
-        });
+    componentDidMount: function () {
+        var postData = null;
+        jsonp("/common/homem", postData, "POST", function (data) {
+            if (data.code == 0) {
+                var imgArray=null;
+                var bannerLen=data.data.banners.length;
+                for(var i=0;i<bannerLen;i++){
+                    var bannerObj=data.data.banners[i];
+                    imgArray.push({url:bannerObj.image});
+                }
+                this.setState({imgUrls:imgArray});
+                new Swiper('#header .swiper-container', {
+                    loop: true,
+                    pagination: '.swiper-pagination',
+                    paginationClickable: true,
+                    speed: 1000,
+                    autoplay: 1000,
+                    autoplayDisableOnInteraction: false
+                });
+            }
+            else {
+                console.error(data.message)
+            }
+        }.bind(this));
     },
     render: function () {
         return (
