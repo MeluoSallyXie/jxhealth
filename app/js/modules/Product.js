@@ -5,12 +5,6 @@ import React from 'react'
 let jsonp = require('../lib/jsonp');
 
 export default React.createClass({
-    getInitialState: function () {
-        /*return {
-            title: "",
-            answer: {__html: ""}
-        };*/
-    },
     componentDidMount: function () {
         /*var postData = {"document_id": this.props.params.id};
         jsonp("/faq/document", postData, "POST", function (data) {
