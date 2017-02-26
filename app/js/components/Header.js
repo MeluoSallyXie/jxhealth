@@ -15,7 +15,7 @@ var Header = React.createClass({
         };
     },
     componentDidMount: function () {
-        var postData = null;
+        var postData = {"code":this.props.code};
         jsonp("/common/homem", postData, "POST", function (data) {
             if (data.code == 0) {
                 var imgArray=null;

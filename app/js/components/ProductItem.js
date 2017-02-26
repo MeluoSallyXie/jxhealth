@@ -2,9 +2,9 @@
  * Created by sally on 2017/2/14.
  */
 'use strict';
-import {Link } from 'react-router'
 var React = require('react');
 var ReactDOM = require('react-dom');
+import {Link } from 'react-router'
 
 var ProductItem = React.createClass({
     render: function () {
@@ -29,7 +29,7 @@ var ProductItem = React.createClass({
         else {
             item = (
                 <div className="productItem">
-                    <a href="#"><img src={this.props.thumb}/></a>
+                    <Link to={this.pros.action}><img src={this.props.thumb}/></Link>
                     <table>
                         <tbody>
                         <tr>
