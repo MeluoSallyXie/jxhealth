@@ -6,14 +6,12 @@ import React from 'react'
 import { render } from 'react-dom'
 require('../../css/swiper.min.css');
 let Swiper = require('../lib/swiper.min.js');
+let jsonp = require('../lib/jsonp');
 
 var Header = React.createClass({
     getInitialState: function () {
         return {
-            imgUrls: [
-                {url: "http://test.jinxingjk.com/jxhealth/app/image/homenav1.png"},
-                {url: "http://test.jinxingjk.com/jxhealth/app/image/homenav2.png"}
-            ]
+            imgUrls: []
         };
     },
     componentDidMount: function () {

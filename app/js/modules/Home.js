@@ -6,7 +6,6 @@ import { Link } from 'react-router'
 import HomeNav from '../components/HomeNav'
 import BottomFooter from '../components/BottomFooter'
 import Header from '../components/Header'
-let jsonp = require('../lib/jsonp');
 
 export default React.createClass({
     render: function () {
