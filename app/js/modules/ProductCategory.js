@@ -12,12 +12,12 @@ export default React.createClass({
         };
     },
     componentDidMount: function () {
-        var postData = {"category_id":20};
+        var postData = {"category_id": this.props.params.id};
         jsonp("/product/category", postData, "POST", function (data) {
             if (data.code == 0) {
-                var productlist = data.products.map(function (product) {
+                var productlist = data.products.map(function (product,index) {
                     return (
-                        <ProductItem key={product.id} thumb={product.thumb} name={product.name} price={product.price}
+                        <ProductItem key={product.product_id} thumb={product.thumb} name={product.name} price={product.price}
                                      service_timer={product.service_timer}/>
                     );
                 });
