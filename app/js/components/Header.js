@@ -16,18 +16,20 @@ var Header = React.createClass({
             ]
         };
     },
-    render: function () {
-        new Swiper('.swiper-container', {
+    componentDidMount: function() {
+        new Swiper('#header .swiper-container', {
             loop: true,
             pagination: '.swiper-pagination',
             paginationClickable: true,
-            speed: 400,
+            speed: 1000,
             autoplay: 1000,
             autoplayDisableOnInteraction: false,
         });
+    },
+    render: function () {
         return (
             <div id="header">
-                <div className="swiper-container">
+                <div className="swiper-container flexslider">
                     <div className="swiper-wrapper">
                         {
                             this.state.imgUrls.map(function (img,index) {
