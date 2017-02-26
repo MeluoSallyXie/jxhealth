@@ -17,23 +17,24 @@ var Header = React.createClass({
         };
     },
     render: function () {
-        let countId = 0;
         new Swiper('#header.swiper-container', {
             loop: true,
             pagination: '.swiper-pagination',
             paginationClickable: true,
             autoplay: 3000,
             autoplayDisableOnInteraction: false,
-        })
+        });
         return (
             <div id="header">
                 <div className="swiper-container">
                     <div className="swiper-wrapper">
                         {
-                            this.state.imgUrls.map((url) => {
-                                return <div className="swiper-slide" key={"header" + countId++}>
-                                    <img className="img" src={url}/>
-                                </div>
+                            this.state.imgUrls.map(function (img,index) {
+                                return (
+                                    <div className="swiper-slide" key={"header" + index}>
+                                        <img className="img" src={img.url}/>
+                                    </div>
+                                )
                             })
                         }
                     </div>
