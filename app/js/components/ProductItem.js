@@ -12,7 +12,7 @@ var ProductItem = React.createClass({
         if(Number(this.props.service_timer)==0){
             item = (
                 <div className="productItem">
-                    <Link to={this.pros.action}><img src={this.props.thumb}/></Link>
+                    <Link to={this.props.action}><img src={this.props.thumb}/></Link>
                     <table>
                         <tbody>
                         <tr>
@@ -29,7 +29,7 @@ var ProductItem = React.createClass({
         else {
             item = (
                 <div className="productItem">
-                    <Link to={this.pros.action}><img src={this.props.thumb}/></Link>
+                    <Link to={this.props.action}><img src={this.props.thumb}/></Link>
                     <table>
                         <tbody>
                         <tr>
