@@ -507,6 +507,9 @@ a:hover {
     text-align: center;
     border-bottom: 0.75rem solid #eee;
 }
+.orderTitle .left{
+    border-right: 1px solid #eee;width: 35%;
+}
 .orderTitleInves{
     font-size: 2.5rem;
     height: 8rem;

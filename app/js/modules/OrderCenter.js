@@ -46,7 +46,7 @@ export default React.createClass({
                     <table>
                         <tbody>
                         <tr>
-                            <td style="border-right: 1px solid #eee;width: 35%;">订单中心</td>
+                            <td className="left">订单中心</td>
                             <td>
                                 <span className="adviseTel">客服电话：<a
                                     href={"tel:"+this.state.service_tel}>{this.state.service_tel}</a></span>
