@@ -15,16 +15,16 @@ var Header = React.createClass({
         };
     },
     componentDidMount: function () {
-        var postData = {"code":this.props.code};
+        var postData = {"code": this.props.code};
         jsonp("/common/homem", postData, "POST", function (data) {
             if (data.code == 0) {
-                var imgArray=null;
-                var bannerLen=data.data.banners.length;
-                for(var i=0;i<bannerLen;i++){
-                    var bannerObj=data.data.banners[i];
-                    imgArray.push({url:bannerObj.image});
+                var imgArray = null;
+                var bannerLen = data.data.banners.length;
+                for (var i = 0; i < bannerLen; i++) {
+                    var bannerObj = data.data.banners[i];
+                    imgArray.push({"url": bannerObj.image});
                 }
-                this.setState({imgUrls:imgArray});
+                this.setState({imgUrls: imgArray});
                 new Swiper('#header .swiper-container', {
                     loop: true,
                     pagination: '.swiper-pagination',
@@ -45,7 +45,7 @@ var Header = React.createClass({
                 <div className="swiper-container flexslider">
                     <div className="swiper-wrapper">
                         {
-                            this.state.imgUrls.map(function (img,index) {
+                            this.state.imgUrls.map(function (img, index) {
                                 return (
                                     <div className="swiper-slide" key={"header" + index}>
                                         <img className="img" src={img.url}/>
