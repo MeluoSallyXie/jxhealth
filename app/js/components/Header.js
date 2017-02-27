@@ -18,7 +18,7 @@ var Header = React.createClass({
         var postData = {"code": this.props.code};
         jsonp("/common/homem", postData, "POST", function (data) {
             if (data.code == 0) {
-                var imgArray = null;
+                var imgArray = new Array();
                 var bannerLen = data.data.banners.length;
                 for (var i = 0; i < bannerLen; i++) {
                     var bannerObj = data.data.banners[i];
