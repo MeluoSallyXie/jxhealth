@@ -44,6 +44,7 @@ export default React.createClass({
             <div>
                 <div className="orderTitle">
                     <table>
+                        <tbody>
                         <tr>
                             <td style="border-right: 1px solid #eee;width: 35%;">订单中心</td>
                             <td>
@@ -51,6 +52,7 @@ export default React.createClass({
                                     href={"tel:"+this.state.service_tel}>{this.state.service_tel}</a></span>
                             </td>
                         </tr>
+                        </tbody>
                     </table>
                 </div>
                 {list}
