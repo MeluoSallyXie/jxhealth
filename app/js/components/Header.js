@@ -23,7 +23,7 @@ var Header = React.createClass({
                 var bannerLen = data.data.banners.length;
                 for (var i = 0; i < bannerLen; i++) {
                     var bannerObj = data.data.banners[i];
-                    imgArray.push({"url": bannerObj.image});
+                    imgArray.push({"url": global.ImgUrl+bannerObj.image});
                 }
                 this.setState({imgUrls: imgArray});
                 new Swiper('#header .swiper-container', {
