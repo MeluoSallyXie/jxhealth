@@ -43,8 +43,8 @@ var Header = React.createClass({
     render: function () {
         return (
             <div id="header">
-                <div className="swiper-container flexslider">
-                    <div className="swiper-wrapper">
+                <div className="swiper-container">
+                    <div className="swiper-wrapper flexslider">
                         {
                             this.state.imgUrls.map(function (img, index) {
                                 return (
