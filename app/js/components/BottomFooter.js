@@ -17,17 +17,19 @@ var BottomFooter = React.createClass({
                         <tbody>
                         <tr>
                             <td width="33%">
-                                <IndexLink to="/" ><img
-                                    src="app/image/wechatfooter/footerhome_active.png"/><p
-                                    className="active">服务首页</p></IndexLink>
+                                <Link to="/">
+                                    <img
+                                        src="app/image/wechatfooter/footerhome_active.png"/><p
+                                    className="active">服务首页</p>
+                                </Link>
                             </td>
                             <td>
                                 <Link to="/pressall"><img
                                     src="app/image/wechatfooter/footerdoc.png"/><p >权威文章</p></Link>
                             </td>
                             <td width="33%">
-                                <a href="#"><img
-                                    src="app/image/wechatfooter/footeruser.png"/><p >订单中心</p></a>
+                                <Link to="/ordercenter"><img
+                                    src="app/image/wechatfooter/footeruser.png"/><p >订单中心</p></Link>
                             </td>
                         </tr>
                         </tbody>

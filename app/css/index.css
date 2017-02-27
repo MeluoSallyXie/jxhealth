@@ -621,6 +621,15 @@ table.bind .colwidth{
 .orderList table{
     width: 100%;
 }
+.orderList table .left{
+    width: 7rem;vertical-align: top;
+}
+.orderList table .thirdRight{
+    text-align: right;
+}
+.orderList table .collRight{
+    line-height: 2.5rem;
+}
 .listPaybtn{
     width: 8.625rem;
     height: 3rem;
