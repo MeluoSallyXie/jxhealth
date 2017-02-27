@@ -7,6 +7,7 @@ import { render } from 'react-dom'
 require('../../css/swiper.min.css');
 let Swiper = require('../lib/swiper.min.js');
 let jsonp = require('../lib/jsonp');
+require('../lib/util');
 
 var Header = React.createClass({
     getInitialState: function () {
