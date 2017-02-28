@@ -10,9 +10,9 @@ export default React.createClass({
             heading_title: "",
             price: "",
             service_timer: "",
-            applicable_user: "",
-            description: "",
-            service_notes: "",
+            applicable_user: {__html: ""},
+            description: {__html: ""},
+            service_notes: {__html: ""},
             service_tel: ""
         }
     },
@@ -23,11 +23,11 @@ export default React.createClass({
                 this.setState({
                     heading_title: data.data.name,
                     price: data.data.price,
-                    service_timer:data.data.service_timer,
-                    applicable_user:data.data.applicable_user,
-                    description:data.data.description,
-                    service_notes:data.data.service_notes,
-                    service_tel:data.data.service_tel
+                    service_timer: data.data.service_timer,
+                    applicable_user: {__html: data.data.applicable_user},
+                    description: {__html: data.data.description},
+                    service_notes: {__html: data.data.service_notes},
+                    service_tel: data.data.service_tel
                 });
             }
             else {
@@ -56,7 +56,7 @@ export default React.createClass({
                                         return (
                                             <div width="100%">
                                                 <div className="clockDiv">
-                                                    <img src="image/catalog/newstyle/clock.png"/>
+                                                    <img src="app/image/clock.png"/>
                                                 </div>
                                                 <div className="timeOuter">
                                                     <label className="time">{this.state.service_timer}分钟</label>
@@ -72,20 +72,19 @@ export default React.createClass({
                 <div className="product_separater">
                 </div>
                 <div className="product_targetuser">
-                    <label>适用人群：</label><label>{this.state.applicable_user}</label>
+                    <label>适用人群：</label><label dangerouslySetInnerHTML={this.state.applicable_user}></label>
                 </div>
                 <div className="product_separater divMargin">
                 </div>
                 <div className="product_desc">
                     <label>服务介绍：</label>
-                    <p>{this.state.description}</p>
+                    <p dangerouslySetInnerHTML={this.state.description}></p>
                 </div>
                 <div className="product_separater divMargin1">
                 </div>
                 <div className="product_desc2">
                     <label>服务须知：</label>
-                    <p>
-                        {this.state.service_notes}
+                    <p dangerouslySetInnerHTML={this.state.service_notes}>
                     </p>
                 </div>
                 <div className="footerblock"></div>
