@@ -33,7 +33,7 @@ export default React.createClass({
                     <div dangerouslySetInnerHTML={this.state.description}>
                     </div>
                 </div>
-                <BottomFooter />
+                <BottomFooter nav="blog" />
             </div>
         );
     }

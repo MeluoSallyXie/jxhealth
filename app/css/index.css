@@ -401,6 +401,13 @@ a:hover {
     height:11rem;
     margin: 2.25rem;
 }
+.product_divdetail .timeOuter{
+    display: inline-block;height: 3.5rem;vertical-align: middle
+}
+.product_divdetail .time
+{
+    font-size: 1.25rem;color: lightgray
+}
 .product_titile{
     font-weight: bold;
     font-size: 2.25rem;
@@ -478,6 +485,12 @@ a:hover {
     border: none;
     margin: 0;
     padding: 0;
+}
+.product_foot .left{
+    width: 48.75%;
+}
+.product_foot .row{
+    width: 0.5%;background-color: white;height: 100%
 }
 .productfooter_mobile{
     height: 6rem;

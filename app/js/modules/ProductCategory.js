@@ -37,7 +37,7 @@ export default React.createClass({
                 <div className="productlist">
                     {this.state.productlist}
                 </div>
-                <BottomFooter />
+                <BottomFooter nav="home" />
             </div>
         );
     }

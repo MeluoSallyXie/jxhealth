@@ -39,7 +39,7 @@ export default React.createClass({
                 <div className="bloglist">
                     {this.state.bloglist}
                 </div>
-                <BottomFooter />
+                <BottomFooter nav="blog" />
             </div>
         );
     }
