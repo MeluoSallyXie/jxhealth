@@ -5,6 +5,17 @@ import React from 'react'
 let jsonp = require('../lib/jsonp');
 
 export default React.createClass({
+    getInitialState: function () {
+        return {
+            heading_title: "",
+            price: "",
+            service_timer: "",
+            applicable_user: "",
+            description: "",
+            service_notes: "",
+            service_tel: ""
+        }
+    },
     componentDidMount: function () {
         /*var postData = {"document_id": this.props.params.id};
          jsonp("/faq/document", postData, "POST", function (data) {
@@ -18,7 +29,8 @@ export default React.createClass({
          console.error(data.message)
          }
          }.bind(this));*/
-    },
+    }
+    ,
     render: function () {
         return (
             <div>
@@ -29,16 +41,16 @@ export default React.createClass({
                                 <div>
                                     <label className="product_titile">{this.state.heading_title}</label>
                                 </div>
-                                <div style={margin-top: 1.875rem}>
+                                <div className="priceDiv">
                                     <label className="product_price">￥{this.state.price}</label>
                                 </div>
                             </td>
-                            <td style="text-align: right">
+                            <td align="right">
                                 {(() => {
                                     if (this.state.service_timer != 0) {
                                         return (
                                             <div width="100%">
-                                                <div style="display: inline-block;">
+                                                <div className="clockDiv">
                                                     <img src="image/catalog/newstyle/clock.png"/>
                                                 </div>
                                                 <div className="timeOuter">
@@ -57,13 +69,13 @@ export default React.createClass({
                 <div className="product_targetuser">
                     <label>适用人群：</label><label>{this.state.applicable_user}</label>
                 </div>
-                <div className="product_separater" style="margin-top: 0rem">
+                <div className="product_separater divMargin">
                 </div>
                 <div className="product_desc">
                     <label>服务介绍：</label>
                     <p>{this.state.description}</p>
                 </div>
-                <div className="product_separater" style="margin-top: 3rem">
+                <div className="product_separater divMargin1">
                 </div>
                 <div className="product_desc2">
                     <label>服务须知：</label>
@@ -78,7 +90,7 @@ export default React.createClass({
                         <div className="row">
                         </div>
                         <div className="left">
-                            <a href="<?php echo $product_link; ?>">下单支付</a>
+                            <a href="#">下单支付</a>
                         </div>
                     </div>
                 </footer>

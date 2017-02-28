@@ -408,6 +408,13 @@ a:hover {
 {
     font-size: 1.25rem;color: lightgray
 }
+
+.product_divdetail .priceDiv{
+    margin-top: 1.875rem
+}
+.product_divdetail .clockDiv{
+    display: inline-block;
+}
 .product_titile{
     font-weight: bold;
     font-size: 2.25rem;
@@ -424,6 +431,15 @@ a:hover {
     height: 0.75rem;
     width: 100%;
 }
+
+.divMargin{
+    margin-top: 0rem;
+}
+.divMargin1{
+    margin-top: 3rem;
+}
+
+
 .product_targetuser{
     margin: 1.875rem;
 }
