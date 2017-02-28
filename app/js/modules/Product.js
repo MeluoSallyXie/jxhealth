@@ -20,6 +20,7 @@ export default React.createClass({
         var postData = {"product_id": this.props.params.id};
         jsonp("/product/product", postData, "POST", function (data) {
             if (data.code == 0) {
+                console.log(data.data.applicable_user);
                 this.setState({
                     heading_title: data.data.name,
                     price: data.data.price,
