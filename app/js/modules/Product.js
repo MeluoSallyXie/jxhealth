@@ -17,18 +17,23 @@ export default React.createClass({
         }
     },
     componentDidMount: function () {
-        /*var postData = {"document_id": this.props.params.id};
-         jsonp("/faq/document", postData, "POST", function (data) {
-         if (data.code == 0) {
-         this.setState({
-         title: data.data.documents[0].title,
-         answer: {__html: data.data.documents[0].answer},
-         });
-         }
-         else {
-         console.error(data.message)
-         }
-         }.bind(this));*/
+        var postData = {"product_id": this.props.params.id};
+        jsonp("/product/product", postData, "POST", function (data) {
+            if (data.code == 0) {
+                this.setState({
+                    heading_title: data.data.name,
+                    price: data.data.price,
+                    service_timer:data.data.service_timer,
+                    applicable_user:data.data.applicable_user,
+                    description:data.data.description,
+                    service_notes:data.data.service_notes,
+                    service_tel:data.data.service_tel
+                });
+            }
+            else {
+                console.error(data.message)
+            }
+        }.bind(this));
     }
     ,
     render: function () {
