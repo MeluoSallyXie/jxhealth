@@ -41,6 +41,7 @@ export default React.createClass({
             <div>
                 <div className="product_divdetail">
                     <table width="100%">
+                        <tbody>
                         <tr>
                             <td>
                                 <div>
@@ -67,6 +68,7 @@ export default React.createClass({
                                 })()}
                             </td>
                         </tr>
+                        </tbody>
                     </table>
                 </div>
                 <div className="product_separater">
