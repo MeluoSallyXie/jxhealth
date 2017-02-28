@@ -72,7 +72,8 @@ export default React.createClass({
                 <div className="product_separater">
                 </div>
                 <div className="product_targetuser">
-                    <label>适用人群：</label><label dangerouslySetInnerHTML={this.state.applicable_user}></label>
+                    <label>适用人群：</label>
+                    <label dangerouslySetInnerHTML={this.state.applicable_user}></label>
                 </div>
                 <div className="product_separater divMargin">
                 </div>
@@ -84,8 +85,7 @@ export default React.createClass({
                 </div>
                 <div className="product_desc2">
                     <label>服务须知：</label>
-                    <p dangerouslySetInnerHTML={this.state.service_notes}>
-                    </p>
+                    <p dangerouslySetInnerHTML={this.state.service_notes}></p>
                 </div>
                 <div className="footerblock"></div>
                 <footer className="productfooter_mobile productv2_footwrap">
