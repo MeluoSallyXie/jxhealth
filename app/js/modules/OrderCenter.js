@@ -4,6 +4,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import DocumentDetail from '../components/DocumentDetail'
+import BottomFooter from '../components/BottomFooter'
 let jsonp = require('../lib/jsonp');
 
 export default React.createClass({
@@ -56,6 +57,7 @@ export default React.createClass({
                     </table>
                 </div>
                 {list}
+                <BottomFooter nav="order" />
             </div>
         );
     }

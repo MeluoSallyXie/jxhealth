@@ -20,6 +20,7 @@ import Vaccine from './modules/Vaccine'
 import BaseInfo from './modules/BaseInfo'
 import Shedule from './modules/Shedule'
 import OrderCenter from './modules/OrderCenter'
+import OrderAll from './modules/OrderAll'
 import Repos from './modules/Repos'
 
 
@@ -41,6 +42,7 @@ render((
         <Route path="/baseinfo" component={BaseInfo}/>
         <Route path="/shedule/:id" component={Shedule}/>
         <Route path="/ordercenter" component={OrderCenter}/>
+        <Route path="/orderall" component={OrderAll}/>
         <Route path="/repos" component={Repos}/>
     </Router>
 ), document.getElementById('app'));
