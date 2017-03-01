@@ -10,7 +10,7 @@ var OrderNone = React.createClass({
         var item;
         item = (
             <div className="advisesuccess_div">
-                <img src="image/catalog/newstyle/noorder.png" />
+                <img src="app/image/noorder.png" />
                     <p>没有交易订单</p>
             </div>
         );
