@@ -18,8 +18,8 @@ export default React.createClass({
     render: function () {
         var data = {
             info: [
-                {title: "基本信息", action: "/repos"},
-                {title: "产检计划", action: "/repos"},
+                {title: "基本信息", action: "/baseinfo"},
+                {title: "产检计划", action: "/checklist"},
                 {title: "疫苗接种表", action: "/vaccinemenu"}
             ]
         };
