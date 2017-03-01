@@ -11,7 +11,7 @@ let jsonp = require('../lib/jsonp');
 export default React.createClass({
     getInitialState: function () {
         return {
-            orderlist: ""
+            orderHTML: ""
         };
     },
     componentDidMount: function () {
@@ -19,24 +19,39 @@ export default React.createClass({
         var postData = null;
         jsonp("/wechat/ordercenter/getPaidList", postData, "POST", function (data) {
             if (data.code == 0) {
-                var orderlist = data.data.orders.map(function (order, index) {
-                    return (
-                        <Link to="/repos" key={index}>
-                            <OrderItem key={index} order_id={order.products} shipping_city={order.shipping_city}
-                                       shipping_address_1={order.shipping_address_1}
-                                       shipping_date={order.shipping_date} totals={order.totals[2].text}
-                                       products={order.products}/>
-                        </Link>
-                    );
-                });
-                if(data.data.orders.length==0){
+                var orderlist;
+                if(data.data.orders.length!=0){
+                    orderlist= data.data.orders.map(function (order, index) {
+                        return (
+                            <Link to="/repos" key={index}>
+                                <OrderItem key={index} order_id={order.products} shipping_city={order.shipping_city}
+                                           shipping_address_1={order.shipping_address_1}
+                                           shipping_date={order.shipping_date} totals={order.totals[2].text}
+                                           products={order.products}/>
+                            </Link>
+                        );
+                    });
+                    this.setState({
+                        orderHTML:(
+                            <div>
+                                <div className="orderTitle">
+                                    已支付未完成
+                                </div>
+                                {orderlist}
+                                <BottomFooter nav="order"/>
+                            </div>
+                        )
+                    })
+                }
+                else {
                     orderlist=(
                         <OrderNone />
                     );
+                    this.setState({
+                        orderHTML: orderlist
+                    });
                 }
-                this.setState({
-                    orderlist: orderlist
-                });
+
             }
             else {
                 console.error(data.message)
@@ -49,11 +64,7 @@ export default React.createClass({
     render: function () {
         var webHTML = (
             <div>
-                <div className="orderTitle">
-                    已支付未完成
-                </div>
-                {this.state.orderlist}
-                <BottomFooter nav="order"/>
+                {this.state.orderHTML}
             </div>
         );
         return webHTML;
