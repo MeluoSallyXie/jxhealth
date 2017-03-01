@@ -12,7 +12,7 @@ var OrderItem = React.createClass({
     render: function () {
         var productList = this.props.products.map(function (product, index) {
             return (
-                <span>{product.name}</span>
+                <span key={index}>{product.name}</span>
             )
         });
         var item;
