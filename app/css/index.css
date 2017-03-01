@@ -573,6 +573,7 @@ a:hover {
 
 .advisesuccess_div img{
     width: 15rem;
+    margin: auto;
 }
 table.bind{
     margin: 5.25rem auto;
