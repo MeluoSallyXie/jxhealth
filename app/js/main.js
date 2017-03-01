@@ -25,7 +25,6 @@ import OrderTo from './modules/OrderTo'
 import OrderCompleted from './modules/OrderCompleted'
 import OrderPaid from './modules/OrderPaid'
 import CheckList from './modules/CheckList'
-import WechatBinding from './modules/WechatBinding'
 import Repos from './modules/Repos'
 
 
@@ -52,7 +51,6 @@ render((
         <Route path="/orderpaid" component={OrderPaid}/>
         <Route path="/checklist" component={CheckList}/>
         <Route path="/shedule/:id" component={Shedule}/>
-        <Route path="/wechatbinding" component={WechatBinding}/>
         <Route path="/repos" component={Repos}/>
     </Router>
 ), document.getElementById('app'));
