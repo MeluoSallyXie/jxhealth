@@ -151,8 +151,7 @@ export default React.createClass({
                             </td>
                         </tr>
                         <tr>
-                            <td className="time"><?php echo $start=date_format($thicheck,"Y-m-d")."至";$thicheck= date_format($thicheck,"Y-m-d"); $thicheck=date_create($thicheck);
-        $thichecks= date_modify($thicheck,"+7 days ");echo date_format($thichecks,"Y-m-d"); ?>
+                            <td className="time">{this.state.third.start}至{this.state.third.end}
                             </td>
                         </tr>
                         </tbody>
