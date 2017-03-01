@@ -7,7 +7,7 @@ let jsonp = require('../lib/jsonp');
 
 export default React.createClass({
     render: function () {
-        var shedule;
+        var shedule= Object;
         shedule.num1 = (
             <div className="checkContent">
                 <div className="title">第1次产检(第12周)</div>
