@@ -112,7 +112,7 @@ export default React.createClass({
                             <td>
                                 <Link to={"/shedule/1?start="+this.state.first.start+"&end="+this.state.first.end}>第一次产检>第一次产检（第12周</Link>
                             </td>
-                            <td rowspan="2" className="highInfo">
+                            <td rowSpan="2" className="highInfo">
                                 <span className="checkHigh">空腹</span>
                             </td>
                         </tr>
@@ -130,7 +130,7 @@ export default React.createClass({
                             <td className="title">
                                 <Link to={"/shedule/2?start="+this.state.second.start+"&end="+this.state.second.end}>第二次产检（第16周）</Link>
                             </td>
-                            <td rowspan="2" className="highInfo">
+                            <td rowSpan="2" className="highInfo">
                             </td>
                         </tr>
                         <tr>
@@ -147,7 +147,7 @@ export default React.createClass({
                             <td className="title">
                                 <Link to={"/shedule/3?start="+this.state.third.start+"&end="+this.state.third.end}>第三次产检（第20周）</Link>
                             </td>
-                            <td rowspan="2" className="highInfo">
+                            <td rowSpan="2" className="highInfo">
                             </td>
                         </tr>
                         <tr>
@@ -164,7 +164,7 @@ export default React.createClass({
                             <td className="title">
                                 <Link to={"/shedule/4?start="+this.state.fourth.start+"&end="+this.state.fourth.end}>第四次产检（第24周）</Link>
                             </td>
-                            <td rowspan="2" className="highInfo">
+                            <td rowSpan="2" className="highInfo">
                             </td>
                         </tr>
                         <tr>
@@ -181,7 +181,7 @@ export default React.createClass({
                             <td className="title">
                                 <Link to={"/shedule/5?start="+this.state.fifth.start+"&end="+this.state.fifth.end}>第五次产检（第28周）</Link>
                             </td>
-                            <td rowspan="2" className="highInfo">
+                            <td rowSpan="2" className="highInfo">
                                 <span className="checkHigh">空腹</span>
                             </td>
                         </tr>
@@ -199,7 +199,7 @@ export default React.createClass({
                             <td className="title">
                                 <Link to={"/shedule/6?start="+this.state.sixth.start+"&end="+this.state.sixth.end}>第六次产检（第30周）</Link>
                             </td>
-                            <td rowspan="2" className="highInfo">
+                            <td rowSpan="2" className="highInfo">
                             </td>
                         </tr>
                         <tr>
@@ -216,7 +216,7 @@ export default React.createClass({
                             <td className="title">
                                 <Link to={"/shedule/7?start="+this.state.seventh.start+"&end="+this.state.seventh.end}>第七次产检（第32周）</Link>
                             </td>
-                            <td rowspan="2" className="highInfo">
+                            <td rowSpan="2" className="highInfo">
                             </td>
                         </tr>
                         <tr>
@@ -233,7 +233,7 @@ export default React.createClass({
                             <td className="title">
                                 <Link to={"/shedule/8?start="+this.state.eighth.start+"&end="+this.state.eighth.end}>第八次产检（第36周）</Link>
                             </td>
-                            <td rowspan="2" className="highInfo">
+                            <td rowSpan="2" className="highInfo">
                             </td>
                         </tr>
                         <tr>
@@ -250,7 +250,7 @@ export default React.createClass({
                             <td className="title">
                                 <Link to={"/shedule/9?start="+this.state.ninth.start+"&end="+this.state.ninth.end}>第九次产检（第37周）</Link>
                             </td>
-                            <td rowspan="2" className="highInfo">
+                            <td rowSpan="2" className="highInfo">
                                 <span className="checkHigh">空腹</span>
                             </td>
                         </tr>
@@ -268,7 +268,7 @@ export default React.createClass({
                             <td className="title">
                                 <Link to={"/shedule/1?start="+this.state.tenth.start+"&end="+this.state.tenth.end}>第十--十二次产检（第38-40周）</Link>
                             </td>
-                            <td rowspan="2" className="highInfo">
+                            <td rowSpan="2" className="highInfo">
                             </td>
                         </tr>
                         <tr>
