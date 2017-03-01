@@ -5,6 +5,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import OrderItem from '../components/OrderItem'
 import BottomFooter from '../components/BottomFooter'
+import OrderNone from '../components/OrderNone'
 let jsonp = require('../lib/jsonp');
 
 export default React.createClass({
@@ -54,6 +55,7 @@ export default React.createClass({
                         待支付
                     </div>
                     {this.state.orderlist}
+                    <BottomFooter nav="order" />
                 </div>
             );
         }
