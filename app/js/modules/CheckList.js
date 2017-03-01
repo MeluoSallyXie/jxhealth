@@ -8,8 +8,46 @@ let jsonp = require('../lib/jsonp');
 export default React.createClass({
     getInitialState: function () {
         return {
-            title: "",
-            answer: {__html: ""}
+            first: {
+                start: "",
+                end: ""
+            },
+            second: {
+                start: "",
+                end: ""
+            },
+            third: {
+                start: "",
+                end: ""
+            },
+            fourth: {
+                start: "",
+                end: ""
+            },
+            fifth: {
+                start: "",
+                end: ""
+            },
+            sixth: {
+                start: "",
+                end: ""
+            },
+            seventh: {
+                start: "",
+                end: ""
+            },
+            eighth: {
+                start: "",
+                end: ""
+            },
+            ninth: {
+                start: "",
+                end: ""
+            },
+            tenth: {
+                start: "",
+                end: ""
+            }
         };
     },
     componentDidMount: function () {
@@ -17,8 +55,46 @@ export default React.createClass({
         jsonp("/faq/document", postData, "POST", function (data) {
             if (data.code == 0) {
                 this.setState({
-                    title: data.data.documents[0].title,
-                    answer: {__html: data.data.documents[0].answer},
+                    first: {
+                        start: data.data.first.start,
+                        end: data.data.first.end
+                    },
+                    second: {
+                        start: data.data.second.start,
+                        end: data.data.second.end
+                    },
+                    third: {
+                        start: data.data.third.start,
+                        end: data.data.third.end
+                    },
+                    fourth: {
+                        start: data.data.fourth.start,
+                        end: data.data.fourth.end
+                    },
+                    fifth: {
+                        start: data.data.fifth.start,
+                        end: data.data.fifth.end
+                    },
+                    sixth: {
+                        start: data.data.sixth.start,
+                        end: data.data.sixth.end
+                    },
+                    seventh: {
+                        start: data.data.seventh.start,
+                        end: data.data.seventh.end
+                    },
+                    eighth: {
+                        start: data.data.eighth.start,
+                        end: data.data.eighth.end
+                    },
+                    ninth: {
+                        start: data.data.ninth.start,
+                        end: data.data.ninth.end
+                    },
+                    tenth: {
+                        start: data.data.tenth.start,
+                        end: data.data.tenth.end
+                    }
                 });
             }
             else {
@@ -31,42 +107,45 @@ export default React.createClass({
             <div>
                 <div className="checksheduleList">
                     <table>
+                        <tbody>
                         <tr>
                             <td>
-                                <Link to={"/shedule/1?start="+this.state.fircheck.date+"&end="+this.state.seccheck}>第一次产检>第一次产检（第12周</Link>
+                                <Link to={"/shedule/1?start="+this.state.first.start+"&end="+this.state.first.end}>第一次产检>第一次产检（第12周</Link>
                             </td>
                             <td rowspan="2" className="highInfo">
                                 <span className="checkHigh">空腹</span>
                             </td>
                         </tr>
                         <tr>
-                            <td className="time"><?php echo $start=date_format($fircheck,"Y-m-d")."至";$fircheck= date_format($fircheck,"Y-m-d"); $fircheck=date_create($fircheck);
-        $firchecks= date_modify($fircheck,"+7 days "); echo date_format($firchecks,"Y-m-d"); ?>
+                            <td className="time">{this.state.first.start}至{this.state.first.end}
                             </td>
                         </tr>
+                        </tbody>
                     </table>
                 </div>
                 <div className="checksheduleList">
                     <table>
+                        <tbody>
                         <tr>
-                            <td className="title" data-href="/index.php?route=wechat/shedule&num=2&start=<?php echo $start=date_format($seccheck,'Y-m-d');?>&end=<?php  $end=date_create($start);
-            $end= date_modify($end,'+7 days '); echo date_format($end,'Y-m-d'); ?>">第二次产检（第16周）
+                            <td className="title">
+                                <Link to={"/shedule/2?start="+this.state.second.start+"&end="+this.state.second.end}>第二次产检（第16周）</Link>
                             </td>
                             <td rowspan="2" className="highInfo">
                             </td>
                         </tr>
                         <tr>
-                            <td className="time"><?php echo $start=date_format($seccheck,"Y-m-d")."至";$seccheck= date_format($seccheck,"Y-m-d"); $seccheck=date_create($seccheck);
-        $secchecks= date_modify($seccheck,"+7 days ");echo date_format($secchecks,"Y-m-d"); ?>
+                            <td className="time">{this.state.second.start}至{this.state.second.end}
                             </td>
                         </tr>
+                        </tbody>
                     </table>
                 </div>
                 <div className="checksheduleList">
                     <table>
+                        <tbody>
                         <tr>
-                            <td className="title" data-href="/index.php?route=wechat/shedule&num=3&start=<?php echo $start=date_format($thicheck,'Y-m-d');?>&end=<?php  $end=date_create($start);
-            $end= date_modify($end,'+7 days '); echo date_format($end,'Y-m-d'); ?>">第三次产检（第20周）
+                            <td className="title">
+                                <Link to={"/shedule/3?start="+this.state.third.start+"&end="+this.state.third.end}>第三次产检（第20周）</Link>
                             </td>
                             <td rowspan="2" className="highInfo">
                             </td>
@@ -76,122 +155,129 @@ export default React.createClass({
         $thichecks= date_modify($thicheck,"+7 days ");echo date_format($thichecks,"Y-m-d"); ?>
                             </td>
                         </tr>
+                        </tbody>
                     </table>
                 </div>
                 <div className="checksheduleList">
                     <table>
+                        <tbody>
                         <tr>
-                            <td className="title" data-href="/index.php?route=wechat/shedule&num=4&start=<?php echo $start=date_format($foucheck,'Y-m-d');?>&end=<?php  $end=date_create($start);
-            $end= date_modify($end,'+7 days '); echo date_format($end,'Y-m-d'); ?>">第四次产检（第24周）
+                            <td className="title">
+                                <Link to={"/shedule/4?start="+this.state.fourth.start+"&end="+this.state.fourth.end}>第四次产检（第24周）</Link>
                             </td>
                             <td rowspan="2" className="highInfo">
                             </td>
                         </tr>
                         <tr>
-                            <td className="time"><?php echo $start=date_format($foucheck,"Y-m-d")."至";$foucheck= date_format($foucheck,"Y-m-d"); $foucheck=date_create($foucheck);
-        $fouchecks= date_modify($foucheck,"+7 days ");echo date_format($fouchecks,"Y-m-d"); ?>
+                            <td className="time">{this.state.fourth.start}至{this.state.fourth.end}
                             </td>
                         </tr>
+                        </tbody>
                     </table>
                 </div>
                 <div className="checksheduleList">
                     <table>
+                        <tbody>
                         <tr>
-                            <td className="title" data-href="/index.php?route=wechat/shedule&num=5&start=<?php echo $start=date_format($fifcheck,'Y-m-d');?>&end=<?php  $end=date_create($start);
-            $end= date_modify($end,'+7 days '); echo date_format($end,'Y-m-d'); ?>">第五次产检（第28周）
-                            </td>
-                            <td rowspan="2" className="highInfo">
-                                <span className="checkHigh">空腹</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="time"><?php echo $start=date_format($fifcheck,"Y-m-d")."至";$fifcheck= date_format($fifcheck,"Y-m-d"); $fifcheck=date_create($fifcheck);
-        $fifchecks= date_modify($fifcheck,"+7 days ");echo date_format($fifchecks,"Y-m-d"); ?>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div className="checksheduleList">
-                    <table>
-                        <tr>
-                            <td className="title" data-href="/index.php?route=wechat/shedule&num=6&start=<?php echo $start=date_format($sixcheck,'Y-m-d');?>&end=<?php  $end=date_create($start);
-            $end= date_modify($end,'+7 days '); echo date_format($end,'Y-m-d'); ?>">第六次产检（第30周）
-                            </td>
-                            <td rowspan="2" className="highInfo">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="time"><?php echo $start=date_format($sixcheck,"Y-m-d")."至";$sixcheck= date_format($sixcheck,"Y-m-d"); $sixcheck=date_create($sixcheck);
-        $sixchecks= date_modify($sixcheck,"+7 days ");echo date_format($sixchecks,"Y-m-d"); ?>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div className="checksheduleList">
-                    <table>
-                        <tr>
-                            <td className="title" data-href="/index.php?route=wechat/shedule&num=7&start=<?php echo $start=date_format($sevcheck,'Y-m-d');?>&end=<?php  $end=date_create($start);
-            $end= date_modify($end,'+7 days '); echo date_format($end,'Y-m-d'); ?>">第七次产检（第32周）
-                            </td>
-                            <td rowspan="2" className="highInfo">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="time"><?php echo $start=date_format($sevcheck,"Y-m-d")."至";$sevcheck= date_format($sevcheck,"Y-m-d"); $sevcheck=date_create($sevcheck);
-        $sevchecks= date_modify($sevcheck,"+7 days ");echo date_format($sevchecks,"Y-m-d"); ?>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div className="checksheduleList">
-                    <table>
-                        <tr>
-                            <td className="title" data-href="/index.php?route=wechat/shedule&num=8&start=<?php echo $start=date_format($eigcheck,'Y-m-d');?>&end=<?php  $end=date_create($start);
-            $end= date_modify($end,'+7 days '); echo date_format($end,'Y-m-d'); ?>">第八次产检（第36周）
-                            </td>
-                            <td rowspan="2" className="highInfo">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="time"><?php echo $start=date_format($eigcheck,"Y-m-d")."至";$eigcheck= date_format($eigcheck,"Y-m-d"); $eigcheck=date_create($eigcheck);
-        $eigchecks= date_modify($eigcheck,"+7 days ");echo date_format($eigchecks,"Y-m-d"); ?>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div className="checksheduleList">
-                    <table>
-                        <tr>
-                            <td className="title" data-href="/index.php?route=wechat/shedule&num=9&start=<?php echo $start=date_format($nincheck,'Y-m-d');?>&end=<?php  $end=date_create($start);
-            $end= date_modify($end,'+7 days '); echo date_format($end,'Y-m-d'); ?>">第九次产检（第37周）
+                            <td className="title">
+                                <Link to={"/shedule/5?start="+this.state.fifth.start+"&end="+this.state.fifth.end}>第五次产检（第28周）</Link>
                             </td>
                             <td rowspan="2" className="highInfo">
                                 <span className="checkHigh">空腹</span>
                             </td>
                         </tr>
                         <tr>
-                            <td className="time"><?php echo $start=date_format($nincheck,"Y-m-d")."至";$nincheck= date_format($nincheck,"Y-m-d"); $nincheck=date_create($nincheck);
-        $ninchecks= date_modify($nincheck,"+7 days ");echo date_format($ninchecks,"Y-m-d"); ?>
+                            <td className="time">{this.state.fifth.start}至{this.state.fifth.end}
                             </td>
                         </tr>
+                        </tbody>
                     </table>
                 </div>
                 <div className="checksheduleList">
                     <table>
+                        <tbody>
                         <tr>
-                            <td className="title" data-href="/index.php?route=wechat/shedule&num=10&firstart=<?php echo $firstart=date_format($tencheck,'Y-m-d');?>&firend=<?php  $firend=date_create($firstart);
-            $firend= date_modify($firend,'+7 days '); echo date_format($firend,'Y-m-d'); ?>&secstart=<?php $secstart=date_format($tencheck,'Y-m-d');$secstart=date_create($secstart);$secstart= date_modify($secstart,'+1 week ');echo $secstart=date_format($secstart,'Y-m-d');?>&secend=<?php  $secend=date_create($secstart);
-            $secend= date_modify($secend,'+7 days '); echo date_format($secend,'Y-m-d'); ?>&thistart=<?php $thistart=date_format($tencheck,'Y-m-d');$thistart=date_create($thistart);$thistart= date_modify($thistart,'+2 weeks ');echo $thistart=date_format($thistart,'Y-m-d');?>&thiend=<?php  $thiend=date_create($thistart);
-            $thiend= date_modify($thiend,'+7 days '); echo date_format($thiend,'Y-m-d'); ?>">第十--十二次产检（第38-40周）
+                            <td className="title">
+                                <Link to={"/shedule/6?start="+this.state.sixth.start+"&end="+this.state.sixth.end}>第六次产检（第30周）</Link>
                             </td>
                             <td rowspan="2" className="highInfo">
                             </td>
                         </tr>
                         <tr>
-                            <td className="time"><?php echo date_format($tencheck,"Y-m-d")."至";$tencheck= date_format($tencheck,"Y-m-d"); $tencheck=date_create($tencheck);
-        $tenchecks= date_modify($tencheck,"+3 weeks ");echo date_format($tenchecks,"Y-m-d");; ?>
+                            <td className="time">{this.state.sixth.start}至{this.state.sixth.end}
                             </td>
                         </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div className="checksheduleList">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td className="title">
+                                <Link to={"/shedule/7?start="+this.state.seventh.start+"&end="+this.state.seventh.end}>第七次产检（第32周）</Link>
+                            </td>
+                            <td rowspan="2" className="highInfo">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="time">{this.state.seventh.start}至{this.state.seventh.end}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div className="checksheduleList">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td className="title">
+                                <Link to={"/shedule/8?start="+this.state.eighth.start+"&end="+this.state.eighth.end}>第八次产检（第36周）</Link>
+                            </td>
+                            <td rowspan="2" className="highInfo">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="time">{this.state.eighth.start}至{this.state.eighth.end}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div className="checksheduleList">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td className="title">
+                                <Link to={"/shedule/9?start="+this.state.ninth.start+"&end="+this.state.ninth.end}>第九次产检（第37周）</Link>
+                            </td>
+                            <td rowspan="2" className="highInfo">
+                                <span className="checkHigh">空腹</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="time">{this.state.ninth.start}至{this.state.ninth.end}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div className="checksheduleList">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td className="title">
+                                <Link to={"/shedule/1?start="+this.state.tenth.start+"&end="+this.state.tenth.end}>第十--十二次产检（第38-40周）</Link>
+                            </td>
+                            <td rowspan="2" className="highInfo">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="time">
+                                {this.state.tenth.start}至{this.state.tenth.end}
+                            </td>
+                        </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
