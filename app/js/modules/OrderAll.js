@@ -3,6 +3,7 @@
  */
 import React from 'react'
 import { Link } from 'react-router'
+import BottomFooter from '../components/BottomFooter'
 import OrderItem from '../components/OrderItem'
 import OrderNone from '../components/OrderNone'
 let jsonp = require('../lib/jsonp');
@@ -54,6 +55,7 @@ export default React.createClass({
                         所有订单
                     </div>
                     {this.state.orderlist}
+                    <BottomFooter nav="order" />
                 </div>
             );
         }
