@@ -10,8 +10,13 @@ export default React.createClass({
             "advisetext": ""
         }
     },
+    /*handleChange:function(event){
+        this.setState({
+            "advisetext": event.target.value
+        });
+    },*/
     handleSubmit: function (event) {
-        alert("test");
+        alert(this.state.advisetext);
         event.preventDefault();
         var postData = {"advisetext": this.state.advisetext};
         jsonp("/wechat/advise", postData, "POST", function (data) {
