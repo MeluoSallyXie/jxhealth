@@ -10,11 +10,11 @@ export default React.createClass({
             "advisetext": ""
         }
     },
-    /*handleChange:function(event){
+    handleChange:function(event){
         this.setState({
             "advisetext": event.target.value
         });
-    },*/
+    },
     handleSubmit: function (event) {
         alert(this.state.advisetext);
         event.preventDefault();
@@ -36,7 +36,7 @@ export default React.createClass({
                 <div className="adviseIllu">
                     说明：您有任何意见或者建议，可以公共平台提交意见，也可以直接拨打客服电话反映，我们的工作人员将在第一时间进行处理和回复。
                 </div>
-                <textarea className="adviseContent" name="advisetext" value={this.state.advisetext}></textarea>
+                <textarea className="adviseContent" name="advisetext" onChange={this.handleChange}></textarea>
                 <div className="adviseBottom">
                     <input type="submit" className="bindBtn" onClick={this.handleSubmit} value="提交建议"/>
                 </div>
