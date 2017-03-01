@@ -29,6 +29,11 @@ export default React.createClass({
                         </Link>
                     );
                 });
+                if (data.data.orders.length == 0) {
+                    orderlist = (
+                        <OrderNone />
+                    );
+                }
                 this.setState({
                     orderlist: orderlist
                 });
@@ -42,24 +47,15 @@ export default React.createClass({
         document.body.style.backgroundColor = "white";
     },
     render: function () {
-        var webHTML;
-        if(this.state.orderlist.length==0){
-            webHTML=(
-                <OrderNone />
-            );
-        }
-        else {
-            webHTML =(
-                <div>
-                    <div className="orderTitle">
-                        所有订单
-                    </div>
-                    {this.state.orderlist}
-                    <BottomFooter nav="order" />
+        var webHTML = (
+            <div>
+                <div className="orderTitle">
+                    所有订单
                 </div>
-            );
-        }
-
+                {this.state.orderlist}
+                <BottomFooter nav="order"/>
+            </div>
+        );
         return webHTML;
     }
 })
