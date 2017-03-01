@@ -29,7 +29,7 @@ var OrderItem = React.createClass({
                         <td>时间：</td>
                         <td>{this.props.shipping_date}</td>
                         <td className="listMoney thirdRight">
-                            {this.props.totals}
+                            ￥{this.props.totals}
                         </td>
                     </tr>
                     <tr>
