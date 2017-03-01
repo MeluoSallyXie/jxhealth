@@ -1144,6 +1144,9 @@ span.orangebtn {
 .back_divcontent{
     margin-top: 1rem;
 }
+.back_divcontent .inputWidth4{
+    width: 4rem;
+}
 
 .back_divcontent label{
     font-size: 1.75rem;!important;
