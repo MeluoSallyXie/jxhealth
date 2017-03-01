@@ -20,12 +20,9 @@ export default React.createClass({
         var postData = null;
         jsonp("/wechat/ordercenter/getPendingList", postData, "POST", function (data) {
             if (data.code == 0) {
-                var orderlist = data.data.order.map(function (order, index) {
+                var orderlist = data.data.orders.map(function (order, index) {
                     return (
                         <div>
-                            <div className="orderTitle">
-                                所有订单
-                            </div>
                             <Link to="/repos" key={index}>
                                 <OrderItem order_id={order.products} shipping_city={order.shipping_city}
                                            shipping_address_1={order.shipping_address_1}
@@ -50,6 +47,9 @@ export default React.createClass({
     render: function () {
         return (
             <div>
+                <div className="orderTitle">
+                    所有订单
+                </div>
                 {this.state.orderlist}
             </div>
         );
