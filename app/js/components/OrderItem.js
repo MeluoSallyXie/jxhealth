@@ -19,9 +19,10 @@ var OrderItem = React.createClass({
         item = (
             <div className="orderList">
                 <table className="maintable" data-num={this.props.order_id}>
+                    <tbody>
                     <tr>
                         <td className="left">地址：</td>
-                        <td colspan="2"
+                        <td colSpan="2"
                             className="collRight">{this.props.shipping_city + this.props.shipping_address_1}</td>
                     </tr>
                     <tr>
@@ -40,6 +41,7 @@ var OrderItem = React.createClass({
                             <span className="listPaybtn" data-num={this.props.order_id}>去支付</span>
                         </td>
                     </tr>
+                    </tbody>
                 </table>
             </div>
         );
