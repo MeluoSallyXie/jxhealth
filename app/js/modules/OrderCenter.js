@@ -31,10 +31,10 @@ export default React.createClass({
         document.body.style.backgroundColor = "white";
     },
     render: function () {
-        var data = [{"title": "全部订单", "action": ""}, {"title": "待支付", "action": ""}, {
+        var data = [{"title": "全部订单", "action": "/orderall"}, {"title": "待支付", "action": "/orderto"}, {
             "title": "已支付未完成",
-            "action": ""
-        }, {"title": "已完成订单", "action": ""}];
+            "action": "/orderpaid"
+        }, {"title": "已完成订单", "action": "/ordercompleted"}];
         var list = data.map(function (data, index) {
             return (
                 <Link to={data.action} key={index}><DocumentDetail title={data.title}

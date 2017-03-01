@@ -21,6 +21,9 @@ import BaseInfo from './modules/BaseInfo'
 import Shedule from './modules/Shedule'
 import OrderCenter from './modules/OrderCenter'
 import OrderAll from './modules/OrderAll'
+import OrderTo from './modules/OrderTo'
+import OrderCompleted from './modules/OrderCompleted'
+import OrderPaid from './modules/OrderPaid'
 import CheckList from './modules/CheckList'
 import Repos from './modules/Repos'
 
@@ -43,6 +46,9 @@ render((
         <Route path="/baseinfo" component={BaseInfo}/>
         <Route path="/ordercenter" component={OrderCenter}/>
         <Route path="/orderall" component={OrderAll}/>
+        <Route path="/orderto" component={OrderTo}/>
+        <Route path="/ordercompleted" component={OrderCompleted}/>
+        <Route path="/orderpaid" component={OrderPaid}/>
         <Route path="/checklist" component={CheckList}/>
         <Route path="/shedule/:id" component={Shedule}/>
         <Route path="/repos" component={Repos}/>

@@ -15,7 +15,7 @@ export default React.createClass({
     componentDidMount: function () {
         document.body.style.backgroundColor = "#eee";
         var postData = null;
-        jsonp("/wechat/ordercenter/getPendingList", postData, "POST", function (data) {
+        jsonp("/wechat/ordercenter/getAllList", postData, "POST", function (data) {
             if (data.code == 0) {
                 var orderlist = data.data.orders.map(function (order, index) {
                     return (
