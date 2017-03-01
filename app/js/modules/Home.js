@@ -6,12 +6,36 @@ import { Link } from 'react-router'
 import HomeNav from '../components/HomeNav'
 import BottomFooter from '../components/BottomFooter'
 import Header from '../components/Header'
+let jsonp = require('../lib/jsonp');
 
 export default React.createClass({
+    getInitialState: function () {
+        return {
+            imgUrls: []
+        };
+    },
+    componentDidMount: function () {
+        var postData = {"code": ""};
+        jsonp("/common/homem", postData, "POST", function (data) {
+            if (data.code == 0) {
+                var imgArray = new Array();
+                var bannerLen = data.data.banners.length;
+                for (var i = 0; i < bannerLen; i++) {
+                    var bannerObj = data.data.banners[i];
+                    imgArray.push({"url": global.ImgUrl+bannerObj.image});
+                }
+                this.setState({imgUrls: imgArray});
+
+            }
+            else {
+                console.error(data.message)
+            }
+        }.bind(this));
+    },
     render: function () {
         return (
             <div>
-                <Header code=""  />
+                <Header imgUrls={this.state.imgUrls} />
                 <Link to="/productcategory/20">
                     <HomeNav description="泌乳调理" srcimg="app/image/homenavimg1.png" className="homenav nav1" state="0"/>
                 </Link>

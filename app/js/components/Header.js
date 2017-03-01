@@ -6,39 +6,19 @@ import React from 'react'
 import { render } from 'react-dom'
 require('../../css/swiper.min.css');
 let Swiper = require('../lib/swiper.min.js');
-let jsonp = require('../lib/jsonp');
 require('../lib/util');
 
 var Header = React.createClass({
-    getInitialState: function () {
-        return {
-            imgUrls: []
-        };
-    },
     componentDidMount: function () {
-        var postData = {"code": this.props.code};
-        jsonp("/common/homem", postData, "POST", function (data) {
-            if (data.code == 0) {
-                var imgArray = new Array();
-                var bannerLen = data.data.banners.length;
-                for (var i = 0; i < bannerLen; i++) {
-                    var bannerObj = data.data.banners[i];
-                    imgArray.push({"url": global.ImgUrl+bannerObj.image});
-                }
-                this.setState({imgUrls: imgArray});
-                new Swiper('#header .swiper-container', {
-                    loop: true,
-                    pagination: '.swiper-pagination',
-                    paginationClickable: true,
-                    speed: 1000,
-                    autoplay: 1000,
-                    autoplayDisableOnInteraction: false
-                });
-            }
-            else {
-                console.error(data.message)
-            }
-        }.bind(this));
+        new Swiper('#header .swiper-container', {
+            loop: true,
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            speed: 1000,
+            autoplay: 1000,
+            autoplayDisableOnInteraction: false
+        });
+
     },
     render: function () {
         return (
@@ -46,7 +26,7 @@ var Header = React.createClass({
                 <div className="swiper-container">
                     <div className="swiper-wrapper flexslider">
                         {
-                            this.state.imgUrls.map(function (img, index) {
+                            this.props.imgUrls.map(function (img, index) {
                                 return (
                                     <div className="swiper-slide" key={"header" + index}>
                                         <img className="img" src={img.url}/>
