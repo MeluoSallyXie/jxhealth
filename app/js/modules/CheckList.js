@@ -109,8 +109,8 @@ export default React.createClass({
                     <table>
                         <tbody>
                         <tr>
-                            <td>
-                                <Link to={"/shedule/1?start="+this.state.first.start+"&end="+this.state.first.end}>第一次产检>第一次产检（第12周）</Link>
+                            <td className="title">
+                                <Link to={"/shedule/1?start="+this.state.first.start+"&end="+this.state.first.end}>第一次产检（第12周）</Link>
                             </td>
                             <td rowSpan="2" className="highInfo">
                                 <span className="checkHigh">空腹</span>
