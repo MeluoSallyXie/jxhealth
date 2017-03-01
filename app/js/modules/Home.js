@@ -7,6 +7,7 @@ import HomeNav from '../components/HomeNav'
 import BottomFooter from '../components/BottomFooter'
 import Header from '../components/Header'
 let jsonp = require('../lib/jsonp');
+require('../lib/util');
 
 export default React.createClass({
     getInitialState: function () {

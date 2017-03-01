@@ -6,7 +6,7 @@ import React from 'react'
 import { render } from 'react-dom'
 require('../../css/swiper.min.css');
 let Swiper = require('../lib/swiper.min.js');
-require('../lib/util');
+
 
 var Header = React.createClass({
     componentDidMount: function () {

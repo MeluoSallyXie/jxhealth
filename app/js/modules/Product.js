@@ -2,11 +2,13 @@
  * Created by sally on 2017/2/26.
  */
 import React from 'react'
+import Header from '../components/Header'
 let jsonp = require('../lib/jsonp');
 
 export default React.createClass({
     getInitialState: function () {
         return {
+            imgUrls: [],
             heading_title: "",
             price: "",
             service_timer: "",
@@ -20,8 +22,14 @@ export default React.createClass({
         var postData = {"product_id": this.props.params.id};
         jsonp("/product/product", postData, "POST", function (data) {
             if (data.code == 0) {
-                console.log(data.data.applicable_user);
+                var imgArray = new Array();
+                var bannerLen = data.data.banners.length;
+                for (var i = 0; i < bannerLen; i++) {
+                    var bannerObj = data.data.banners[i];
+                    imgArray.push({"url": global.ImgUrl+bannerObj.image});
+                }
                 this.setState({
+                    imgUrls:imgArray,
                     heading_title: data.data.name,
                     price: data.data.price,
                     service_timer: data.data.service_timer,
@@ -40,6 +48,7 @@ export default React.createClass({
     render: function () {
         return (
             <div>
+                <Header imgUrls={this.state.imgUrls} />
                 <div className="product_divdetail">
                     <table width="100%">
                         <tbody>
