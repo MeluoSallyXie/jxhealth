@@ -23,9 +23,9 @@ export default React.createClass({
         jsonp("/product/product", postData, "POST", function (data) {
             if (data.code == 0) {
                 var imgArray = new Array();
-                var bannerLen = data.data.banners.length;
+                var bannerLen = data.data.images.length;
                 for (var i = 0; i < bannerLen; i++) {
-                    var bannerObj = data.data.banners[i];
+                    var bannerObj = data.data.images[i];
                     imgArray.push({"url": global.ImgUrl+bannerObj.image});
                 }
                 this.setState({
