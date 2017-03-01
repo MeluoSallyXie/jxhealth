@@ -520,7 +520,7 @@ export default React.createClass({
                     </div>
                 </div>
                 <div className="bindBottom">
-                    <span className="whitebtn active" style={margin: 3rem;} onclick="" id="register_submitbtn">确定</span>
+                    <span className="whitebtn active physicalSubmitBtn" onclick="" id="register_submitbtn">确定</span>
                 </div>
             </form>
         );

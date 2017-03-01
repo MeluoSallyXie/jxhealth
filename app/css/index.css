@@ -1155,7 +1155,9 @@ span.orangebtn {
 .back_divcontent table tr{
     height: 4rem;
 }
-
+.physicalSubmitBtn{
+    margin: 3rem;
+}
 span.orangebtn {
     width: 100%;
     height: 3.75rem;
