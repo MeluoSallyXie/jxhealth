@@ -11,6 +11,7 @@ export default React.createClass({
         }
     },
     handleSubmit: function (event) {
+        alert("test");
         event.preventDefault();
         var postData = {"advisetext": this.state.advisetext};
         jsonp("/wechat/advise", postData, "POST", function (data) {
@@ -32,7 +33,7 @@ export default React.createClass({
                 </div>
                 <textarea className="adviseContent" name="advisetext" value={this.state.advisetext}></textarea>
                 <div className="adviseBottom">
-                    <input type="submit" className="bindBtn" onClick={handleSubmit} value="提交建议"/>
+                    <input type="submit" className="bindBtn" onClick={this.handleSubmit} value="提交建议"/>
                 </div>
             </form>
         );
