@@ -4,6 +4,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import OrderItem from '../components/OrderItem'
+import OrderNone from '../components/OrderNone'
 let jsonp = require('../lib/jsonp');
 
 export default React.createClass({
@@ -40,13 +41,23 @@ export default React.createClass({
         document.body.style.backgroundColor = "white";
     },
     render: function () {
-        return (
-            <div>
-                <div className="orderTitle">
-                    所有订单
+        var webHTML;
+        if(this.state.orderlist.length==0){
+            webHTML=(
+                <OrderNone />
+            );
+        }
+        else {
+            webHTML =(
+                <div>
+                    <div className="orderTitle">
+                        所有订单
+                    </div>
+                    {this.state.orderlist}
                 </div>
-                {this.state.orderlist}
-            </div>
-        );
+            );
+        }
+
+        return webHTML;
     }
 })

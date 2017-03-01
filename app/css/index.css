@@ -558,6 +558,22 @@ a:hover {
     width: 100%;
     text-align: center;
 }
+.advisesuccess_div{
+    text-align: center;
+    margin-top: 20rem;
+    margin-bottom: 10rem;
+}
+
+.advisesuccess_div p{
+    margin-top: 0.5rem;
+    font-size: 1.75rem;
+    color: #666666;
+    font-weight: bold;
+}
+
+.advisesuccess_div img{
+    width: 15rem;
+}
 table.bind{
     margin: 5.25rem auto;
     font-size: 2.125rem;
