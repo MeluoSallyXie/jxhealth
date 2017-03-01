@@ -2,7 +2,7 @@
  * Created by sally on 2017/2/15.
  */
 import React from 'react'
-import { Link } from 'react-router'
+import { Link,History } from 'react-router'
 
 export default React.createClass({
     getInitialState: function () {
@@ -10,18 +10,21 @@ export default React.createClass({
             "advisetext": ""
         }
     },
-    handleChange:function(event){
+    handleChange: function (event) {
         this.setState({
             "advisetext": event.target.value
         });
     },
     handleSubmit: function (event) {
-        alert(this.state.advisetext);
         event.preventDefault();
+        if (this.state.advisetext.length == 0) {
+            alert("建议内容不能为空！");
+            return;
+        }
         var postData = {"advisetext": this.state.advisetext};
         jsonp("/wechat/advise", postData, "POST", function (data) {
             if (data.code == 0) {
-                alert("提交成功");
+                this.props.history.pushState(null, "/advisesuccess");
             }
             else {
                 console.error(data.message)

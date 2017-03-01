@@ -25,6 +25,7 @@ import OrderTo from './modules/OrderTo'
 import OrderCompleted from './modules/OrderCompleted'
 import OrderPaid from './modules/OrderPaid'
 import CheckList from './modules/CheckList'
+import AdviseSuccess from './modules/AdviseSuccess'
 import Repos from './modules/Repos'
 
 
@@ -37,6 +38,7 @@ render((
         <Route path="/documents" component={Documents}/>
         <Route path="/documents/:id" component={Document}/>
         <Route path="/advise" component={Advise}/>
+        <Route path="/advisesuccess" component={AdviseSuccess}/>
         <Route path="/personalinfo" component={PersonalInfo}/>
         <Route path="/pressall" component={PressAll}/>
         <Route path="/pressall/:id" component={Press}/>
@@ -51,6 +53,7 @@ render((
         <Route path="/orderpaid" component={OrderPaid}/>
         <Route path="/checklist" component={CheckList}/>
         <Route path="/shedule/:id" component={Shedule}/>
+
         <Route path="/repos" component={Repos}/>
     </Router>
 ), document.getElementById('app'));
