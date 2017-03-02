@@ -119,8 +119,8 @@ export default React.createClass({
             </div>
         );
         shedule.num9 = (
-            <div class="checkContent">
-                <div class="title">第9次产检 (第37周 )</div>
+            <div className="checkContent">
+                <div className="title">第9次产检 (第37周 )</div>
                 <p>检查时间：</p><p>{this.props.location.query.start} 至 {this.props.location.query.end}</p>
                 <p>检查项目：</p>
                 <p>1、肝功有异常者复查肝功</p>
@@ -132,8 +132,8 @@ export default React.createClass({
             </div>
         );
         shedule.num10 = (
-            <div class="checkContent">
-                <div class="title">第10-12次产检(第38-40 周各一次)</div>
+            <div className="checkContent">
+                <div className="title">第10-12次产检(第38-40 周各一次)</div>
                 <table>
                     <tbody>
                     <tr>
