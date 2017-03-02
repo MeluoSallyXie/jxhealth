@@ -21,7 +21,7 @@ class Binding extends React.Component {
         const target = event.target;
         const name = target.name;
         this.setState({
-            [name]: value
+            [name]: target.value
         });
     }
 
