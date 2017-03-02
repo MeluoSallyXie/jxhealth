@@ -80,6 +80,11 @@ class Binding extends React.Component {
         var curCount;//当前剩余秒数
         curCount = count;
         var sendCodeObj = document.getElementById("btnSendCode");
+        if(!hasClass(sendCodeObj,"sendMsgBtn"))
+        {
+            return ;
+        }
+
         var reg = new RegExp('(\\s|^)' + "sendMsgBtn" + '(\\s|$)');
         sendCodeObj.className = sendCodeObj.className.replace(reg, ' ');
         sendCodeObj.className += " " + "sendMsgBtnDis";

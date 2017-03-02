@@ -4,6 +4,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 let jsonp = require('../lib/jsonp');
+require('../lib/util');
 
 export default React.createClass({
     getInitialState: function () {
@@ -62,11 +63,16 @@ export default React.createClass({
             return;
         }
 
+
         var InterValObj; //timer变量，控制时间
         var count = 90; //间隔函数，1秒执行
         var curCount;//当前剩余秒数
         curCount = count;
         var sendCodeObj = event.target;
+        if(!hasClass(sendCodeObj,"sendMsgBtn"))
+        {
+            return ;
+        }
         var reg = new RegExp('(\\s|^)' + "sendMsgBtn" + '(\\s|$)');
         sendCodeObj.className = sendCodeObj.className.replace(reg, ' ');
         sendCodeObj.className += " " + "sendMsgBtnDis";
@@ -89,7 +95,7 @@ export default React.createClass({
 
         //发送验证码
         var postData = {"telephone": this.state.telephone};
-        jsonp("/wechat/wechatbinding/validcode", postData, "POST", function (data) {
+        jsonp("/wechat/register/validcode", postData, "POST", function (data) {
             if (data.code == 0) {
                 alert(data.data.html);
             }
