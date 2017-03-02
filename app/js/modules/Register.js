@@ -65,6 +65,8 @@ export default React.createClass({
     },
     componentDidMount: function () {
         var top = document.getElementById("hr1").offsetTop - document.getElementById("title1").style.height / 2;
+        console.log("componentDidMount" + document.getElementById("hr1").offsetTop);
+        console.log("componentDidMount" + document.getElementById("title1").style.height);
         document.getElementById("title1").style.top = top + "px";
         var top2 = document.getElementById("hr2").offsetTop - document.getElementById("title2").style.height / 2;
         document.getElementById("title2").style.top = top2 + "px";
