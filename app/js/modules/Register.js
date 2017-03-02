@@ -31,7 +31,8 @@ export default React.createClass({
             highriskfactor: "",
             district: "",
             addressvalue: "",
-            address_1: ""
+            address_1: "",
+            smscode:""
         }
     },
     calproductdate: function () {
@@ -280,7 +281,7 @@ export default React.createClass({
     render: function () {
 
         return (
-            <form action="/wechat/register" method="post" encType="multipart/form-data" id="register_form">
+            <form action="" method="post" encType="multipart/form-data" id="register_form">
                 <div className="register_title" id="title1">您的个人资料</div>
                 <hr className="register_hr" id="hr1"/>
                 <table className="register_outer" style={{marginBottom: "-1rem"}}>
@@ -315,7 +316,7 @@ export default React.createClass({
                                 <tbody>
                                 <tr style={{height:"4rem"}}>
                                     <td>
-                                        <input type="text" name="smscode" id="verificationcode"/>
+                                        <input type="text" name="smscode" id="verificationcode" value={this.state.smscode} onChange={this.handleChange}/>
                                     </td>
                                     <td className="sendMsgBtn" onClick={this.sendMsgBtn}>
                                         发送验证码
