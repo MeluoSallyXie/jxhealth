@@ -71,9 +71,8 @@ export default React.createClass({
         var curCount;//当前剩余秒数
         curCount = count;
         var sendCodeObj = event.target;
-        if(!hasClass(sendCodeObj,"sendMsgBtn"))
-        {
-            return ;
+        if (!hasClass(sendCodeObj, "sendMsgBtn")) {
+            return;
         }
         var reg = new RegExp('(\\s|^)' + "sendMsgBtn" + '(\\s|$)');
         sendCodeObj.className = sendCodeObj.className.replace(reg, ' ');
@@ -122,15 +121,37 @@ export default React.createClass({
         var top2 = document.getElementById("hr2").offsetTop - document.getElementById("title2").offsetHeight / 2;
         document.getElementById("title2").style.top = top2 + "px";
         var postData = {"code": ""};
-        jsonp("/common/homem", postData, "POST", function (data) {
+        jsonp("/wechat/wechatbinding/getAddress", postData, "POST", function (data) {
             if (data.code == 0) {
-                var imgArray = new Array();
-                var bannerLen = data.data.banners.length;
-                for (var i = 0; i < bannerLen; i++) {
-                    var bannerObj = data.data.banners[i];
-                    imgArray.push({"url": global.ImgUrl + bannerObj.image});
-                }
-                this.setState({imgUrls: imgArray});
+                var provs_data = data.data.province;
+                var citys_data = data.data.city;
+                var dists_data = data.data.district;
+                var allcitys_data = data.data.allcitys;
+                var deps_data = data.data.office;
+                var area2 = new LArea();
+                area2.init({
+                    'trigger': '#address',
+                    'valueTo': '#addressvalue',
+                    'callfun': test,
+                    'keys': {
+                        id: 'id',
+                        name: 'name'
+                    },
+                    'type': 2,
+                    'data': [provs_data, citys_data, dists_data]
+                });
+
+                var area1 = new LArea();
+                area1.init({
+                    'trigger': '#department',
+                    'valueTo': '#departmentvalue',
+                    'keys': {
+                        id: 'id',
+                        name: 'name'
+                    },
+                    'type': 2,
+                    'data': [allcitys_data, dists_data, deps_data]
+                });
             }
             else {
                 console.error(data.message)
