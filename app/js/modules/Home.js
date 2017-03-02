@@ -21,7 +21,7 @@ export default React.createClass({
     },
     componentDidMount: function () {
         var postData = {"code": ""};
-        /*jsonp("/common/homem", postData, "POST", function (data) {
+        jsonp("/common/homem", postData, "POST", function (data) {
             if (data.code == 0) {
                 var imgArray = new Array();
                 var bannerLen = data.data.banners.length;
@@ -30,12 +30,13 @@ export default React.createClass({
                     imgArray.push({"url": global.ImgUrl+bannerObj.image});
                 }
                 this.setState({imgUrls: imgArray});
+                this.setProps();
                 console.info("home componentDidMount");
             }
             else {
                 console.error(data.message)
             }
-        }.bind(this));*/
+        }.bind(this));
     },
     render: function () {
         return (
