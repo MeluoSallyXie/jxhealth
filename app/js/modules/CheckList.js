@@ -277,7 +277,7 @@ export default React.createClass({
                         <tbody>
                         <tr>
                             <td className="title">
-                                <Link to={"/shedule/1?start="+this.state.tenth.start+"&end="+this.state.tenth.end+"&firend="+this.state.tenth.firend+"&secstart="+this.state.tenth.secstart+"&secend="+this.state.tenth.secend+"&thistart="+this.state.tenth.thistart}>第十--十二次产检（第38-40周）</Link>
+                                <Link to={"/shedule/10?start="+this.state.tenth.start+"&end="+this.state.tenth.end+"&firend="+this.state.tenth.firend+"&secstart="+this.state.tenth.secstart+"&secend="+this.state.tenth.secend+"&thistart="+this.state.tenth.thistart}>第十--十二次产检（第38-40周）</Link>
                             </td>
                             <td rowSpan="2" className="highInfo">
                             </td>
