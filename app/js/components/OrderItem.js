@@ -66,7 +66,7 @@ var OrderItem = React.createClass({
                             <tr>
                                 <td>时间：</td>
                                 <td>{this.props.shipping_date}</td>
-                                <td className="listMoney" align="right">￥{this.props.totals}</td>
+                                <td className="listMoney" style={{textAlign:"right"}>￥{this.props.totals}</td>
                             </tr>
                             <tr>
                                 <td>商品：</td>
