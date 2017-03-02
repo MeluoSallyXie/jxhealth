@@ -65,6 +65,14 @@ class Binding extends React.Component {
 
     sendMsg(event) {
         event.preventDefault();
+        if(this.state.telephone.length==0){
+            alert("请输入手机号码！");
+            return ;
+        }
+        if(this.state.telephone.length!=11){
+            alert("请输入有效的手机号码！");
+            return ;
+        }
         //发送验证码
         var postData = {"telephone": this.state.telephone};
         jsonp("/wechat/wechatbinding/validcode", postData, "POST", function (data) {
