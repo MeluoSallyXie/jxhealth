@@ -81,7 +81,7 @@ class Binding extends React.Component {
         curCount = count;
         var sendCodeObj = document.getElementById("btnSendCode");
         var reg = new RegExp('(\\s|^)' + "sendMsgBtn" + '(\\s|$)');
-        obj.className = sendCodeObj.className.replace(reg, ' ');
+        sendCodeObj.className = sendCodeObj.className.replace(reg, ' ');
         sendCodeObj.className += " " + "sendMsgBtnDis";
 
         //设置button效果，开始计时
@@ -101,7 +101,7 @@ class Binding extends React.Component {
         }, 1000); //启动计时器，1秒执行一次
 
         //发送验证码
-        var postData = {"telephone": this.state.telephone};
+        /*var postData = {"telephone": this.state.telephone};
         jsonp("/wechat/wechatbinding/validcode", postData, "POST", function (data) {
             if (data.code == 0) {
                 alert("发送成功");
@@ -109,7 +109,7 @@ class Binding extends React.Component {
             else {
                 console.error(data.message)
             }
-        }.bind(this));
+        }.bind(this));*/
     }
 
     render() {
