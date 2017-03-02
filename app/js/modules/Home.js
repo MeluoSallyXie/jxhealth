@@ -25,8 +25,7 @@ export default React.createClass({
                     var bannerObj = data.data.banners[i];
                     imgArray.push({"url": global.ImgUrl + bannerObj.image});
                 }
-                this.setState({imgUrls: imgArray});
-                Header.setProps({imgUrls: this.state.imgUrls});
+                Header.setState({imgUrls: imgArray});
                 console.info("home componentDidMount");
             }
             else {
@@ -37,7 +36,7 @@ export default React.createClass({
     render: function () {
         return (
             <div>
-                <Header imgUrls={this.state.imgUrls}/>
+                <Header />
                 <Link to="/productcategory/20">
                     <HomeNav description="泌乳调理" srcimg="app/image/homenavimg1.png" className="homenav nav1" state="0"/>
                 </Link>

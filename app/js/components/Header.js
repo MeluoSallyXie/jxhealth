@@ -9,6 +9,11 @@ let Swiper = require('../lib/swiper.min.js');
 
 
 var Header = React.createClass({
+    getInitialState: function () {
+        return {
+            imgUrls: []
+        };
+    },
     componentDidMount: function () {
         console.info("Header componentDidMount");
         new Swiper('.swiper-container', {
@@ -27,7 +32,7 @@ var Header = React.createClass({
                 <div className="swiper-container">
                     <div className="swiper-wrapper flexslider">
                         {
-                            this.props.imgUrls.map(function (img, index) {
+                            this.state.imgUrls.map(function (img, index) {
                                 console.info("props.imgUrls.map");
                                 return (
                                     <div className="swiper-slide" key={"header" + index}>
