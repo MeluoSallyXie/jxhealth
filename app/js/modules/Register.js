@@ -64,11 +64,11 @@ export default React.createClass({
         document.title = '注册';
     },
     componentDidMount: function () {
-        var top = document.getElementById("hr1").offsetTop - document.getElementById("title1").style.height / 2;
+        var top = document.getElementById("hr1").offsetTop - document.getElementById("title1").offsetHeight / 2;
         console.log("componentDidMount" + document.getElementById("hr1").offsetTop);
-        console.log("componentDidMount" + document.getElementById("title1").style.height);
+        console.log("componentDidMount" + document.getElementById("title1").offsetHeight);
         document.getElementById("title1").style.top = top + "px";
-        var top2 = document.getElementById("hr2").offsetTop - document.getElementById("title2").style.height / 2;
+        var top2 = document.getElementById("hr2").offsetTop - document.getElementById("title2").offsetHeight / 2;
         document.getElementById("title2").style.top = top2 + "px";
     },
     render: function () {
