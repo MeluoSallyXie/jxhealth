@@ -101,7 +101,7 @@ class Binding extends React.Component {
         }, 1000); //启动计时器，1秒执行一次
 
         //发送验证码
-        /*var postData = {"telephone": this.state.telephone};
+        var postData = {"telephone": this.state.telephone};
         jsonp("/wechat/wechatbinding/validcode", postData, "POST", function (data) {
             if (data.code == 0) {
                 alert("发送成功");
@@ -109,7 +109,7 @@ class Binding extends React.Component {
             else {
                 console.error(data.message)
             }
-        }.bind(this));*/
+        }.bind(this));
     }
 
     render() {
