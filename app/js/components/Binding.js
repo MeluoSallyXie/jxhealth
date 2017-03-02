@@ -91,7 +91,7 @@ class Binding extends React.Component {
                 window.clearInterval(InterValObj);//停止计时器
                 sendCodeObj.className += " " + "sendMsgBtn";
                 var reg = new RegExp('(\\s|^)' + "sendMsgBtnDis" + '(\\s|$)');
-                obj.className = sendCodeObj.className.replace(reg, ' ');
+                sendCodeObj.className = sendCodeObj.className.replace(reg, ' ');
                 sendCodeObj.innerHTML = "重新发送";
             }
             else {
