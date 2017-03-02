@@ -26,7 +26,7 @@ export default React.createClass({
                     orderlist= data.data.orders.map(function (order, index) {
                         return (
                             <Link to="/repos" key={index}>
-                                <OrderItem order_id={order.products} shipping_city={order.shipping_city}
+                                <OrderItem type={order.order_status_id} order_id={order.products} shipping_city={order.shipping_city}
                                            shipping_address_1={order.shipping_address_1}
                                            shipping_date={order.shipping_date} totals={order.totals[2].text}
                                            products={order.products}/>
