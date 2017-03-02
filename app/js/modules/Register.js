@@ -195,7 +195,7 @@ export default React.createClass({
                                         <label className="register_info"
                                                id="input-bmiindex"> </label>
                                     </td>
-                                    <td align="center"><label class="orangestar">*</label>BMI类型
+                                    <td align="center"><label className="orangestar">*</label>BMI类型
                                     </td>
                                     <td width="33%" align="right">
                                         <label className="register_info"
@@ -217,7 +217,7 @@ export default React.createClass({
                         </td>
                         <td>
                             <input type="date" className="formcontroller" name="lastmenstrualdate"
-                                   value={this.state.lastmenstrualdate} onChange="calproductdate()"/>
+                                   value={this.state.lastmenstrualdate} onChange={this.calproductdate()}/>
                         </td>
                     </tr>
                     </tbody>
