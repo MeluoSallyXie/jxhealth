@@ -132,7 +132,6 @@ export default React.createClass({
                 area2.init({
                     'trigger': '#address',
                     'valueTo': '#addressvalue',
-                    'callfun': test,
                     'keys': {
                         id: 'id',
                         name: 'name'
