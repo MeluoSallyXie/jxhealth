@@ -18,7 +18,6 @@ export default React.createClass({
         document.title = '已支付未完成';
     },
     componentDidMount: function () {
-        document.body.style.backgroundColor = "#eee";
         var postData = null;
         jsonp("/wechat/ordercenter/getPaidList", postData, "POST", function (data) {
             if (data.code == 0) {
@@ -60,9 +59,6 @@ export default React.createClass({
                 console.error(data.message)
             }
         }.bind(this));
-    },
-    componentWillUnmount: function () {
-        document.body.style.backgroundColor = "white";
     },
     render: function () {
         var webHTML = (
