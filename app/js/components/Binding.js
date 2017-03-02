@@ -63,6 +63,32 @@ class Binding extends React.Component {
             }.bind(this));
         }
     }
+    componentDidMount() {
+        var postData = null;
+        jsonp("/wechat/wechatbinding/getAddress", postData, "POST", function (data) {
+            if (data.code == 0) {
+                var provs_data = data.data.province;
+                var citys_data = data.data.city;
+                var dists_data = data.data.district;
+                var allcitys_data = data.data.allcities;
+                var deps_data = data.data.office;
+                var area2 = new LArea();
+                area2.init({
+                    'trigger': '#address',
+                    'valueTo': '#addressvalue',
+                    'keys': {
+                        id: 'id',
+                        name: 'name'
+                    },
+                    'type': 2,
+                    'data': [provs_data, citys_data, dists_data]
+                });
+            }
+            else {
+                console.error(data.message)
+            }
+        }.bind(this));
+    }
 
     sendMsg(event) {
         event.preventDefault();
@@ -80,9 +106,8 @@ class Binding extends React.Component {
         var curCount;//当前剩余秒数
         curCount = count;
         var sendCodeObj = document.getElementById("btnSendCode");
-        if(!hasClass(sendCodeObj,"sendMsgBtn"))
-        {
-            return ;
+        if (!hasClass(sendCodeObj, "sendMsgBtn")) {
+            return;
         }
 
         var reg = new RegExp('(\\s|^)' + "sendMsgBtn" + '(\\s|$)');

@@ -281,7 +281,7 @@ export default React.createClass({
     render: function () {
 
         return (
-            <form action="" method="post" encType="multipart/form-data" id="register_form">
+            <form action="/wechat/register" method="post" encType="multipart/form-data" id="register_form">
                 <div className="register_title" id="title1">您的个人资料</div>
                 <hr className="register_hr" id="hr1"/>
                 <table className="register_outer" style={{marginBottom: "-1rem"}}>
@@ -447,14 +447,14 @@ export default React.createClass({
                     <table className="register_outer">
                         <tbody>
                         <tr>
-                            <td width="45%">
+                            <td width="30%">
                                 <label className="orangestar">*</label>孕次
                             </td>
                             <td width="20%">
                                 <input type="number" className="formcontroller register_smallInput" name="gravidity"
                                        value={this.state.gravidity} onChange={this.handleChange}/>
                             </td>
-                            <td width="45%">
+                            <td width="30%">
                                 <label className="orangestar">*</label>产次
                             </td>
                             <td>
