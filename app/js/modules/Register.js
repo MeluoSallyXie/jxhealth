@@ -12,6 +12,7 @@ export default React.createClass({
     getInitialState: function () {
         return {
             weight: "",
+            householdregister:"",
             agree: "",
             realname: "",
             telephone: "",
@@ -39,7 +40,6 @@ export default React.createClass({
             document.getElementsById("edc").innerHTML = this.addDate(lastyjdate, 280);
         }
     },
-
     addDate: function (date, days) {
         var d = new Date(date);
         d.setDate(d.getDate() + days);
@@ -53,6 +53,32 @@ export default React.createClass({
         }
         var val = d.getFullYear() + "-" + month + "-" + day;
         return val;
+    },
+    handleHousehold:function(event){
+        event.preventDefault();
+        var reg = new RegExp('(\\s|^)' + "active" + '(\\s|$)');
+        document.getElementsByName("household").className = document.getElementsByName("household").className.replace(reg, ' ');
+        event.target.className += " " + "active";
+        if (event.target.innerHTML == "是") {
+            document.getElementById("householdregister").value = "是";
+
+        } else {
+            document.getElementById("householdregister").value = "否";
+        }
+    },
+    handleIsrisk:function(event){
+        event.preventDefault();
+        var reg = new RegExp('(\\s|^)' + "active" + '(\\s|$)');
+        document.getElementsByName("isrisk").className = document.getElementsByName("household").className.replace(reg, ' ');
+        event.target.className += " " + "active";
+        if (event.target.innerHTML  == "是") {
+            document.getElementById("dangerousreason").disabled=false;
+            document.getElementById("highrisk").value = "是";
+        } else {
+            document.getElementById("dangerousreason").disabled=true;
+            document.getElementById("dangerousreason").value="";
+            document.getElementById("highrisk").value = "否";
+        }
     },
     sendMsgBtn: function (event) {
         event.preventDefault();
@@ -232,7 +258,7 @@ export default React.createClass({
                             保健科室
                         </td>
                         <td>
-                            <input id="department" className="formcontroller" type="text" readOnly=""
+                            <input id="department" className="formcontroller" type="text" readOnly="readonly"
                                    value={this.state.department} placeholder="选择科室" onChange={this.handleChange}/>
                             <input id="departmentvalue" type="hidden" name="department"
                                    value={this.state.departmentvalue} onChange={this.handleChange}/>
@@ -414,9 +440,9 @@ export default React.createClass({
                             <label className="orangestar">*</label>是否为本市户口户籍
                         </td>
                         <td>
-                            <span className="whitebtn active" name="household">是</span>
+                            <span className="whitebtn active" name="household" onClick={this.handleHousehold}>是</span>
                             <span className="whitebtn" name="household" style={{marginLeft:"2rem"}}>否</span>
-                            <input type="hidden" name="householdregister" id="householdregister" value="是"/>
+                            <input type="hidden" name="householdregister" id="householdregister" value={this.state.householdregister}/>
                         </td>
                     </tr>
                     </tbody>
@@ -428,7 +454,7 @@ export default React.createClass({
                             <label className="orangestar">*</label>居住地区
                         </td>
                         <td>
-                            <input id="address" name="district" className="formcontroller" type="text" readOnly=""
+                            <input id="address" name="district" className="formcontroller" type="text" readOnly="readonly"
                                    placeholder="选择区域" value={this.state.district} onChange={this.handleChange}/>
                             <input id="addressvalue" type="hidden" value={this.state.addressvalue}
                                    onChange={this.handleChange}/>
