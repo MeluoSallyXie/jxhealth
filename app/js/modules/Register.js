@@ -7,8 +7,8 @@ import { Link } from 'react-router'
 export default React.createClass({
     getInitialState: function () {
         return {
-            weight:"",
-            agree:"",
+            weight: "",
+            agree: "",
             realname: "",
             telephone: "",
             barcode: "",
@@ -63,7 +63,14 @@ export default React.createClass({
     componentWillMount: function () {
         document.title = '注册';
     },
+    componentDidMount: function () {
+        var top = document.getElementById("hr1").offsetTop - document.getElementById("title1").style.height / 2;
+        document.getElementById("title1").style({top: top + "px"});
+        var top2 = document.getElementById("hr2").offsetTop - document.getElementById("title2").style.height / 2;
+        document.getElementById("title2").style({top: top2 + "px"});
+    },
     render: function () {
+
         return (
             <form action="" method="post" enctype="multipart/form-data" id="register_form">
                 <div className="register_title" id="title1">您的个人资料</div>
@@ -352,15 +359,15 @@ export default React.createClass({
                     </tr>
                     </tbody>
                 </table>
-                <div className="register_outer" align="center">
+                <div className="register_outer" style={{textAlign:"center"}}>
                     <div style={{marginTop:"3rem"}}>
                         <input type="checkbox" name="agree" value="1"
                                style={{height:"3rem",verticalAlign:"middle"}} value={this.state.agree}
-                               onChange={this.handleChange}/><label style={{fontSize:"1.5rem"}}>我已阅读并同意<a
-                        style={{color:"#fe8e19"}} href="http://opencart.meluo.net/registerterms.html">用户协议</a>
+                               onChange={this.handleChange}/><label style={{fontSize:"1.5rem"}}>我已阅读并同意
+                        <Link to="/registerterms" style={{color:"#fe8e19"}}>用户协议</Link>
                     </label>
                     </div>
-                    <div>
+                    <div style={{textAlign:"center"}}>
                         <span className="whitebtn active" style={{margin:"3rem"}} onclick=""
                               id="register_submitbtn">提交</span>
                     </div>
