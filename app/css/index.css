@@ -923,6 +923,10 @@ div.register_title {
     margin-left: -7.5rem;
 }
 
+div.register_info{
+    font-size: 1.75rem;margin-right: 1rem
+}
+
 .orangestar {
     color: #fe8e19;
     font-weight: bold;
