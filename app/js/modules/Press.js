@@ -11,13 +11,11 @@ export default React.createClass({
             description:{__html:""}
         };
     },
-    componentWillMount:function(){
-        document.title = '权威文章';
-    },
     componentDidMount: function () {
         var postData = {"press_id": this.props.params.id};
         jsonp("/press/press", postData, "POST", function (data) {
             if (data.code == 0) {
+                document.title = data.data.heading_title;
                 this.setState({
                     title: data.data.title,
                     description: {__html:data.data.description},

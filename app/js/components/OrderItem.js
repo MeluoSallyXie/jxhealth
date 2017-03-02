@@ -8,7 +8,11 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 var OrderItem = React.createClass({
+    contact:function(event){
+        event.stopPropagation();
+        location.href = "tel:"+this.props.service_tel;
 
+    },
     render: function () {
         var productList = this.props.products.map(function (product, index) {
             return (
@@ -70,7 +74,7 @@ var OrderItem = React.createClass({
                                     {productList}
                                 </td>
                                 <td align="right">
-                                    <span className="listPaybtn">联系客服</span>
+                                    <span className="listPaybtn" onClick={this.contact}>联系客服</span>
                                 </td>
                             </tr>
                             </tbody>
