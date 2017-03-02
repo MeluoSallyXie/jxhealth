@@ -5,6 +5,7 @@
 
 var React = require('react');
 var ReactDOM = require('react-dom');
+import { Link,History } from 'react-router'
 require("../lib/util");
 let jsonp = require('../lib/jsonp');
 
@@ -54,7 +55,7 @@ class Binding extends React.Component {
             };
             jsonp("/wechat/wechatbinding", postData, "POST", function (data) {
                 if (data.code == 0) {
-                    alert("绑定成功");
+                    this.props.history.pushState(null, "/registersuccess");
                 }
                 else {
                     console.error(data.message)
@@ -65,23 +66,49 @@ class Binding extends React.Component {
 
     sendMsg(event) {
         event.preventDefault();
-        if(this.state.telephone.length==0){
+        if (this.state.telephone.length == 0) {
             alert("请输入手机号码！");
-            return ;
+            return;
         }
-        if(this.state.telephone.length!=11){
+        if (this.state.telephone.length != 11) {
             alert("请输入有效的手机号码！");
-            return ;
+            return;
         }
+
+        var InterValObj; //timer变量，控制时间
+        var count = 90; //间隔函数，1秒执行
+        var curCount;//当前剩余秒数
+        curCount = count;
+        var sendCodeObj = document.getElementById("btnSendCode");
+        var reg = new RegExp('(\\s|^)' + "sendMsgBtn" + '(\\s|$)');
+        obj.className = sendCodeObj.className.replace(reg, ' ');
+        sendCodeObj.className += " " + "sendMsgBtnDis";
+
+        //设置button效果，开始计时
+        sendCodeObj.innerHTML = "请在" + curCount + "秒内输入";
+        InterValObj = window.setInterval(function () {
+            if (curCount == 0) {
+                window.clearInterval(InterValObj);//停止计时器
+                sendCodeObj.className += " " + "sendMsgBtn";
+                var reg = new RegExp('(\\s|^)' + "sendMsgBtnDis" + '(\\s|$)');
+                obj.className = sendCodeObj.className.replace(reg, ' ');
+                sendCodeObj.innerHTML = "重新发送";
+            }
+            else {
+                curCount--;
+                sendCodeObj.innerHTML = "请在" + curCount + "秒内输入";
+            }
+        }, 1000); //启动计时器，1秒执行一次
+
         //发送验证码
         var postData = {"telephone": this.state.telephone};
         jsonp("/wechat/wechatbinding/validcode", postData, "POST", function (data) {
-            alert(data.html);
-            /*if (data.code == 0) {
-             }
-             else {
-             console.error(data.message)
-             }*/
+            if (data.code == 0) {
+                alert("发送成功");
+            }
+            else {
+                console.error(data.message)
+            }
         }.bind(this));
     }
 

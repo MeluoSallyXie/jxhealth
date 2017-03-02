@@ -11,6 +11,7 @@ import WechatBinding from './modules/WechatBinding'
 import Documents from './modules/Documents'
 import Document from './modules/Document'
 import Advise from './modules/Advise'
+import AdviseSuccess from './modules/AdviseSuccess'
 import PersonalInfo from './modules/PersonalInfo'
 import PressAll from './modules/PressAll'
 import Press from './modules/Press'
@@ -25,7 +26,7 @@ import OrderTo from './modules/OrderTo'
 import OrderCompleted from './modules/OrderCompleted'
 import OrderPaid from './modules/OrderPaid'
 import CheckList from './modules/CheckList'
-import AdviseSuccess from './modules/AdviseSuccess'
+import RegisterSuccess from './modules/RegisterSuccess'
 import Repos from './modules/Repos'
 
 
@@ -53,7 +54,7 @@ render((
         <Route path="/orderpaid" component={OrderPaid}/>
         <Route path="/checklist" component={CheckList}/>
         <Route path="/shedule/:id" component={Shedule}/>
-
+        <Route path="/registersuccess" component={RegisterSuccess}/>
         <Route path="/repos" component={Repos}/>
     </Router>
 ), document.getElementById('app'));
