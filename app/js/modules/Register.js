@@ -57,10 +57,7 @@ export default React.createClass({
     handleHousehold:function(event){
         event.preventDefault();
         var reg = new RegExp('(\\s|^)' + "active" + '(\\s|$)');
-        document.getElementsByName("household").map(function(obj,index){
-            obj.className = obj.className.replace(reg, ' ');
-        });
-        //document.getElementsByName("household").className = event.target.className.replace(reg, ' ');
+        document.getElementsByName("household").className = event.target.className.replace(reg, ' ');
         event.target.className += " " + "active";
         if (event.target.innerHTML == "是") {
             document.getElementById("householdregister").value = "是";
@@ -446,7 +443,7 @@ export default React.createClass({
                         <td>
                             <span className="whitebtn active" name="household" onClick={this.handleHousehold}>是</span>
                             <span className="whitebtn" name="household" onClick={this.handleHousehold} style={{marginLeft:"2rem"}}>否</span>
-                            <input type="hidden" name="householdregister" id="householdregister" value={this.state.householdregister}/>
+                            <input type="hidden" name="householdregister" id="householdregister" value={this.state.householdregister} onchange={this.handleChange}/>
                         </td>
                     </tr>
                     </tbody>
