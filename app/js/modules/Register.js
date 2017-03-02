@@ -57,7 +57,8 @@ export default React.createClass({
     handleHousehold:function(event){
         event.preventDefault();
         var reg = new RegExp('(\\s|^)' + "active" + '(\\s|$)');
-        document.getElementsByName("household").className = event.target.className.replace(reg, ' ');
+        document.getElementsByName("household")[0].className = event.target.className.replace(reg, ' ');
+        document.getElementsByName("household")[1].className = event.target.className.replace(reg, ' ');
         event.target.className += " " + "active";
         if (event.target.innerHTML == "是") {
             document.getElementById("householdregister").value = "是";
@@ -70,7 +71,8 @@ export default React.createClass({
         event.preventDefault();
         var reg = new RegExp('(\\s|^)' + "active" + '(\\s|$)');
         alert(event.target.className.replace(reg, ' '));
-        document.getElementsByName("isrisk").className = event.target.className.replace(reg, ' ');
+        document.getElementsByName("isrisk")[0].className = event.target.className.replace(reg, ' ');
+        document.getElementsByName("isrisk")[1].className = event.target.className.replace(reg, ' ');
         event.target.className += " " + "active";
         if (event.target.innerHTML  == "是") {
             document.getElementById("dangerousreason").disabled=false;
