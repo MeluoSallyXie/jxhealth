@@ -25,7 +25,7 @@ export default React.createClass({
                     var bannerObj = data.data.banners[i];
                     imgArray.push({"url": global.ImgUrl + bannerObj.image});
                 }
-                Header.setState({imgUrls: imgArray});
+                this.setState({imgUrls: imgArray});
                 console.info("home componentDidMount");
             }
             else {
