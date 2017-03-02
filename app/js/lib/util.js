@@ -6,14 +6,8 @@ String.prototype.trim=function(){
 }
 
 window.hasClass=function(obj, cls){
-    var obj_class = obj.className,//获取 class 内容.
-        obj_class_lst = obj_class.split(/\s+/);//通过split空字符将cls转换成数组.
-    x = 0;
-    for(x in obj_class_lst) {
-        if(obj_class_lst[x] == cls) {//循环数组, 判断是否包含cls
-            return true;
-        }
-    }
-    return false;
+    cls = cls || '';
+    if (cls.replace(/\s/g, '').length == 0) return false; //当cls没有参数时，返回false
+    return new RegExp(' ' + cls + ' ').test(' ' + elem.className + ' ');
 }
 global.ImgUrl="http://test.jinxingjk.com/";
