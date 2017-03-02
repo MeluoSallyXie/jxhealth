@@ -14,6 +14,9 @@ var Header = React.createClass({
             imgUrls: []
         };
     },
+    updateState: function (data) {
+        this.setState({imgUrls: data});
+    },
     componentDidMount: function () {
         console.info("Header componentDidMount");
         new Swiper('.swiper-container', {
