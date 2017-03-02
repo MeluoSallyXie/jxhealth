@@ -46,7 +46,11 @@ export default React.createClass({
             },
             tenth: {
                 start: "",
-                end: ""
+                end: "",
+                firend:"",
+                secstart:"",
+                secend:"",
+                thistart:""
             }
         };
     },
@@ -96,7 +100,11 @@ export default React.createClass({
                     },
                     tenth: {
                         start: data.data.tenth.start,
-                        end: data.data.tenth.end
+                        end: data.data.tenth.end,
+                        firend:data.data.tenth.firend,
+                        secstart:data.data.tenth.secstart,
+                        secend:data.data.tenth.secend,
+                        thistart:data.data.tenth.thistart
                     }
                 });
             }
@@ -269,7 +277,7 @@ export default React.createClass({
                         <tbody>
                         <tr>
                             <td className="title">
-                                <Link to={"/shedule/1?start="+this.state.tenth.start+"&end="+this.state.tenth.end}>第十--十二次产检（第38-40周）</Link>
+                                <Link to={"/shedule/1?start="+this.state.tenth.start+"&end="+this.state.tenth.end+"&firend="+this.state.tenth.firend+"&secstart="+this.state.tenth.secstart+"&secend="+this.state.tenth.secend+"&thistart="+this.state.tenth.thistart}>第十--十二次产检（第38-40周）</Link>
                             </td>
                             <td rowSpan="2" className="highInfo">
                             </td>

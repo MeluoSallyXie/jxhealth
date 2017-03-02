@@ -140,15 +140,15 @@ export default React.createClass({
                         <td>
                             检查时间：
                         </td>
-                        <td>{this.props.location.query.firtime}</td>
+                        <td>{this.props.location.query.start}至{this.props.location.query.firend}</td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td>{this.props.location.query.sectime}</td>
+                        <td>{this.props.location.query.secstart}至{this.props.location.query.secend}</td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td>{this.props.location.query.thitime}</td>
+                        <td>{this.props.location.query.thistart}至{this.props.location.query.end}</td>
                     </tr>
                     </tbody>
                 </table>

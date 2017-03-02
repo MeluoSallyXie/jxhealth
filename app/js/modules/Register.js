@@ -4,6 +4,8 @@
 import React from 'react'
 import { Link } from 'react-router'
 let jsonp = require('../lib/jsonp');
+require('../../css/LArea.css');
+require('../lib/LArea');
 require('../lib/util');
 
 export default React.createClass({
@@ -119,6 +121,21 @@ export default React.createClass({
         document.getElementById("title1").style.top = top + "px";
         var top2 = document.getElementById("hr2").offsetTop - document.getElementById("title2").offsetHeight / 2;
         document.getElementById("title2").style.top = top2 + "px";
+        var postData = {"code": ""};
+        jsonp("/common/homem", postData, "POST", function (data) {
+            if (data.code == 0) {
+                var imgArray = new Array();
+                var bannerLen = data.data.banners.length;
+                for (var i = 0; i < bannerLen; i++) {
+                    var bannerObj = data.data.banners[i];
+                    imgArray.push({"url": global.ImgUrl + bannerObj.image});
+                }
+                this.setState({imgUrls: imgArray});
+            }
+            else {
+                console.error(data.message)
+            }
+        }.bind(this));
     },
     render: function () {
 
