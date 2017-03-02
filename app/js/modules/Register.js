@@ -120,13 +120,13 @@ export default React.createClass({
         document.getElementById("title1").style.top = top + "px";
         var top2 = document.getElementById("hr2").offsetTop - document.getElementById("title2").offsetHeight / 2;
         document.getElementById("title2").style.top = top2 + "px";
-        var postData = {"code": ""};
+        var postData = null;
         jsonp("/wechat/wechatbinding/getAddress", postData, "POST", function (data) {
             if (data.code == 0) {
                 var provs_data = data.data.province;
                 var citys_data = data.data.city;
                 var dists_data = data.data.district;
-                var allcitys_data = data.data.allcitys;
+                var allcitys_data = data.data.allcities;
                 var deps_data = data.data.office;
                 var area2 = new LArea();
                 area2.init({
