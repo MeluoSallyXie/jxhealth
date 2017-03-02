@@ -24,7 +24,7 @@ var Header = React.createClass({
         return (
             <div id="header">
                 <div className="swiper-container">
-                    <div className="swiper-wrapper flexslider">
+                    <div className="swiper-wrapper">
                         {
                             this.props.imgUrls.map(function (img, index) {
                                 return (
