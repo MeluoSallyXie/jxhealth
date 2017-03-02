@@ -119,8 +119,6 @@ class Binding extends React.Component {
                     <tr>
                         <td>状态</td>
                         <td>
-                            <input type="text" name="telephone" id="telephone" className="formcontroller"
-                                   value={this.state.telephone} onChange={this.handleChange}/>
                             <select className="formcontroller" name="pregnantstatus" onChange={this.handleChange}>
                                 <option value="0">未怀孕</option>
                                 <option value="2">已生产</option>
