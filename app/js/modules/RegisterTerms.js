@@ -7,7 +7,7 @@ export default React.createClass({
     render() {
         return (
             <div>
-                <div align="center">
+                <div style={{textAlign:"center"}}>
                     <h2>用户服务协议</h2>
                 </div>
                 <div style={{margin: "1.5rem"}}>
