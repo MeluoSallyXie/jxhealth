@@ -116,7 +116,7 @@ class Binding extends React.Component {
                                         <input type="text" name="smscode" id="verificationcode"
                                                onChange={this.handleChange}/>
                                     </td>
-                                    <td className="sendMsgBtn" id="btnSendCode" onclick={this.sendMsg}>
+                                    <td className="sendMsgBtn" id="btnSendCode" onClick={this.sendMsg}>
                                         发送验证码
                                     </td>
                                 </tr>
