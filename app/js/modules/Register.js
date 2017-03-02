@@ -54,6 +54,34 @@ export default React.createClass({
         var val = d.getFullYear() + "-" + month + "-" + day;
         return val;
     },
+    countindex:function(event){
+        if(document.getElementById("input-weight").value.trim().length == 0){
+            return;
+        }
+        var bmiindex = document.getElementById("input-weight").value / (Math.pow(document.getElementById("input-height").value, 2) / 10000);
+        var bmiindex = bmiindex.toFixed(2);
+        document.getElementById("input-bmiindex").innerHTML = bmiindex;
+        if (bmiindex < "18.5") {
+            // echo "过轻"; $bmitype = "0";
+            document.getElementById("input-bmitype").innerHTML = "过轻";
+        }
+        else if (bmiindex < "25") {
+            //echo "正常"; $bmitype = "1";
+            document.getElementById("input-bmitype").innerHTML = "正常";
+        }
+        else if (bmiindex < "28") {
+            //echo "过重"; $bmitype = "2";
+            document.getElementById("input-bmitype").innerHTML = "过重";
+        }
+        else if (bmiindex < "32") {
+            //echo "肥胖"; $bmitype = "3";
+            document.getElementById("input-bmitype").innerHTML = "肥胖";
+        }
+        else {
+            //echo "非常肥胖"; $bmitype = "4";
+            document.getElementById("input-bmitype").innerHTML = "非常肥胖";
+        }
+    },
     handleHousehold:function(event){
         event.preventDefault();
         var reg = new RegExp('(\\s|^)' + "active" + '(\\s|$)');
@@ -70,17 +98,77 @@ export default React.createClass({
     handleIsrisk:function(event){
         event.preventDefault();
         var reg = new RegExp('(\\s|^)' + "active" + '(\\s|$)');
-        alert(event.target.className.replace(reg, ' '));
         document.getElementsByName("isrisk")[0].className = event.target.className.replace(reg, ' ');
         document.getElementsByName("isrisk")[1].className = event.target.className.replace(reg, ' ');
         event.target.className += " " + "active";
         if (event.target.innerHTML  == "是") {
             document.getElementById("dangerousreason").disabled=false;
-            document.getElementById("highrisk").value = "是";
+            document.getElementById("highrisk").value = "true";
         } else {
             document.getElementById("dangerousreason").disabled=true;
             document.getElementById("dangerousreason").value="";
-            document.getElementById("highrisk").value = "否";
+            document.getElementById("highrisk").value = "false";
+        }
+    },
+    handleSubmit:function(event){
+        if (this.state.realname.trim().length < 1 || this.state.realname.trim().length > 32) {
+            alert("姓名格式不正确");
+        }
+        else if (this.state.telephone.trim().length < 1 || this.state.telephone.trim().length > 11) {
+            alert("手机号码格式不正确");
+        }else if (this.state.smscode.trim().length != 6) {
+            alert("验证码格式不正确");
+        }
+        else if (this.state.barcode.trim().length == 0) {
+            alert("条形码不能为空");
+        }
+        else if (this.state.birthday.trim().length == 0) {
+            alert("出生日期不能为空");
+        }
+        else if (this.state.height.trim().length == 0) {
+            alert("身高不能为空");
+        }
+        else if (this.state.height.trim().length == 0) {
+            alert("体重不能为空");
+        }
+        else if (this.state.lastmenstrualdate.trim().length == 0) {
+            alert("末次月经时间不能为空");
+        }
+        else if (this.state.gravidity.trim().length == 0) {
+            alert("孕次不能为空");
+        }
+        else if ((typeof this.state.gravidity)=="number") {
+            alert("孕次必须为数字");
+        }
+        else if (this.state.parity.trim().length == 0) {
+            alert("产次不能为空");
+        }
+        else if ((typeof this.state.parity)=="number") {
+            alert("产次必须为数字");
+        }
+        else if (this.state.vaginaldelivery.trim().length == 0) {
+            alert("分娩次数不能为空");
+        }
+        else if ((typeof this.state.vaginaldelivery)=="number") {
+            alert("分娩次数必须为数字");
+        }
+        else if (this.state.aesarean.trim().length == 0) {
+            alert("剖宫产次不能为空");
+        }
+        else if ((typeof this.state.aesarean)=="number") {
+            alert("剖宫产次必须为数字");
+        }
+        else if (this.state.highrisk == "true" && this.state.highriskfactor.trim().length == 0) {
+            alert("高危因素不能为空");
+        }
+        else if (this.state.address_1.trim().length == 0) {
+            alert("家庭详细地址不能为空");
+        }
+        else if (this.state.agree == false) {
+            alert("请阅读协议并确认");
+        }
+        else {
+            event.target.submit();
         }
     },
     sendMsgBtn: function (event) {
@@ -140,6 +228,9 @@ export default React.createClass({
         this.setState({
             [name]: target.value
         });
+        if(name=="weight"){
+            countindex();
+        }
     },
     componentWillMount: function () {
         document.title = '注册';
@@ -189,7 +280,7 @@ export default React.createClass({
     render: function () {
 
         return (
-            <form action="" method="post" encType="multipart/form-data" id="register_form">
+            <form action="/wechat/register" method="post" encType="multipart/form-data" id="register_form">
                 <div className="register_title" id="title1">您的个人资料</div>
                 <hr className="register_hr" id="hr1"/>
                 <table className="register_outer" style={{marginBottom: "-1rem"}}>
@@ -289,7 +380,6 @@ export default React.createClass({
                             <span className="whitebtn" style={{width:"8.75rem"}}>
                                 <input type="text" className="hiddenInput"
                                        name="weight" value={this.state.weight} onChange={this.handleChange}
-                                       onkeyup="countindex()"
                                        id="input-weight"/>kg
                             </span>
                                     </td>
@@ -487,7 +577,7 @@ export default React.createClass({
                     </label>
                     </div>
                     <div style={{textAlign:"center"}}>
-                        <span className="whitebtn active" style={{margin:"3rem"}} onclick=""
+                        <span className="whitebtn active" style={{margin:"3rem"}} onClick={this.handleSubmit()}
                               id="register_submitbtn">提交</span>
                     </div>
                 </div>
