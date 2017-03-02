@@ -66,7 +66,9 @@ var OrderItem = React.createClass({
                             </tr>
                             <tr>
                                 <td>商品：</td>
-                                {productList}
+                                <td>
+                                    {productList}
+                                </td>
                                 <td align="right">
                                     <span className="listPaybtn">联系客服</span>
                                 </td>
