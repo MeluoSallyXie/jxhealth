@@ -57,7 +57,7 @@ export default React.createClass({
     handleHousehold:function(event){
         event.preventDefault();
         var reg = new RegExp('(\\s|^)' + "active" + '(\\s|$)');
-        document.getElementsByName("household").className = document.getElementsByName("household").className.replace(reg, ' ');
+        document.getElementsByName("household").className = event.target.className.replace(reg, ' ');
         event.target.className += " " + "active";
         if (event.target.innerHTML == "是") {
             document.getElementById("householdregister").value = "是";
@@ -69,7 +69,7 @@ export default React.createClass({
     handleIsrisk:function(event){
         event.preventDefault();
         var reg = new RegExp('(\\s|^)' + "active" + '(\\s|$)');
-        document.getElementsByName("isrisk").className = document.getElementsByName("household").className.replace(reg, ' ');
+        document.getElementsByName("isrisk").className = event.target.className.replace(reg, ' ');
         event.target.className += " " + "active";
         if (event.target.innerHTML  == "是") {
             document.getElementById("dangerousreason").disabled=false;
@@ -414,8 +414,8 @@ export default React.createClass({
                                 <label className="orangestar">*</label>是否高危
                             </td>
                             <td colSpan="3">
-                                <span className="whitebtn active" name="isrisk" style={{marginRight:"4rem"}}>是</span>
-                                <span className="whitebtn" name="isrisk">否</span>
+                                <span className="whitebtn active" name="isrisk" onClick={this.handleIsrisk} style={{marginRight:"4rem"}}>是</span>
+                                <span className="whitebtn" name="isrisk" onClick={this.handleIsrisk}>否</span>
                                 <input type="hidden" name="highrisk" id="highrisk" value="是"/>
                             </td>
                         </tr>
@@ -441,7 +441,7 @@ export default React.createClass({
                         </td>
                         <td>
                             <span className="whitebtn active" name="household" onClick={this.handleHousehold}>是</span>
-                            <span className="whitebtn" name="household" style={{marginLeft:"2rem"}}>否</span>
+                            <span className="whitebtn" name="household" onClick={this.handleHousehold} style={{marginLeft:"2rem"}}>否</span>
                             <input type="hidden" name="householdregister" id="householdregister" value={this.state.householdregister}/>
                         </td>
                     </tr>
