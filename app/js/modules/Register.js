@@ -65,14 +65,14 @@ export default React.createClass({
     },
     componentDidMount: function () {
         var top = document.getElementById("hr1").offsetTop - document.getElementById("title1").style.height / 2;
-        document.getElementById("title1").style({top: top + "px"});
+        document.getElementById("title1").style.top = top + "px";
         var top2 = document.getElementById("hr2").offsetTop - document.getElementById("title2").style.height / 2;
-        document.getElementById("title2").style({top: top2 + "px"});
+        document.getElementById("title2").style.top = top2 + "px";
     },
     render: function () {
 
         return (
-            <form action="" method="post" enctype="multipart/form-data" id="register_form">
+            <form action="" method="post" encType="multipart/form-data" id="register_form">
                 <div className="register_title" id="title1">您的个人资料</div>
                 <hr className="register_hr" id="hr1"/>
                 <table className="register_outer" style={{marginBottom: "-1rem"}}>
@@ -103,7 +103,8 @@ export default React.createClass({
                             验证码
                         </td>
                         <td>
-                            <table className="sendMsg" cellpadding="0" cellspacing="0">
+                            <table className="sendMsg" cellPadding="0" cellSpacing="0">
+                                <tbody>
                                 <tr style={{height:"4rem"}}>
                                     <td>
                                         <input type="text" name="smscode" id="verificationcode"/>
@@ -112,6 +113,7 @@ export default React.createClass({
                                         发送验证码
                                     </td>
                                 </tr>
+                                </tbody>
                             </table>
                         </td>
                     </tr>
@@ -142,7 +144,7 @@ export default React.createClass({
                             保健科室
                         </td>
                         <td>
-                            <input id="department" className="formcontroller" type="text" readonly=""
+                            <input id="department" className="formcontroller" type="text" readOnly=""
                                    value={this.state.department} placeholder="选择科室" onChange={this.handleChange}/>
                             <input id="departmentvalue" type="hidden" name="department"
                                    value={this.state.departmentvalue} onChange={this.handleChange}/>
@@ -338,7 +340,7 @@ export default React.createClass({
                             <label className="orangestar">*</label>居住地区
                         </td>
                         <td>
-                            <input id="address" name="district" className="formcontroller" type="text" readonly=""
+                            <input id="address" name="district" className="formcontroller" type="text" readOnly=""
                                    placeholder="选择区域" value={this.state.district} onChange={this.handleChange}/>
                             <input id="addressvalue" type="hidden" value={this.state.addressvalue}
                                    onChange={this.handleChange}/>
