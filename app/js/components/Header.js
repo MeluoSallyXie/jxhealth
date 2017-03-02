@@ -10,7 +10,7 @@ let Swiper = require('../lib/swiper.min.js');
 
 var Header = React.createClass({
     componentDidMount: function () {
-        new Swiper('#header .swiper-container', {
+        new Swiper('.swiper-container', {
             loop: true,
             pagination: '.swiper-pagination',
             paginationClickable: true,
