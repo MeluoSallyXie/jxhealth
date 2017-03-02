@@ -16,6 +16,7 @@ export default React.createClass({
         };
     },
     componentDidMount: function () {
+        document.title = '设置标题HTTP';
         var postData = {"code": ""};
         jsonp("/common/homem", postData, "POST", function (data) {
             if (data.code == 0) {
@@ -26,7 +27,6 @@ export default React.createClass({
                     imgArray.push({"url": global.ImgUrl + bannerObj.image});
                 }
                 this.setState({imgUrls: imgArray});
-                console.info("home componentDidMount");
             }
             else {
                 console.error(data.message)
