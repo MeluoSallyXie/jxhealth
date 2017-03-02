@@ -104,7 +104,7 @@ class Binding extends React.Component {
         var postData = {"telephone": this.state.telephone};
         jsonp("/wechat/wechatbinding/validcode", postData, "POST", function (data) {
             if (data.code == 0) {
-                alert("发送成功");
+                alert(data.data.html);
             }
             else {
                 console.error(data.message)
