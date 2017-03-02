@@ -27,6 +27,7 @@ import OrderCompleted from './modules/OrderCompleted'
 import OrderPaid from './modules/OrderPaid'
 import CheckList from './modules/CheckList'
 import RegisterSuccess from './modules/RegisterSuccess'
+import RegisterTerms from './modules/RegisterTerms'
 import Repos from './modules/Repos'
 
 
@@ -55,6 +56,7 @@ render((
         <Route path="/checklist" component={CheckList}/>
         <Route path="/shedule/:id" component={Shedule}/>
         <Route path="/registersuccess" component={RegisterSuccess}/>
+        <Route path="/registerterms" component={RegisterTerms}/>
         <Route path="/repos" component={Repos}/>
     </Router>
 ), document.getElementById('app'));
