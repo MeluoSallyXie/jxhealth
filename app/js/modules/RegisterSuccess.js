@@ -10,7 +10,7 @@ export default React.createClass({
             <div>
                 <div className="welcomContainer">
                     <div className="div1">恭喜，您已注册成功！</div>
-                    <img src="/app/image/p1.png"/>
+                    <img src="app/image/p1.png"/>
                     <div className="div4">
                         进入个人中心>个人信息>基本信息，您可以查看或修改您的注册信息。<br />
                         进入个人中心>个人信息>产检计划，您可以查看孕期内每次产检的时间和内容及注意事项。<br />
