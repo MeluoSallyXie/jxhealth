@@ -58,6 +58,7 @@ export default React.createClass({
         event.preventDefault();
         var reg = new RegExp('(\\s|^)' + "active" + '(\\s|$)');
         document.getElementsByName("household").className = event.target.className.replace(reg, ' ');
+        alert(document.getElementsByName("household").className);
         event.target.className += " " + "active";
         if (event.target.innerHTML == "是") {
             document.getElementById("householdregister").value = "是";
@@ -69,6 +70,7 @@ export default React.createClass({
     handleIsrisk:function(event){
         event.preventDefault();
         var reg = new RegExp('(\\s|^)' + "active" + '(\\s|$)');
+        alert(event.target.className.replace(reg, ' '));
         document.getElementsByName("isrisk").className = event.target.className.replace(reg, ' ');
         event.target.className += " " + "active";
         if (event.target.innerHTML  == "是") {
