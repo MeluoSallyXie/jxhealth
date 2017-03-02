@@ -6,6 +6,9 @@ import { Link } from 'react-router'
 let jsonp = require('../lib/jsonp');
 
 export default React.createClass({
+    componentWillMount:function(){
+        document.title = '产检计划';
+    },
     render: function () {
         var shedule= Object;
         shedule.num1 = (

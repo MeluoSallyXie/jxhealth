@@ -15,6 +15,7 @@ export default React.createClass({
         var postData = {"category_id": this.props.params.id};
         jsonp("/product/category", postData, "POST", function (data) {
             if (data.code == 0) {
+                document.title = data.data.heading_title;
                 var productlist = data.data.products.map(function (product, index) {
                     return (
                         <ProductItem key={product.product_id} thumb={product.thumb} name={product.name}

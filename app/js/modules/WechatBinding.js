@@ -6,7 +6,9 @@ import { Link } from 'react-router'
 import Binding from '../components/Binding'
 
 export default React.createClass({
-
+    componentWillMount:function(){
+        document.title = '金杏健康';
+    },
     render: function () {
         return (
             <div>

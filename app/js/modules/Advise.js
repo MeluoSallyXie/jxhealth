@@ -31,6 +31,9 @@ export default React.createClass({
             }
         }.bind(this));
     },
+    componentWillMount:function(){
+        document.title = '投诉建议';
+    },
     render: function () {
         return (
             <form action="" method="post" className="form-horizontal">

@@ -50,6 +50,9 @@ export default React.createClass({
             }
         };
     },
+    componentWillMount:function(){
+        document.title = '产检计划';
+    },
     componentDidMount: function () {
         var postData = null;
         jsonp("/wechat/checklist", postData, "POST", function (data) {

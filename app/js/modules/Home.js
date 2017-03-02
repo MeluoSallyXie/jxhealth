@@ -15,8 +15,10 @@ export default React.createClass({
             imgUrls: []
         };
     },
+    componentWillMount:function(){
+        document.title = '金杏健康';
+    },
     componentDidMount: function () {
-        document.title = '设置标题HTTP';
         var postData = {"code": ""};
         jsonp("/common/homem", postData, "POST", function (data) {
             if (data.code == 0) {

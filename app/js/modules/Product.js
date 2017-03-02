@@ -28,6 +28,7 @@ export default React.createClass({
                     var bannerObj = data.data.images[i];
                     imgArray.push({"url": global.ImgUrl+bannerObj.image});
                 }
+                document.title = data.data.name;
                 this.setState({
                     imgUrls:imgArray,
                     heading_title: data.data.name,

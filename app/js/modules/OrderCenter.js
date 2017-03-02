@@ -13,6 +13,9 @@ export default React.createClass({
             service_tel: ""
         };
     },
+    componentWillMount:function(){
+        document.title = '订单中心';
+    },
     componentDidMount: function () {
         document.body.style.backgroundColor = "#eee";
         var postData = null;

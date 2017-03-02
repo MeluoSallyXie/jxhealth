@@ -14,6 +14,9 @@ export default React.createClass({
             orderHTML: ""
         };
     },
+    componentWillMount:function(){
+        document.title = '已支付未完成';
+    },
     componentDidMount: function () {
         document.body.style.backgroundColor = "#eee";
         var postData = null;

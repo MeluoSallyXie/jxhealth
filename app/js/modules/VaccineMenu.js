@@ -5,6 +5,9 @@ import React from 'react'
 import { Link } from 'react-router'
 
 export default React.createClass({
+    componentWillMount:function(){
+        document.title = '疫苗接种表';
+    },
     render: function () {
         return (
             <div>

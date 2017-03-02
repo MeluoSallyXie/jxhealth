@@ -14,6 +14,9 @@ export default React.createClass({
             orderHTML: ""
         };
     },
+    componentWillMount:function(){
+        document.title = '已完成订单';
+    },
     componentDidMount: function () {
         document.body.style.backgroundColor = "#eee";
         var postData = null;

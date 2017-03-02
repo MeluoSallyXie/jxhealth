@@ -12,6 +12,9 @@ export default React.createClass({
             answer: {__html: ""}
         };
     },
+    componentWillMount:function(){
+        document.title = '帮助手册';
+    },
     componentDidMount: function () {
         var postData = {"document_id": this.props.params.id};
         jsonp("/faq/document", postData, "POST", function (data) {

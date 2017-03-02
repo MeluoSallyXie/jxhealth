@@ -4,7 +4,9 @@
 import React from 'react'
 
 export default React.createClass({
-
+    componentWillMount:function(){
+        document.title = '金杏健康';
+    },
     render: function () {
         return (
             <div className="advisesuccess_div">

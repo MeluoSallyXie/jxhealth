@@ -12,6 +12,9 @@ export default React.createClass({
             documentlist: ""
         };
     },
+    componentWillMount:function(){
+        document.title = '帮助手册';
+    },
     componentDidMount: function () {
         document.body.style.backgroundColor = "#eee";
         var postData = null;

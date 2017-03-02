@@ -14,6 +14,9 @@ export default React.createClass({
         event.preventDefault();
         alert("test");
     },
+    componentWillMount:function(){
+        document.title = '回访调查';
+    },
     render: function () {
         return (
             <form method="post" enctype="multipart/form-data" className="form-horizontal" id="register_form">

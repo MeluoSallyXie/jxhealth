@@ -9,6 +9,9 @@ import { Link } from 'react-router'
 import DocumentDetail from '../components/DocumentDetail'
 
 export default React.createClass({
+    componentWillMount:function(){
+        document.title = '个人信息';
+    },
     componentDidMount: function () {
         document.body.style.backgroundColor = "#eee";
     },

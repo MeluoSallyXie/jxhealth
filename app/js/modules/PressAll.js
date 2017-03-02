@@ -14,6 +14,9 @@ export default React.createClass({
             bloglist: ""
         };
     },
+    componentWillMount:function(){
+        document.title = '权威文章';
+    },
     componentDidMount: function () {
         var postData = null;
         jsonp("/press/all", postData, "POST", function (data) {
