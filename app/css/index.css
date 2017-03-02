@@ -67,7 +67,7 @@ select.formcontroller{
     appearance:none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background: url(../../../../../image/catalog/newstyle/rightarrow.jpg) no-repeat transparent;
+    background: url(../image/rightarrow.jpg) no-repeat transparent;
     background-size:auto 100%;
     background-position: right 50%;
     margin: 0;
