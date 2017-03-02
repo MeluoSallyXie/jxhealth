@@ -26,7 +26,7 @@ export default React.createClass({
                     imgArray.push({"url": global.ImgUrl+bannerObj.image});
                 }
                 this.setState({imgUrls: imgArray});
-
+                console.info("home componentDidMount");
             }
             else {
                 console.error(data.message)
