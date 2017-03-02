@@ -13,9 +13,9 @@ export default React.createClass({
     getInitialState: function () {
         return {
             imgUrls: [
-                {images:"http://test.jinxingjk.com/image/catalog/上线图片(1).jpg"},
-                {images:"http://test.jinxingjk.com/image/catalog/母乳图片(1).jpg"},
-                {images:"http://test.jinxingjk.com/image/catalog/营养膳食(1).jpg"}
+                {url:"http://test.jinxingjk.com/image/catalog/上线图片(1).jpg"},
+                {url:"http://test.jinxingjk.com/image/catalog/母乳图片(1).jpg"},
+                {url:"http://test.jinxingjk.com/image/catalog/营养膳食(1).jpg"}
             ]
         };
     },
