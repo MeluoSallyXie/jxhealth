@@ -12,12 +12,16 @@ require('../lib/util');
 export default React.createClass({
     getInitialState: function () {
         return {
-            imgUrls: []
+            imgUrls: [
+                {images:"http://test.jinxingjk.com/image/catalog/上线图片(1).jpg"},
+                {images:"http://test.jinxingjk.com/image/catalog/母乳图片(1).jpg"},
+                {images:"http://test.jinxingjk.com/image/catalog/营养膳食(1).jpg"}
+            ]
         };
     },
     componentDidMount: function () {
         var postData = {"code": ""};
-        jsonp("/common/homem", postData, "POST", function (data) {
+        /*jsonp("/common/homem", postData, "POST", function (data) {
             if (data.code == 0) {
                 var imgArray = new Array();
                 var bannerLen = data.data.banners.length;
@@ -31,7 +35,7 @@ export default React.createClass({
             else {
                 console.error(data.message)
             }
-        }.bind(this));
+        }.bind(this));*/
     },
     render: function () {
         return (
