@@ -23,10 +23,10 @@ export default React.createClass({
                 var bannerLen = data.data.banners.length;
                 for (var i = 0; i < bannerLen; i++) {
                     var bannerObj = data.data.banners[i];
-                    imgArray.push({"url": global.ImgUrl+bannerObj.image});
+                    imgArray.push({"url": global.ImgUrl + bannerObj.image});
                 }
                 this.setState({imgUrls: imgArray});
-                this.setProps();
+                Header.setProps({imgUrls: this.state.imgUrls});
                 console.info("home componentDidMount");
             }
             else {
@@ -37,13 +37,13 @@ export default React.createClass({
     render: function () {
         return (
             <div>
-                <Header imgUrls={this.state.imgUrls} />
+                <Header imgUrls={this.state.imgUrls}/>
                 <Link to="/productcategory/20">
                     <HomeNav description="泌乳调理" srcimg="app/image/homenavimg1.png" className="homenav nav1" state="0"/>
                 </Link>
                 <HomeNav description="产后恢复" srcimg="app/image/homenavimg2.png" className="homenav nav2" state="1"/>
                 <HomeNav description="营养膳食" srcimg="app/image/homenavimg3.png" className="homenav nav3" state="1"/>
-                <BottomFooter nav="home" />
+                <BottomFooter nav="home"/>
             </div>
         );
     }
