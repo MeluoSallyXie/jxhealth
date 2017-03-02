@@ -14,10 +14,8 @@ export default React.createClass({
             orderHTML: ""
         };
     },
-    componentWillMount:function(){
-        document.title = '已完成订单';
-    },
     componentDidMount: function () {
+        document.title = '已完成订单';
         var postData = null;
         jsonp("/wechat/ordercenter/getCompletedList", postData, "POST", function (data) {
             if (data.code == 0) {

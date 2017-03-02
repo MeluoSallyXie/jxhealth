@@ -14,10 +14,8 @@ export default React.createClass({
             orderHTML: ""
         };
     },
-    componentWillMount:function(){
-        document.title = '所有订单';
-    },
     componentDidMount: function () {
+        document.title = '所有订单';
         var postData = null;
         jsonp("/wechat/ordercenter/getAllList", postData, "POST", function (data) {
             if (data.code == 0) {

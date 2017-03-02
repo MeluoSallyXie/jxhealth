@@ -14,10 +14,8 @@ export default React.createClass({
             orderHTML: ""
         };
     },
-    componentWillMount:function(){
-        document.title = '已支付未完成';
-    },
     componentDidMount: function () {
+        document.title = '已支付未完成';
         var postData = null;
         jsonp("/wechat/ordercenter/getPaidList", postData, "POST", function (data) {
             if (data.code == 0) {
