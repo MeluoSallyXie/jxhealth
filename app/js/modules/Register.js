@@ -57,8 +57,10 @@ export default React.createClass({
     handleHousehold:function(event){
         event.preventDefault();
         var reg = new RegExp('(\\s|^)' + "active" + '(\\s|$)');
-        document.getElementsByName("household").className = event.target.className.replace(reg, ' ');
-        alert(document.getElementsByName("household").className);
+        document.getElementsByName("household").map(function(obj,index){
+            obj.className = obj.className.replace(reg, ' ');
+        });
+        //document.getElementsByName("household").className = event.target.className.replace(reg, ' ');
         event.target.className += " " + "active";
         if (event.target.innerHTML == "是") {
             document.getElementById("householdregister").value = "是";
