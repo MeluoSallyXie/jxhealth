@@ -9,6 +9,9 @@ require('../lib/LArea');
 require('../lib/util');
 
 export default React.createClass({
+    contextTypes:{
+        router: React.PropTypes.object.isRequired
+    },
     getInitialState: function () {
         return {
             weight: "",
@@ -174,7 +177,16 @@ export default React.createClass({
             alert("请阅读协议并确认");
         }
         else {
-            document.getElementById("register_form").submit();
+            var formobj =  document.getElementById("register_form");
+            var postData = new FormData(formobj);
+            jsonp("/wechat/register", postData, "POST", function (data) {
+                if (data.code == 0) {
+                    this.context.router.push("/registersuccess");
+                }
+                else {
+                    console.error(data.message)
+                }
+            }.bind(this));
         }
 
     },
@@ -291,7 +303,7 @@ export default React.createClass({
     render: function () {
 
         return (
-            <form action="/wechat/register" method="post" encType="multipart/form-data" id="register_form">
+            <form id="register_form">
                 <div className="register_title" id="title1">您的个人资料</div>
                 <hr className="register_hr" id="hr1"/>
                 <table className="register_outer" style={{marginBottom: "-1rem"}}>
