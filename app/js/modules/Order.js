@@ -101,10 +101,10 @@ export default React.createClass({
             if (data.code == 0) {
                 this.setState({
                     product_id:this.props.params.id,
-                    name: data.data.product.name,
-                    price: data.data.product.price,
-                    realname: data.data.customer.realname,
-                    telephone: data.data.customer.telephone,
+                    name: data.data.name,
+                    price: data.data.price,
+                    realname: data.data.realname,
+                    telephone: data.data.telephone,
                     productCount: 1,
                     address: "",
                     addressvalue: "",
