@@ -106,10 +106,6 @@ export default React.createClass({
                     realname: data.data.realname,
                     telephone: data.data.telephone,
                     productCount: 1,
-                    address: "",
-                    addressvalue: "",
-                    shipping_address_1: "",
-                    shipping_date:"",
                     countPrice: data.data.price,
                     service_tel: data.data.service_tel
                 });
@@ -195,7 +191,7 @@ export default React.createClass({
                     </tbody>
                 </table>
                 <div className="order_detail">
-                    日期<input type="date" name="shipping_date" value="this.state.shipping_date" onChange={this.handleChange} />
+                    日期<input type="date" name="shipping_date" value={this.state.shipping_date} onChange={this.handleChange} />
                 </div>
                 <table className="order_detail" width="98%">
                     <tbody>
