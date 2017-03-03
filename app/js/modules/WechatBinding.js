@@ -2,7 +2,7 @@
  * Created by sally on 2017/2/14.
  */
 import React from 'react'
-import { Link } from 'react-router'
+import { Router,RouterContext } from 'react-router'
 require("../lib/util");
 let jsonp = require('../lib/jsonp');
 
