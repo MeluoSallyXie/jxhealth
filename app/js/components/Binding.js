@@ -21,6 +21,7 @@ class Binding extends React.Component {
     handleChange(event) {
         const target = event.target;
         const name = target.name;
+        alert(name);
         this.setState({
             [name]: target.value
         });
@@ -144,7 +145,7 @@ class Binding extends React.Component {
 
     render() {
         return (
-            <form action="" method="post" className="form-horizontal" id="bindingform">
+            <form className="form-horizontal" id="bindingform">
                 <table className="bind">
                     <tbody>
                     <tr>
