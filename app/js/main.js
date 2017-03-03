@@ -32,7 +32,7 @@ import Register from './modules/Register'
 import RegisterSuccess from './modules/RegisterSuccess'
 import RegisterTerms from './modules/RegisterTerms'
 import PhysicalReceipt from './modules/PhysicalReceipt'
-import EidtUser from './modules/EidtUser'
+import EditUser from './modules/EditUser'
 import Repos from './modules/Repos'
 
 
@@ -66,7 +66,7 @@ render((
         <Route path="/registersuccess" component={RegisterSuccess}/>
         <Route path="/registerterms" component={RegisterTerms}/>
         <Route path="/physicalreceipt" component={PhysicalReceipt}/>
-            <Route path="/physicalreceipt" component={EidtUser}/>
+        <Route path="/edituser" component={EditUser}/>
         <Route path="/repos" component={Repos}/>
     </Router>
 ), document.getElementById('app'));
