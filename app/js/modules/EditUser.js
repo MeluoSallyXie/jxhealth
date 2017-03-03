@@ -411,8 +411,8 @@ export default React.createClass({
                                 <td>是否高危：</td>
                                 <td>
                                     <span className="whitebtn active" name="isrisk" id="risk"
-                                          style={{marginRight:"4rem"}}>是</span>
-                                    <span className="whitebtn" name="isrisk" id="norisk">否</span>
+                                          style={{marginRight:"4rem"}} onClick={this.handleIsrisk}>是</span>
+                                    <span className="whitebtn" name="isrisk" id="norisk" onClick={this.handleIsrisk}>否</span>
                                     <input type="hidden" name="highrisk" id="highrisk" value={this.state.highrisk} onChange={this.handleChange}/>
                                 </td>
                             </tr>
