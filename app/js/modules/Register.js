@@ -237,6 +237,7 @@ export default React.createClass({
             [name]: value
         });
         console.log("handleChange:" + value);
+        console.log("handleChange:" + this.state[name]);
         if (name == "weight") {
             this.countindex();
         }
