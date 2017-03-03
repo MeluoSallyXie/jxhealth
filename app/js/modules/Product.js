@@ -3,6 +3,7 @@
  */
 import React from 'react'
 import Header from '../components/Header'
+import { Link } from 'react-router'
 let jsonp = require('../lib/jsonp');
 
 export default React.createClass({
@@ -107,7 +108,7 @@ export default React.createClass({
                         <div className="row">
                         </div>
                         <div className="left">
-                            <a href="#">下单支付</a>
+                            <Link to={"/order/"+this.props.params.id}>下单支付</Link>
                         </div>
                     </div>
                 </footer>

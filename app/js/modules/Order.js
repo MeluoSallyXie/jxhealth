@@ -4,22 +4,64 @@
 import React from 'react'
 require('../../css/LArea.css');
 require('../lib/LArea');
+require("../lib/util");
 let jsonp = require('../lib/jsonp');
 
 export default React.createClass({
     getInitialState: function () {
         return {
+            product_id:"",
             name: "",
             price: "",
             realname: "",
             telephone: "",
-            city: "",
-            address_1: "",
-            service_tel: ""
+            productCount: 1,
+            address: "",
+            addressvalue: "",
+            shipping_address_1: "",
+            service_tel: "",
+            shipping_date:"",
+            countPrice: ""
         }
     },
     contextTypes: {
         router: React.PropTypes.object.isRequired
+    },
+    addCount: function (event) {
+        event.preventDefault();
+        var temp = this.state.productCount;
+        if (event.target.value == "-") {
+            temp = temp - 1;
+
+            if (temp <= 0) {
+                temp = 1
+            }
+        } else {
+            temp = temp + 1;
+        }
+        this.setState({productCount: temp});
+        this.setState({countPrice: temp * this.state.price});
+    },
+    handleVoucher: function (event) {
+        event.preventDefault();
+        if (hasClass(event.target, "whitebtn active")) {
+            var couponcode = document.getElementById("couponcode").value;
+
+            var useObj = document.getElementById("useVoucher");
+            var reg = new RegExp('(\\s|^)' + "whitebtn active" + '(\\s|$)');
+            useObj.className = sendCodeObj.className.replace(reg, ' ');
+
+            var postData = {"product_id": 50, "couponcode": couponcode}
+            jsonp("/wechat/order/validcoupon", postData, "POST", function (data) {
+                if (data.code == 0) {
+                    alert("折扣券成功启用");
+                    useObj.className += " " + "whitebtn active";
+                }
+                else {
+                    console.error(data.message)
+                }
+            }.bind(this));
+        }
     },
     handleSubmit: function () {
         if (document.getElementsByName("realname")[0].value.trim().length == 0) {
@@ -33,14 +75,68 @@ export default React.createClass({
         } else if (document.getElementsByName("shipping_date")[0].trim().length == 0) {
             alert("日期不能为空");
         } else {
-            alert("验证通过");
+            var postData=this.state;
+            jsonp("/wechat/order/addOrder", postData, "POST", function (data) {
+                if (data.code == 0) {
+
+                }
+                else {
+                    console.error(data.message)
+                }
+            }.bind(this));
         }
     },
+    handleChange(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+        this.setState({
+            [name]: value
+        });
+    },
     componentDidMount: function () {
+        this.getAddress();
+        var postData = {"product_id": this.props.params.id};
+        jsonp("/wechat/order", postData, "POST", function (data) {
+            if (data.code == 0) {
+                this.setState({
+                    product_id:this.props.params.id,
+                    name: data.data.product.name,
+                    price: data.data.product.price,
+                    realname: data.data.customer.realname,
+                    telephone: data.data.customer.telephone,
+                    productCount: 1,
+                    address: "",
+                    addressvalue: "",
+                    shipping_address_1: "",
+                    shipping_date:"",
+                    countPrice: data.data.product.price,
+                    service_tel: data.data.service_tel
+                });
+            }
+            else {
+                console.error(data.message)
+            }
+        }.bind(this));
+    },
+    getAddress: function () {
         var postData = null;
         jsonp("/wechat/wechatbinding/getAddress", postData, "POST", function (data) {
             if (data.code == 0) {
-
+                var provs_data = data.data.province;
+                var citys_data = data.data.city;
+                var dists_data = data.data.district;
+                var area2 = new LArea();
+                area2.init({
+                    'trigger': '#address',
+                    'valueTo': '#addressvalue',
+                    'keys': {
+                        id: 'id',
+                        name: 'name'
+                    },
+                    'type': 2,
+                    'data': [provs_data, citys_data, dists_data]
+                });
             }
             else {
                 console.error(data.message)
@@ -57,10 +153,11 @@ export default React.createClass({
                             <td style={{color:"#333"}}>{this.state.name}</td>
                             <td rowSpan="2" style={{textAlign:"right"}}>
                                 <div style={{marginRight:"3rem"}} hidden>
-                                    <input type="button" value="-" className="order_plusbtn"/>
+                                    <input type="button" value="-" className="order_plusbtn" onClick={this.addCount}/>
                                     <label id="productCount">1</label>
-                                    <input type="hidden" name="productCount"/>
-                                    <input type="button" value="+" className="order_plusbtn"/>
+                                    <input type="hidden" name="productCount" value={this.state.productCount}
+                                           onChange={this.handleChange}/>
+                                    <input type="button" value="+" className="order_plusbtn" onClick={this.addCount}/>
                                 </div>
                             </td>
                         </tr>
@@ -72,10 +169,10 @@ export default React.createClass({
                     </table>
                 </div>
                 <div className="order_detail">
-                    联系人<input type="text" name="realname" value={this.state.realname}/>
+                    联系人<input type="text" name="realname" value={this.state.realname} onChange={this.handleChange}/>
                 </div>
                 <div className="order_detail">
-                    联系电话<input type="text" name="telephone" value={this.state.telephone}/>
+                    联系电话<input type="text" name="telephone" value={this.state.telephone} onChange={this.handleChange}/>
                 </div>
 
                 <table className="order_detail" width="98%">
@@ -86,18 +183,19 @@ export default React.createClass({
                         </td>
                         <td width="30%">
                             <input id="address" name="address" type="text" width="100%" readOnly="" placeholder="选择区域"
-                                   value={this.state.city}/>
-                            <input id="addressvalue" type="hidden" value={this.state.city}/>
+                                   value={this.state.address} onChange={this.handleChange}/>
+                            <input id="addressvalue" type="hidden" value={this.state.addressvalue}
+                                   onChange={this.handleChange}/>
                         </td>
                         <td>
                             <input type="text" name="shipping_address_1" width="100%" placeholder="详细地址"
-                                   value={this.state.address_1}/>
+                                   value={this.state.shipping_address_1} onChange={this.handleChange}/>
                         </td>
                     </tr>
                     </tbody>
                 </table>
                 <div className="order_detail">
-                    日期<input type="date" name="shipping_date"/>
+                    日期<input type="date" name="shipping_date" value="this.state.shipping_date" onChange={this.handleChange} />
                 </div>
                 <table className="order_detail" width="98%">
                     <tbody>
@@ -110,7 +208,7 @@ export default React.createClass({
                         </td>
                         <td>
                             <span className="whitebtn active info3"
-                                  id="useVoucher">使用</span>
+                                  id="useVoucher" onClick={this.handleVoucher}>使用</span>
                         </td>
                     </tr>
                     </tbody>
@@ -124,7 +222,7 @@ export default React.createClass({
                 </div>
                 <div className="order_title" style={{borderBottom:"none"}}>
                     <label>合计：</label><label style={{color:"#fe8e19"}}>￥<label
-                    id="countPrice">{this.state.price}</label></label>
+                    id="countPrice">{this.state.countPrice}</label></label>
 
                 </div>
                 <div className="footerblock"></div>
