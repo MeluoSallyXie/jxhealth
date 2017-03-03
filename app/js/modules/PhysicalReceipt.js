@@ -116,7 +116,7 @@ export default React.createClass({
     handleSwitch: function (event) {
         var temp = event.target.getAttribute("data-num");
         if (event.target.checked) {
-            document.getElementById("#div" + temp).style.display = "block";
+            document.getElementById("div" + temp).style.display = "block";
             event.target.value = false;
             document.getElementById("heart").value = "heart";
             document.getElementById("hyper").value = "hyper";
@@ -127,7 +127,7 @@ export default React.createClass({
             document.getElementById("bloods").value = "bloods";
             document.getElementById("otherelse").value = "otherelse";
         } else {
-            document.getElementById("#div" + temp).style.display = "none";
+            document.getElementById("div" + temp).style.display = "none";
             event.target.value = true;
         }
     },
