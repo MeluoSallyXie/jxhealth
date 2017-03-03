@@ -19,7 +19,7 @@ export default React.createClass({
         document.title = '金杏健康';
     },
     componentDidMount: function () {
-        var postData = {"code": ""};
+        var postData = {"code": this.props.location.query.code};
         jsonp("/common/homem", postData, "POST", function (data) {
             if (data.code == 0) {
                 var imgArray = new Array();
@@ -31,7 +31,7 @@ export default React.createClass({
                 this.setState({imgUrls: imgArray});
             }
             else {
-                console.error(data.message)
+                errorMsg(data);
             }
         }.bind(this));
     },

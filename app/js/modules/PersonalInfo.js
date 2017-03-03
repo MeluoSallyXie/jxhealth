@@ -7,6 +7,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import DocumentDetail from '../components/DocumentDetail'
+require('../lib/util');
 
 export default React.createClass({
     componentWillMount:function(){
@@ -17,12 +18,12 @@ export default React.createClass({
     },
     componentDidMount: function () {
         document.body.style.backgroundColor = "#eee";
-        var postData = {"code": ""};
+        var postData = {"code": this.props.location.query.bar};
         jsonp("/wechat/personalinfo", postData, "POST", function (data) {
             if (data.code == 0) {
             }
             else {
-                console.error(data.message)
+                errorMsg(data);
             }
         }.bind(this));
     },

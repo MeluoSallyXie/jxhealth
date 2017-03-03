@@ -4,9 +4,8 @@
 import React from 'react'
 import { Link,History } from 'react-router'
 require('../../css/mui-switch.css');
-//require('../lib/jweixin-1.0.0');
 let jsonp = require('../lib/jsonp');
-//http://res.wx.qq.com/open/js/jweixin-1.0.0.js
+require('../lib/util');
 export default React.createClass({
     getInitialState: function () {
         return {
@@ -115,9 +114,7 @@ export default React.createClass({
             alert("其他必填");
         }
         else {
-            var jsonuserinfo = document.getElementById("register_form").serializeObject();
-            alert(JSON.stringify(jsonuserinfo));
-            //document.getElementById("register_form").submit();
+            document.getElementById("register_form").submit();
         }
     },
     handleSwitch: function (event) {
@@ -168,7 +165,7 @@ export default React.createClass({
         }
     },
     componentDidMount: function () {
-        var postData = {"code": ""};
+        var postData = {"code": this.props.location.query.code};
         var divObj = document.getElementsByClassName("back_divcontent");
         for (var i = 0; i < divObj.length; i++) {
             divObj[i].style.display = "none";
@@ -190,38 +187,7 @@ export default React.createClass({
                 });
             }
             else {
-                switch (data.code) {
-                    case 1011:
-                        alert(data.message);
-                        //alert('如果您是孕妇用户，请注册后使用本功能，如果您是非孕妇用户，请直接访问健康服务', "去注册", "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5ce715491b2cf046&redirect_uri=http://opencart.meluo.net/index.php?route=wechat/register&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect");
-                        location.href = data.data[0].url;
-                        break;
-                    case 1012:
-                        alert(data.message);
-                        //alert("您不是孕妇，不需要进行回访调查喔");
-                        wx.closeWindow();
-                        break;
-                    case 1013:
-                        alert(data.message);
-                        //alert("您不是高危孕妇，不需要进行回访调查喔");
-                        wx.closeWindow();
-                        break;
-                    case 1014:
-                        alert(data.message);
-                        //alert("本次回访调查已成功提交！");
-                        wx.closeWindow();
-                        break;
-                    case 1015:
-                        alert(data.message);
-                        //alert("您未到下次回访时间，请耐心等待哦");
-                        wx.closeWindow();
-                        break;
-                    case 1016:
-                        alert(data.message);
-                        //alert("您的回访调查已结束！");
-                        wx.closeWindow();
-                        break;
-                }
+                errorMsg(data);
             }
         }.bind(this));
     },

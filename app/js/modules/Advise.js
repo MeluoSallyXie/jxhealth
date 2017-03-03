@@ -24,7 +24,7 @@ export default React.createClass({
             alert("建议内容不能为空！");
             return;
         }
-        var postData = {"advisetext": this.state.advisetext,"code":""};
+        var postData = {"advisetext": this.state.advisetext,"code":this.props.location.query.code};
         jsonp("/wechat/advise", postData, "POST", function (data) {
             if (data.code == 0) {
                 this.context.router.push("/advisesuccess");
