@@ -115,7 +115,7 @@ export default React.createClass({
     handleSwitch:function(event){
         var temp = event.target.getAttribute("data-num");
         if(event.target.checked){
-            document.getElementById("#div"+temp).show();
+            document.getElementById("#div"+temp).style.display="block";
             event.target.value=false;
             document.getElementById("heart").value = "heart";
             document.getElementById("hyper").value = "hyper";
@@ -126,7 +126,7 @@ export default React.createClass({
             document.getElementById("bloods").value = "bloods";
             document.getElementById("otherelse").value = "otherelse";
         }else {
-            document.getElementById("#div"+temp).hide();
+            document.getElementById("#div"+temp).style.display="none";
             event.target.value=true;
         }
     },
@@ -185,7 +185,7 @@ export default React.createClass({
                     alert("您的回访调查已结束！");
                 }
 
-                document.getElementsByClassName("back_divcontent").hide();
+                document.getElementsByClassName("back_divcontent").style.display="none";
                 document.getElementsByName("xzb")[0].style.disabled=true;
                 document.getElementsByName("hgb")[0].style.disabled=true;
                 document.getElementsByName("xqb")[0].style.disabled=true;
@@ -201,7 +201,7 @@ export default React.createClass({
     },
     render: function () {
         return (
-            <form method="post" encType="multipart/form-data" className="form-horizontal" id="register_form">
+            <form action="/wechat/physicalreceipt/submit" method="post" encType="multipart/form-data" className="form-horizontal" id="register_form">
                 <div>
                     <div>
                         <div className="back_div">
