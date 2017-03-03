@@ -164,18 +164,19 @@ export default React.createClass({
         }
     },
     componentDidMount: function () {
-        wx.closeWindow();
         var postData = {"code": ""};
+        var divObj=document.getElementsByClassName("back_divcontent");
+        for(var i=0;i<divObj.length;i++){
+            divObj[i].style.display = "none";
+        }
+        document.getElementsByName("xzb")[0].style.disabled = true;
+        document.getElementsByName("hgb")[0].style.disabled = true;
+        document.getElementsByName("xqb")[0].style.disabled = true;
+        document.getElementsByName("other")[0].style.disabled = true;
+
         jsonp("/wechat/physicalreceipt", postData, "POST", function (data) {
             if (data.code == 0) {
-                var divObj=document.getElementsByClassName("back_divcontent");
-                for(var i=0;i<divObj.length;i++){
-                    divObj[i].style.display = "none";
-                }
-                document.getElementsByName("xzb")[0].style.disabled = true;
-                document.getElementsByName("hgb")[0].style.disabled = true;
-                document.getElementsByName("xqb")[0].style.disabled = true;
-                document.getElementsByName("other")[0].style.disabled = true;
+
 
             }
             else {
