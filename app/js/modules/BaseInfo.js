@@ -98,7 +98,7 @@ export default React.createClass({
                 <div className="userinfo_top">
                     <img src={this.state.data.headimgurl}/>
                 </div>
-                <div className="userinfo_edit"><a href="/index.php?route=wechat/edituser"><span>修改资料</span></a></div>
+                <div className="userinfo_edit"><Link to="/edituser"><span>修改资料</span></Link></div>
                 <div className="userinfo_title">宝妈资料</div>
                 <div className="userinfo_content">
                     <table>
