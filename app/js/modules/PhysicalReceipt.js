@@ -132,7 +132,6 @@ export default React.createClass({
         }
     },
     handleHeartdisease: function (event) {
-        event.preventDefault();
         if (document.getElementById("xzbcheck").checked) {
             document.getElementsByName("xzb")[0].style.disabled = false;
         } else {
@@ -140,7 +139,6 @@ export default React.createClass({
         }
     },
     handleBlood1: function (event) {
-        event.preventDefault();
         if (document.getElementById("blood1").checked) {
             document.getElementsByName("hgb")[0].style.disabled = false;
         } else {
@@ -148,7 +146,6 @@ export default React.createClass({
         }
     },
     handleBlood2: function (event) {
-        event.preventDefault();
         if (document.getElementById("blood2").checked) {
             document.getElementsByName("xqb")[0].style.disabled = false;
         } else {
