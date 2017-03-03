@@ -10,6 +10,9 @@ export default React.createClass({
             "advisetext": ""
         }
     },
+    contextTypes:{
+        router: React.PropTypes.object.isRequired
+    },
     handleChange: function (event) {
         this.setState({
             "advisetext": event.target.value
@@ -24,7 +27,7 @@ export default React.createClass({
         var postData = {"advisetext": this.state.advisetext};
         jsonp("/wechat/advise", postData, "POST", function (data) {
             if (data.code == 0) {
-                this.props.history.pushState(null, "/advisesuccess");
+                this.context.router.push("/advisesuccess");
             }
             else {
                 console.error(data.message)
