@@ -13,7 +13,7 @@ export default React.createClass({
         return {
             weight: "",
             householdregister:"",
-            agree: "",
+            agree: false,
             realname: "",
             telephone: "",
             barcode: "",
@@ -37,6 +37,7 @@ export default React.createClass({
     },
     calproductdate: function () {
         var lastyjdate = this.state.lastmenstrualdate;
+        console.log("calproductdate:"+lastyjdate);
         if (lastyjdate) {
             document.getElementById("edc").innerHTML = this.addDate(lastyjdate, 280);
         }
@@ -231,6 +232,7 @@ export default React.createClass({
         this.setState({
             [name]: target.value
         });
+        console.log("handleChange"+target.value);
         if(name=="weight"){
             this.countindex();
         }
