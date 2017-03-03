@@ -2,7 +2,7 @@
  * Created by sally on 2017/2/14.
  */
 import React from 'react'
-import { router } from 'react-router'
+import { browserHistory } from 'react-router'
 require("../lib/util");
 let jsonp = require('../lib/jsonp');
 
@@ -54,7 +54,7 @@ export default React.createClass({
             };
             jsonp("/wechat/wechatbinding", postData, "POST", function (data) {
                 if (data.code == 0) {
-                    router.push("/registersuccess");
+                    browserHistory.push("/registersuccess");
                 }
                 else {
                     console.error(data.message)
