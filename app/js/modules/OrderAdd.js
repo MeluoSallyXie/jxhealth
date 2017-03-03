@@ -73,9 +73,9 @@ export default React.createClass({
                         shipping_address_1: data.data.shipping_address_1,
                         shipping_date: data.data.shipping_date,
                         service_tel: data.data.service_tel,
-                        coupontype: "",
-                        discount: "",
-                        lastprice: "",
+                        coupontype: data.data.coupontype,
+                        discount: data.data.discount,
+                        lastprice: data.data.lastprice,
                         order_status_id: data.data.order_status_id
                     });
             }
