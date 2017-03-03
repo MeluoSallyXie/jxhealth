@@ -20,7 +20,7 @@ export default React.createClass({
     },
     render: function () {
         return (
-            <form method="post" enctype="multipart/form-data" className="form-horizontal" id="register_form">
+            <form method="post" encType="multipart/form-data" className="form-horizontal" id="register_form">
                 <div>
                     <div>
                         <div className="back_div">
@@ -131,7 +131,7 @@ export default React.createClass({
                                     <tbody>
                                     <tr>
                                         <td width="10%">
-                                            <input type="radio" name="cure" value="未使用任何药物" checked />
+                                            <input type="radio" name="cure" value="未使用任何药物" checked="checked" />
                                         </td>
                                         <td width="40%" className="checktd">
                                             <label>未使用任何药物</label>
@@ -524,7 +524,7 @@ export default React.createClass({
                     </div>
                 </div>
                 <div className="bindBottom">
-                    <span className="whitebtn active physicalSubmitBtn" onclick="" id="register_submitbtn">确定</span>
+                    <span className="whitebtn active physicalSubmitBtn"  id="register_submitbtn">确定</span>
                 </div>
             </form>
         );
