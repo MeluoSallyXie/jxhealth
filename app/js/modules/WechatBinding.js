@@ -12,9 +12,9 @@ export default React.createClass({
             realname: '',
             telephone: "",
             smscode: "",
-            district: "111",
+            district: "",
             pregnantstatus: "",
-            addressvalue: "1111",
+            addressvalue: "",
             address_1: ""
         }
     },

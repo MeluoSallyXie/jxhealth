@@ -18,8 +18,8 @@ export default React.createClass({
             telephone: "",
             barcode: "",
             birthday: "",
-            department: "",
-            departmentvalue: "",
+            department: "111",
+            departmentvalue: "111",
             height: "",
             lastmenstrualdate: "",
             gravidity: "",
@@ -29,8 +29,8 @@ export default React.createClass({
             spontaneousabortion: "",
             drug_inducedabortion: "",
             highriskfactor: "",
-            district: "",
-            addressvalue: "",
+            district: "1111",
+            addressvalue: "1111",
             address_1: "",
             smscode:""
         }
