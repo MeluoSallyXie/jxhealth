@@ -2,7 +2,6 @@
  * Created by sally on 2017/2/14.
  */
 import React from 'react'
-import { Link } from 'react-router'
 import OrderItem from '../components/OrderItem'
 import BottomFooter from '../components/BottomFooter'
 import OrderNone from '../components/OrderNone'
@@ -23,12 +22,10 @@ export default React.createClass({
                 if (data.data.orders.length != 0) {
                     orderlist = data.data.orders.map(function (order, index) {
                         return (
-                            <Link to="/repos" key={index}>
-                                <OrderItem type="15" order_id={order.products} shipping_city={order.shipping_city}
-                                           shipping_address_1={order.shipping_address_1}
-                                           shipping_date={order.shipping_date} totals={order.totals[2].text}
-                                           products={order.products} service_tel={data.data.service_tel}/>
-                            </Link>
+                            <OrderItem type="15" order_id={order.products} shipping_city={order.shipping_city}
+                                       shipping_address_1={order.shipping_address_1}
+                                       shipping_date={order.shipping_date} totals={order.totals[2].text}
+                                       products={order.products} service_tel={data.data.service_tel}/>
                         );
                     });
                     this.setState({

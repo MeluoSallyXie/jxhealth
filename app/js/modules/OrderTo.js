@@ -2,7 +2,6 @@
  * Created by sally on 2017/2/14.
  */
 import React from 'react'
-import { Link } from 'react-router'
 import OrderItem from '../components/OrderItem'
 import BottomFooter from '../components/BottomFooter'
 import OrderNone from '../components/OrderNone'
@@ -14,7 +13,7 @@ export default React.createClass({
             orderHTML: ""
         };
     },
-    componentWillMount:function(){
+    componentWillMount: function () {
         document.title = '待支付订单';
     },
     componentDidMount: function () {
@@ -22,15 +21,13 @@ export default React.createClass({
         jsonp("/wechat/ordercenter/getPendingList", postData, "POST", function (data) {
             if (data.code == 0) {
                 var orderlist;
-                if(data.data.orders.length!=0){
-                    orderlist= data.data.orders.map(function (order, index) {
+                if (data.data.orders.length != 0) {
+                    orderlist = data.data.orders.map(function (order, index) {
                         return (
-                            <Link to="/repos" key={index}>
-                                <OrderItem type="1" order_id={order.products} shipping_city={order.shipping_city}
-                                           shipping_address_1={order.shipping_address_1}
-                                           shipping_date={order.shipping_date} totals={order.totals[2].text}
-                                           products={order.products}/>
-                            </Link>
+                            <OrderItem type="1" order_id={order.products} shipping_city={order.shipping_city}
+                                       shipping_address_1={order.shipping_address_1}
+                                       shipping_date={order.shipping_date} totals={order.totals[2].text}
+                                       products={order.products}/>
                         );
                     });
                     this.setState({
