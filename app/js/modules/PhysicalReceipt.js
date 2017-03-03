@@ -4,7 +4,7 @@
 import React from 'react'
 import { Link,History } from 'react-router'
 require('../../css/mui-switch.css');
-require("http://res.wx.qq.com/open/js/jweixin-1.0.0.js");
+require("../lib/jweixin-1.0.0.js");
 let jsonp = require('../lib/jsonp');
 
 export default React.createClass({
