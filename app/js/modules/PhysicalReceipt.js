@@ -192,7 +192,7 @@ export default React.createClass({
                 document.getElementsByName("other")[0].style.disabled=true;
             }
             else {
-                console.error(data.message)
+                alert(data.message);
             }
         }.bind(this));
     },
