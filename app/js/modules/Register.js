@@ -12,7 +12,7 @@ export default React.createClass({
     getInitialState: function () {
         return {
             weight: "",
-            householdregister:"",
+            householdregister: "",
             agree: false,
             realname: "",
             telephone: "",
@@ -32,12 +32,12 @@ export default React.createClass({
             district: "1111",
             addressvalue: "1111",
             address_1: "",
-            smscode:""
+            smscode: ""
         }
     },
     calproductdate: function () {
         var lastyjdate = this.state.lastmenstrualdate;
-        console.log("calproductdate:"+lastyjdate);
+        console.log("calproductdate:" + lastyjdate);
         if (lastyjdate) {
             document.getElementById("edc").innerHTML = this.addDate(lastyjdate, 280);
         }
@@ -56,8 +56,8 @@ export default React.createClass({
         var val = d.getFullYear() + "-" + month + "-" + day;
         return val;
     },
-    countindex:function(event){
-        if(document.getElementById("input-weight").value.trim().length == 0){
+    countindex: function (event) {
+        if (document.getElementById("input-weight").value.trim().length == 0) {
             return;
         }
         var bmiindex = document.getElementById("input-weight").value / (Math.pow(document.getElementById("input-height").value, 2) / 10000);
@@ -84,7 +84,7 @@ export default React.createClass({
             document.getElementById("input-bmitype").innerHTML = "非常肥胖";
         }
     },
-    handleHousehold:function(event){
+    handleHousehold: function (event) {
         event.preventDefault();
         var reg = new RegExp('(\\s|^)' + "active" + '(\\s|$)');
         document.getElementsByName("household")[0].className = event.target.className.replace(reg, ' ');
@@ -92,34 +92,37 @@ export default React.createClass({
         event.target.className += " " + "active";
         if (event.target.innerHTML == "是") {
             document.getElementById("householdregister").value = "是";
-
+            this.setState({householdregister: "是"});
         } else {
             document.getElementById("householdregister").value = "否";
+            this.setState({householdregister: "否"});
         }
     },
-    handleIsrisk:function(event){
+    handleIsrisk: function (event) {
         event.preventDefault();
         var reg = new RegExp('(\\s|^)' + "active" + '(\\s|$)');
         document.getElementsByName("isrisk")[0].className = event.target.className.replace(reg, ' ');
         document.getElementsByName("isrisk")[1].className = event.target.className.replace(reg, ' ');
         event.target.className += " " + "active";
-        if (event.target.innerHTML  == "是") {
-            document.getElementById("dangerousreason").disabled=false;
+        if (event.target.innerHTML == "是") {
+            document.getElementById("dangerousreason").disabled = false;
             document.getElementById("highrisk").value = "true";
+            this.setState({highrisk: "true"});
         } else {
-            document.getElementById("dangerousreason").disabled=true;
-            document.getElementById("dangerousreason").value="";
+            document.getElementById("dangerousreason").disabled = true;
+            document.getElementById("dangerousreason").value = "";
             document.getElementById("highrisk").value = "false";
+            this.setState({highrisk: "false"});
         }
     },
-    handleRegister:function(event){
+    handleRegister: function (event) {
         event.preventDefault();
         if (this.state.realname.trim().length < 1 || this.state.realname.trim().length > 32) {
             alert("姓名格式不正确");
         }
         else if (this.state.telephone.trim().length < 1 || this.state.telephone.trim().length > 11) {
             alert("手机号码格式不正确");
-        }else if (this.state.smscode.trim().length != 6) {
+        } else if (this.state.smscode.trim().length != 6) {
             alert("验证码格式不正确");
         }
         else if (this.state.barcode.trim().length == 0) {
@@ -140,25 +143,25 @@ export default React.createClass({
         else if (this.state.gravidity.trim().length == 0) {
             alert("孕次不能为空");
         }
-        else if ((typeof this.state.gravidity)=="number") {
+        else if ((typeof this.state.gravidity) == "number") {
             alert("孕次必须为数字");
         }
         else if (this.state.parity.trim().length == 0) {
             alert("产次不能为空");
         }
-        else if ((typeof this.state.parity)=="number") {
+        else if ((typeof this.state.parity) == "number") {
             alert("产次必须为数字");
         }
         else if (this.state.vaginaldelivery.trim().length == 0) {
             alert("分娩次数不能为空");
         }
-        else if ((typeof this.state.vaginaldelivery)=="number") {
+        else if ((typeof this.state.vaginaldelivery) == "number") {
             alert("分娩次数必须为数字");
         }
         else if (this.state.aesarean.trim().length == 0) {
             alert("剖宫产次不能为空");
         }
-        else if ((typeof this.state.aesarean)=="number") {
+        else if ((typeof this.state.aesarean) == "number") {
             alert("剖宫产次必须为数字");
         }
         else if (this.state.highrisk == "true" && this.state.highriskfactor.trim().length == 0) {
@@ -167,13 +170,13 @@ export default React.createClass({
         else if (this.state.address_1.trim().length == 0) {
             alert("家庭详细地址不能为空");
         }
-        else if (this.state.agree == false) {
+        else if (!this.state.agree) {
             alert("请阅读协议并确认");
         }
         else {
             alert("验证成功");
         }
-        console.log("agree:"+this.state.agree);
+        console.log("agree:" + this.state.agree);
     },
     sendMsgBtn: function (event) {
         event.preventDefault();
@@ -233,11 +236,11 @@ export default React.createClass({
         this.setState({
             [name]: value
         });
-        console.log("handleChange:"+value);
-        if(name=="weight"){
+        console.log("handleChange:" + value);
+        if (name == "weight") {
             this.countindex();
         }
-        else if(name=="lastmenstrualdate"){
+        else if (name == "lastmenstrualdate") {
             this.calproductdate();
         }
     },
@@ -289,7 +292,7 @@ export default React.createClass({
     render: function () {
 
         return (
-            <form  id="register_form">
+            <form id="register_form">
                 <div className="register_title" id="title1">您的个人资料</div>
                 <hr className="register_hr" id="hr1"/>
                 <table className="register_outer" style={{marginBottom: "-1rem"}}>
@@ -324,7 +327,8 @@ export default React.createClass({
                                 <tbody>
                                 <tr style={{height:"4rem"}}>
                                     <td>
-                                        <input type="text" name="smscode" id="verificationcode" value={this.state.smscode} onChange={this.handleChange}/>
+                                        <input type="text" name="smscode" id="verificationcode"
+                                               value={this.state.smscode} onChange={this.handleChange}/>
                                     </td>
                                     <td className="sendMsgBtn" onClick={this.sendMsgBtn}>
                                         发送验证码
@@ -516,7 +520,8 @@ export default React.createClass({
                                 <label className="orangestar">*</label>是否高危
                             </td>
                             <td colSpan="3">
-                                <span className="whitebtn active" name="isrisk" onClick={this.handleIsrisk} style={{marginRight:"4rem"}}>是</span>
+                                <span className="whitebtn active" name="isrisk" onClick={this.handleIsrisk}
+                                      style={{marginRight:"4rem"}}>是</span>
                                 <span className="whitebtn" name="isrisk" onClick={this.handleIsrisk}>否</span>
                                 <input type="hidden" name="highrisk" id="highrisk" value="是"/>
                             </td>
@@ -543,8 +548,10 @@ export default React.createClass({
                         </td>
                         <td>
                             <span className="whitebtn active" name="household" onClick={this.handleHousehold}>是</span>
-                            <span className="whitebtn" name="household" onClick={this.handleHousehold} style={{marginLeft:"2rem"}}>否</span>
-                            <input type="hidden" name="householdregister" id="householdregister" value={this.state.householdregister} onchange={this.handleChange}/>
+                            <span className="whitebtn" name="household" onClick={this.handleHousehold}
+                                  style={{marginLeft:"2rem"}}>否</span>
+                            <input type="hidden" name="householdregister" id="householdregister"
+                                   value={this.state.householdregister}/>
                         </td>
                     </tr>
                     </tbody>
@@ -556,7 +563,8 @@ export default React.createClass({
                             <label className="orangestar">*</label>居住地区
                         </td>
                         <td>
-                            <input id="address" name="district" className="formcontroller" type="text" readOnly="readonly"
+                            <input id="address" name="district" className="formcontroller" type="text"
+                                   readOnly="readonly"
                                    placeholder="选择区域" value={this.state.district} onChange={this.handleChange}/>
                             <input id="addressvalue" type="hidden" value={this.state.addressvalue}
                                    onChange={this.handleChange}/>
@@ -586,7 +594,8 @@ export default React.createClass({
                     </label>
                     </div>
                     <div style={{textAlign:"center"}}>
-                        <span className="whitebtn active" style={{margin:"3rem"}} onClick={this.handleRegister} id="register_submitbtn">提交</span>
+                        <span className="whitebtn active" style={{margin:"3rem"}} onClick={this.handleRegister}
+                              id="register_submitbtn">提交</span>
                     </div>
                 </div>
             </form>
