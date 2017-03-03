@@ -56,9 +56,12 @@ export default React.createClass({
                 if (data.code == 0) {
                     alert("折扣券成功启用");
                     useObj.className += " " + "whitebtn active";
+
                 }
                 else {
-                    console.error(data.message)
+                    alert(data.message);
+                    useObj.className += " " + "whitebtn active";
+
                 }
             }.bind(this));
         }
@@ -66,13 +69,13 @@ export default React.createClass({
     handleSubmit: function () {
         if (document.getElementsByName("realname")[0].value.trim().length == 0) {
             alert("姓名不能为空");
-        } else if (document.getElementsByName("telephone")[0].value.trim().length < 1 || document.getElementsByName("telephone")[0].trim().length > 11) {
+        } else if (document.getElementsByName("telephone")[0].value.trim().length < 1 || document.getElementsByName("telephone")[0].value.trim().length > 11) {
             alert("电话格式不正确");
         } else if (document.getElementById("addressvalue").value.trim().length == 0) {
             alert("区域不能为空");
         } else if (document.getElementsByName("shipping_address_1")[0].value.trim().length == 0) {
             alert("详细地址不能为空");
-        } else if (document.getElementsByName("shipping_date")[0].trim().length == 0) {
+        } else if (document.getElementsByName("shipping_date")[0].value.trim().length == 0) {
             alert("日期不能为空");
         } else {
             localStorage.orderinfo=this.state;
