@@ -35,8 +35,8 @@ export default React.createClass({
             smscode: ""
         }
     },
-    calproductdate: function () {
-        var lastyjdate = this.state.lastmenstrualdate;
+    calproductdate: function (value) {
+        var lastyjdate = value;
         console.log("calproductdate:" + lastyjdate);
         if (lastyjdate) {
             document.getElementById("edc").innerHTML = this.addDate(lastyjdate, 280);
@@ -236,13 +236,11 @@ export default React.createClass({
         this.setState({
             [name]: value
         });
-        console.log("handleChange:" + value);
-        console.log("handleChange state value:" + this.state[name]);
         if (name == "weight") {
-            this.countindex();
+            this.countindex(value);
         }
         else if (name == "lastmenstrualdate") {
-            this.calproductdate();
+            this.calproductdate(value);
         }
     },
     componentWillMount: function () {
