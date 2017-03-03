@@ -75,15 +75,8 @@ export default React.createClass({
         } else if (document.getElementsByName("shipping_date")[0].trim().length == 0) {
             alert("日期不能为空");
         } else {
-            var postData=this.state;
-            jsonp("/wechat/order/addOrder", postData, "POST", function (data) {
-                if (data.code == 0) {
-
-                }
-                else {
-                    console.error(data.message)
-                }
-            }.bind(this));
+            localStorage.orderinfo=this.state;
+            this.context.router.push("/advisesuccess");
         }
     },
     handleChange(event) {
