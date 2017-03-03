@@ -12,7 +12,7 @@ let jsonp = require('../lib/jsonp');
 class Binding extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {realname: '', telephone: "", smscode: "", district: "", addressvalue: "", address_1: ""};
+        this.state = {realname: '', telephone: "", smscode: "", district: "", pregnantstatus:"",addressvalue: "", address_1: ""};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.sendMsg = this.sendMsg.bind(this);
@@ -21,7 +21,6 @@ class Binding extends React.Component {
     handleChange(event) {
         const target = event.target;
         const name = target.name;
-        alert(name);
         this.setState({
             [name]: target.value
         });
@@ -185,7 +184,7 @@ class Binding extends React.Component {
                     <tr>
                         <td>状态</td>
                         <td>
-                            <select className="formcontroller" name="pregnantstatus" onChange={this.handleChange}>
+                            <select className="formcontroller" name="pregnantstatus" value={this.state.pregnantstatus} onChange={this.handleChange}>
                                 <option value="0">未怀孕</option>
                                 <option value="2">已生产</option>
                                 <option value="3">孕产妇家属</option>
