@@ -38,7 +38,7 @@ export default React.createClass({
     calproductdate: function () {
         var lastyjdate = this.state.lastmenstrualdate;
         if (lastyjdate) {
-            document.getElementsById("edc").innerHTML = this.addDate(lastyjdate, 280);
+            document.getElementById("edc").innerHTML = this.addDate(lastyjdate, 280);
         }
     },
     addDate: function (date, days) {
@@ -172,6 +172,7 @@ export default React.createClass({
         else {
             alert("验证成功");
         }
+        console.log("agree:"+this.state.agree);
     },
     sendMsgBtn: function (event) {
         event.preventDefault();
@@ -575,7 +576,7 @@ export default React.createClass({
                 </table>
                 <div className="register_outer" style={{textAlign:"center"}}>
                     <div style={{marginTop:"3rem"}}>
-                        <input type="checkbox" name="agree" value="1"
+                        <input type="checkbox" name="agree"
                                style={{height:"3rem",verticalAlign:"middle"}} value={this.state.agree}
                                onChange={this.handleChange}/><label style={{fontSize:"1.5rem"}}>我已阅读并同意
                         <Link to="/registerterms" style={{color:"#fe8e19"}}>用户协议</Link>
