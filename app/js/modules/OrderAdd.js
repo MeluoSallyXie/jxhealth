@@ -89,11 +89,13 @@ export default React.createClass({
             <form id="order_form">
                 <div className="order_title">
                     <table width="100%">
+                        <tbody>
                         <tr>
                             <td style={{color:"#333"}}>{this.state.name}</td>
                             <td style={{textAlign:"right",color:"#fe8e19"}}><label
                                 style={{marginRight: "1.5rem"}}>{this.state.price}</label></td>
                         </tr>
+                        </tbody>
                     </table>
                 </div>
                 <div className="order_detail">
@@ -116,7 +118,7 @@ export default React.createClass({
                     <a href={"tel:" + this.state.service_tel}><label className="info2">{this.state.service_tel}</label></a>前来咨询
                 </p></span>
                 </div>
-                <div class="order_title" style={{borderBottom: "none"}}>
+                <div className="order_title" style={{borderBottom: "none"}}>
                     <label>原价：</label><label style={{color: "#fe8e19"}}>￥{this.state.price}</label><br />
 
                     {(() => {
