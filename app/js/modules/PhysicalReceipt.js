@@ -4,7 +4,7 @@
 import React from 'react'
 import { Link,History } from 'react-router'
 require('../../css/mui-switch.css');
-require('../lib/jweixin-1.0.0');
+//require('../lib/jweixin-1.0.0');
 let jsonp = require('../lib/jsonp');
 //http://res.wx.qq.com/open/js/jweixin-1.0.0.js
 export default React.createClass({
@@ -746,6 +746,7 @@ export default React.createClass({
                 <div className="bindBottom">
                     <span className="whitebtn active physicalSubmitBtn" onClick={this.handleSubmit}>确定</span>
                 </div>
+                <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
             </form>
         );
     }
