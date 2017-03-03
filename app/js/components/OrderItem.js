@@ -11,6 +11,9 @@ var OrderItem = React.createClass({
         location.href = "tel:"+this.props.service_tel;
 
     },
+    contextTypes: {
+        router: React.PropTypes.object.isRequired
+    },
     handlePay:function(){
         this.context.router.push("/orderadd/"+this.props.order_id);
     },

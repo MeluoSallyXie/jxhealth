@@ -14,9 +14,6 @@ export default React.createClass({
             orderHTML: ""
         };
     },
-    contextTypes: {
-        router: React.PropTypes.object.isRequired
-    },
     componentDidMount: function () {
         document.title = '所有订单';
         var postData = null;
