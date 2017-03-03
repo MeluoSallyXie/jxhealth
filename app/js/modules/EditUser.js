@@ -441,7 +441,7 @@ export default React.createClass({
                                 <td>居住地区：</td>
                                 <td>
                                     <input id="address" name="district" className="formcontroller" type="text"
-                                           readonly="" placeholder="选择区域" value={this.state.district} onChange={this.handleChange}/>
+                                           readOnly="" placeholder="选择区域" value={this.state.district} onChange={this.handleChange}/>
                                     <input id="addressvalue" type="hidden"/>
                                 </td>
                             </tr>
