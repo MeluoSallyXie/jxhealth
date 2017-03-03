@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import { Link,History } from 'react-router'
-
+require('../../css/mui-switch.css');
 
 export default React.createClass({
     getInitialState: function () {
