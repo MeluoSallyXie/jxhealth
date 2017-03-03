@@ -168,7 +168,10 @@ export default React.createClass({
         var postData = {"code": ""};
         jsonp("/wechat/physicalreceipt", postData, "POST", function (data) {
             if (data.code == 0) {
-                document.getElementsByClassName("back_divcontent").style.display = "none";
+                var divObj=document.getElementsByClassName("back_divcontent");
+                for(var i=0;i<divObj.length;i++){
+                    divObj[i].style.display = "none";
+                }
                 document.getElementsByName("xzb")[0].style.disabled = true;
                 document.getElementsByName("hgb")[0].style.disabled = true;
                 document.getElementsByName("xqb")[0].style.disabled = true;
