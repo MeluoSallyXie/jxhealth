@@ -276,7 +276,7 @@ export default React.createClass({
                         <table>
                             <tbody>
                             <tr>
-                                <td style="width: 35%;">真实姓名：</td>
+                                <td width="35%">真实姓名：</td>
                                 <td>
                                     <input type="text" className="formcontroller" value={this.state.realname}
                                            onChange={this.handleChange}
