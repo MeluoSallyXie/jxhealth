@@ -12,7 +12,7 @@ let jsonp = require('../lib/jsonp');
 class Binding extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {realname: '', telephone: "", smscode: "", district: "", pregnantstatus:"",addressvalue: "", address_1: ""};
+        this.state = {realname: '', telephone: "", smscode: "", district: "111", pregnantstatus:"",addressvalue: "1111", address_1: ""};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.sendMsg = this.sendMsg.bind(this);
