@@ -174,9 +174,9 @@ export default React.createClass({
             alert("请阅读协议并确认");
         }
         else {
-            alert("验证成功");
+            document.getElementById("register_form").submit();
         }
-        console.log("agree:" + this.state.agree);
+
     },
     sendMsgBtn: function (event) {
         event.preventDefault();
@@ -292,7 +292,7 @@ export default React.createClass({
     render: function () {
 
         return (
-            <form id="register_form">
+            <form action="/wechat/register" method="post" encType="multipart/form-data" id="register_form">
                 <div className="register_title" id="title1">您的个人资料</div>
                 <hr className="register_hr" id="hr1"/>
                 <table className="register_outer" style={{marginBottom: "-1rem"}}>
