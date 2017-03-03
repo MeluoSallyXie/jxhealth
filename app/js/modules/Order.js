@@ -49,7 +49,7 @@ export default React.createClass({
 
             var useObj = document.getElementById("useVoucher");
             var reg = new RegExp('(\\s|^)' + "whitebtn active" + '(\\s|$)');
-            useObj.className = sendCodeObj.className.replace(reg, ' ');
+            useObj.className = useObj.className.replace(reg, ' ');
 
             var postData = {"product_id": 50, "couponcode": couponcode}
             jsonp("/wechat/order/validcoupon", postData, "POST", function (data) {
