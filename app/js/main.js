@@ -58,7 +58,7 @@ render((
         <Route path="/ordercompleted" component={OrderCompleted}/>
         <Route path="/order/:id" component={Order}/>
         <Route path="/orderpaid" component={OrderPaid}/>
-        <Route path="/orderadd" component={OrderAdd}/>
+        <Route path="/orderadd/:id" component={OrderAdd}/>
         <Route path="/checklist" component={CheckList}/>
         <Route path="/shedule/:id" component={Shedule}/>
         <Route path="/register" component={Register}/>

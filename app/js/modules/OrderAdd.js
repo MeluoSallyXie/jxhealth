@@ -52,10 +52,23 @@ export default React.createClass({
         );
     },
     componentDidMount: function () {
-        var postData = {"product_id": this.props.params.id};
+        var postData = {"order_id": this.props.params.id};
         jsonp("/wechat/orderDetail", postData, "POST", function (data) {
             if (data.code == 0) {
-
+                this.setState({
+                        name: data.data.store_name,
+                        price: data.data.products[0].price,
+                        shipping_realname: data.data.shipping_realname,
+                        telephone: data.data.telephone,
+                        shipping_city: data.data.shipping_city,
+                        shipping_address_1: data.data.shipping_address_1,
+                        shipping_date: data.data.shipping_date,
+                        service_tel: data.data.service_tel,
+                        coupontype: "",
+                        discount: "",
+                        lastprice: "",
+                        order_status_id: data.data.order_status_id
+                    });
             }
             else {
                 console.error(data.message)
