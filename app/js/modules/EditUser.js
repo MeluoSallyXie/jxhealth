@@ -191,7 +191,6 @@ export default React.createClass({
         }
         else {
             var postData = this.state;
-            console.log(JSON.stringify(postData));
             jsonp("/wechat/edituser/modify", postData, "POST", function (data) {
                 if (data.code == 0) {
                     this.context.router.push("/baseinfo");
