@@ -115,7 +115,9 @@ export default React.createClass({
             alert("其他必填");
         }
         else {
-            document.getElementById("register_form").submit();
+            var jsonuserinfo = document.getElementById("register_form").serializeObject();
+            alert(JSON.stringify(jsonuserinfo));
+            //document.getElementById("register_form").submit();
         }
     },
     handleSwitch: function (event) {
