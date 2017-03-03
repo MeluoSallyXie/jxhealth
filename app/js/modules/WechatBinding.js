@@ -18,10 +18,8 @@ export default React.createClass({
             address_1: ""
         }
     },
-    contextTypes:function(){
-        return {
-            router: React.PropTypes.object.isRequired
-        }
+    contextTypes:{
+        router: React.PropTypes.object.isRequired
     },
     handleChange:function(event) {
         const target = event.target;
