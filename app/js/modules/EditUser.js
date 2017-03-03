@@ -1,7 +1,12 @@
 /**
- * Created by sally on 2017/3/3.
+ * Created by sally on 2017/2/14.
  */
 import React from 'react'
+import { Link } from 'react-router'
+let jsonp = require('../lib/jsonp');
+require('../../css/LArea.css');
+require('../lib/LArea');
+require('../lib/util');
 
 export default React.createClass({
     contextTypes: {
@@ -9,7 +14,7 @@ export default React.createClass({
     },
     getInitialState: function () {
         return {
-            headimgurl:""
+            headimgurl:"",
             weight: "",
             householdregister: false,
             agree: false,
