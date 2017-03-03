@@ -12,11 +12,19 @@ export default React.createClass({
     componentWillMount:function(){
         document.title = '个人信息';
     },
-    componentDidMount: function () {
-        document.body.style.backgroundColor = "#eee";
-    },
     componentWillUnmount: function () {
         document.body.style.backgroundColor = "white";
+    },
+    componentDidMount: function () {
+        document.body.style.backgroundColor = "#eee";
+        var postData = {"code": ""};
+        jsonp("/wechat/personalinfo", postData, "POST", function (data) {
+            if (data.code == 0) {
+            }
+            else {
+                console.error(data.message)
+            }
+        }.bind(this));
     },
     render: function () {
         var data = {
