@@ -141,7 +141,7 @@ export default React.createClass({
                         else {
                             return (
                                 <div>
-                                    <label>折扣：</label><label style={{color:"#fe8e19"}}>{this.state.discount}</label>
+                                    <label>折扣：</label><label style={{color:"#fe8e19"}}>{this.state.discount}</label><br />
                                     <label>合计：</label><label style={{color:"#fe8e19"}}>￥{this.state.lastprice}</label>
                                 </div>
                             )
@@ -152,7 +152,7 @@ export default React.createClass({
                         if (this.state.order_status_id && this.state.order_status_id) {
                             return (
                                 <div className="order_detail info1" onClick={this.callpay}>
-                                    <span className="whitebtn active info2"
+                                    <span className="whitebtn active"
                                           id="PayProduct">下一步</span>
                                 </div>
                             )
