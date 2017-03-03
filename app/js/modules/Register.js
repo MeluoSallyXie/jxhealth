@@ -231,7 +231,10 @@ export default React.createClass({
             [name]: target.value
         });
         if(name=="weight"){
-            countindex();
+            this.countindex();
+        }
+        else if(name=="lastmenstrualdate"){
+            this.calproductdate();
         }
     },
     componentWillMount: function () {
@@ -426,7 +429,7 @@ export default React.createClass({
                         </td>
                         <td>
                             <input type="date" className="formcontroller" name="lastmenstrualdate"
-                                   value={this.state.lastmenstrualdate} onChange={this.calproductdate()}/>
+                                   value={this.state.lastmenstrualdate} onChange={this.handleChange}/>
                         </td>
                     </tr>
                     </tbody>
