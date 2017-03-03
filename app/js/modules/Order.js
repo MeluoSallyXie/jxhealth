@@ -16,8 +16,8 @@ export default React.createClass({
             realname: "",
             telephone: "",
             productCount: 1,
-            address: "",
-            addressvalue: "",
+            address: "1111",
+            addressvalue: "1111",
             shipping_address_1: "",
             service_tel: "",
             shipping_date:"",
@@ -181,7 +181,7 @@ export default React.createClass({
                             <input id="address" name="address" type="text" width="100%" readOnly="" placeholder="选择区域"
                                    value={this.state.address} onChange={this.handleChange}/>
                             <input id="addressvalue" type="hidden" value={this.state.addressvalue}
-                                   onChange={this.handleChange}/>
+                                   />
                         </td>
                         <td>
                             <input type="text" name="shipping_address_1" width="100%" placeholder="详细地址"
