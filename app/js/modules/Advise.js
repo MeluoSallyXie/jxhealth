@@ -3,6 +3,7 @@
  */
 import React from 'react'
 import { Link,History } from 'react-router'
+require('../lib/util');
 
 export default React.createClass({
     getInitialState: function () {
@@ -30,7 +31,7 @@ export default React.createClass({
                 this.context.router.push("/advisesuccess");
             }
             else {
-                console.error(data.message)
+                errorMsg(data);
             }
         }.bind(this));
     },
