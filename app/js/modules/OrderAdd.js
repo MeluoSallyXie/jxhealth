@@ -99,17 +99,17 @@ export default React.createClass({
                     </table>
                 </div>
                 <div className="order_detail">
-                    联系人<label name="realname">{this.state.shipping_realname}</label>
+                    联系人&nbsp;&nbsp;<label name="realname">{this.state.shipping_realname}</label>
                 </div>
                 <div className="order_detail">
-                    联系电话<label name="telephone">{this.state.telephone}</label>
+                    联系电话&nbsp;&nbsp;<label name="telephone">{this.state.telephone}</label>
                 </div>
                 <div className="order_detail">
-                    地址<label
+                    地址&nbsp;&nbsp;<label
                     name="shipping_address_1">{this.state.shipping_city + this.state.shipping_address_1}</label>
                 </div>
                 <div className="order_detail">
-                    日期<label name="shipping_date">{this.state.shipping_date}</label>
+                    日期&nbsp;&nbsp;<label name="shipping_date">{this.state.shipping_date}</label>
                 </div>
                 <div className="order_detail" style={{height: "20rem"}}>
                     温馨提示
