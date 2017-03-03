@@ -62,7 +62,7 @@ export default React.createClass({
                     this.context.router.push("/registersuccess");
                 }
                 else {
-                    console.error(data.message)
+                    alert(data.message)
                 }
             }.bind(this));
         }
@@ -137,10 +137,10 @@ export default React.createClass({
         var postData = {"telephone": this.state.telephone};
         jsonp("/wechat/wechatbinding/validcode", postData, "POST", function (data) {
             if (data.code == 0) {
-                alert(data.data.html);
+                alert(data.message);
             }
             else {
-                console.error(data.message)
+                alert(data.message)
             }
         }.bind(this));
     },
