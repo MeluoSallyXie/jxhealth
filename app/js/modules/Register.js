@@ -228,11 +228,12 @@ export default React.createClass({
     },
     handleChange(event) {
         const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
         this.setState({
-            [name]: target.value
+            [name]: value
         });
-        console.log("handleChange"+target.value);
+        console.log("handleChange:"+value);
         if(name=="weight"){
             this.countindex();
         }
