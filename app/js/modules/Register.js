@@ -111,7 +111,8 @@ export default React.createClass({
             document.getElementById("highrisk").value = "false";
         }
     },
-    handleSubmit:function(event){
+    handleRegister:function(event){
+        event.preventDefault();
         if (this.state.realname.trim().length < 1 || this.state.realname.trim().length > 32) {
             alert("姓名格式不正确");
         }
@@ -578,8 +579,7 @@ export default React.createClass({
                     </label>
                     </div>
                     <div style={{textAlign:"center"}}>
-                        <span className="whitebtn active" style={{margin:"3rem"}}
-                              id="register_submitbtn">提交</span>
+                        <span className="whitebtn active" style={{margin:"3rem"}} onClick={this.handleRegister} id="register_submitbtn">提交</span>
                     </div>
                 </div>
             </form>
