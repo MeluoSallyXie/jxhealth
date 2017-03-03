@@ -115,7 +115,7 @@ export default React.createClass({
                     </tr>
                     </tbody>
                 </table>
-                <div class="order_detail" style={{height: "22rem"}}>
+                <div className="order_detail" style={{height: "22rem"}}>
                     温馨提示
     <span><p className="info1">1、请您仔细核对您的手机号，并保持电话畅通，服务顾问会在服务开始前与此号码沟通相关事宜。<br />
         2、您有任何疑问，也可以随时拨打客服电话：<br />
