@@ -1,17 +1,18 @@
 /**
  * Created by sally on 2017/2/27.
  */
-/**
- * Created by sally on 2017/2/15.
- */
 var React = require('react');
 var ReactDOM = require('react-dom');
+import { Link,History } from 'react-router'
 
 var OrderItem = React.createClass({
     contact:function(event){
         event.stopPropagation();
         location.href = "tel:"+this.props.service_tel;
 
+    },
+    handlePay:function(){
+        this.context.router.push("/orderadd/"+this.props.order_id);
     },
     render: function () {
         var productList = this.props.products.map(function (product, index) {
@@ -44,7 +45,7 @@ var OrderItem = React.createClass({
                                     {productList}
                                 </td>
                                 <td className="thirdRight">
-                                    <span className="listPaybtn" data-num={this.props.order_id}>去支付</span>
+                                    <span className="listPaybtn" datanum={this.props.order_id} onClick={this.handlePay}>去支付</span>
                                 </td>
                             </tr>
                             </tbody>
@@ -55,7 +56,7 @@ var OrderItem = React.createClass({
             case 5:
             case 15:
                 item = (
-                    <div className="orderList">
+                    <div className="orderList" onClick={this.handlePay}>
                         <table className="maintable">
                             <tbody>
                             <tr>

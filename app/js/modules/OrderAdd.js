@@ -46,7 +46,6 @@ export default React.createClass({
                     window.location.href = url;
                 } else if (res.err_msg == "get_brand_wcpay_request:cancel") {
                     alert("返回");
-                    window.history.back(-1);
                 }
             }
         );
