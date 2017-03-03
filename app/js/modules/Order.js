@@ -85,7 +85,7 @@ export default React.createClass({
                     this.context.router.push("/orderadd/"+data.data.order_id);
                 }
                 else {
-                    console.error(data.message)
+                    errorMsg(data);
                 }
             }.bind(this));
 

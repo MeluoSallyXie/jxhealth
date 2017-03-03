@@ -19,6 +19,9 @@ window.errorMsg=function(data){
         case 1012:alert(data.message);
             location.href=data.data[0].url;
             break;
+        case 1020:alert(data.message);
+            location.href=data.data[0].url;
+            break;
     }
 }
 global.ImgUrl="http://test.jinxingjk.com/";

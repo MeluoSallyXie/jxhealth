@@ -2,6 +2,8 @@
  * Created by sally on 2017/3/3.
  */
 import React from 'react'
+require("../lib/util");
+let jsonp = require('../lib/jsonp');
 
 export default React.createClass({
     getInitialState: function () {
@@ -80,7 +82,7 @@ export default React.createClass({
                     });
             }
             else {
-                console.error(data.message)
+                errorMsg(data);
             }
         }.bind(this));
     },
