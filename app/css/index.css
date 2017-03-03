@@ -514,6 +514,12 @@ a:hover {
     height: 6rem;
     width: 100%;
 }
+.productfooter_mobile .info1{
+    text-align: center;line-height: 6.25rem;vertical-align: middle;
+}
+.productfooter_mobile .info2{
+    color: white;font-size: 1.75rem;font-weight: bold;
+}
 .productv2_footwrap {
     height: 6rem;
     vertical-align: middle;
@@ -1189,7 +1195,9 @@ span.orangebtn {
     background: white;
     position: relative;
 }
-
+#productCount{
+    margin: 0.2rem;font-size: 2.2rem;font-weight: bold;vertical-align: top;line-height: 5.8rem;
+}
 .order_title td{
     font-weight: bold;
     font-size: 2rem;
@@ -1212,6 +1220,15 @@ span.orangebtn {
     font-size: 1.75rem;
     font-weight: bold;
     color: #666666;
+}
+.order_detail .info1{
+    margin: 0;padding: 0;font-weight: normal;line-height: 3rem;
+}
+.order_detail .info2{
+    color: #fe8e19;margin-left: 1.5rem;
+}
+.order_detail .info3{
+    margin: auto;min-width: 5rem;
 }
 
 .order_detail input{

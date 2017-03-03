@@ -25,6 +25,7 @@ import OrderAll from './modules/OrderAll'
 import OrderTo from './modules/OrderTo'
 import OrderCompleted from './modules/OrderCompleted'
 import OrderPaid from './modules/OrderPaid'
+import Order from './modules/Order'
 import CheckList from './modules/CheckList'
 import Register from './modules/Register'
 import RegisterSuccess from './modules/RegisterSuccess'
@@ -54,6 +55,7 @@ render((
         <Route path="/orderall" component={OrderAll}/>
         <Route path="/orderto" component={OrderTo}/>
         <Route path="/ordercompleted" component={OrderCompleted}/>
+        <Route path="/order" component={Order}/>
         <Route path="/orderpaid" component={OrderPaid}/>
         <Route path="/checklist" component={CheckList}/>
         <Route path="/shedule/:id" component={Shedule}/>
