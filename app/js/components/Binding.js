@@ -195,8 +195,8 @@ class Binding extends React.Component {
                         <td>服务区域</td>
                         <td>
                             <input id="address" name="district" className="formcontroller" type="text" readOnly=""
-                                   placeholder="选择区域" value={this.state.district}/>
-                            <input id="addressvalue" type="hidden" name="addressvalue" value={this.state.addressvalue}/>
+                                   placeholder="选择区域" value={this.state.district} onChange={this.handleChange} />
+                            <input id="addressvalue" type="hidden" name="addressvalue" value={this.state.addressvalue} onChange={this.handleChange}/>
                         </td>
                     </tr>
                     <tr>
