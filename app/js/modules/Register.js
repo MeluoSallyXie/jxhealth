@@ -177,7 +177,7 @@ export default React.createClass({
             alert("请阅读协议并确认");
         }
         else {
-            var postData = this.getState();
+            var postData = this.state;
             alert(JSON.stringify(postData));
             jsonp("/wechat/register", postData, "POST", function (data) {
                 if (data.code == 0) {
