@@ -4,6 +4,7 @@
 import React from 'react'
 import { Link,History } from 'react-router'
 
+
 export default React.createClass({
     getInitialState: function () {
         return {

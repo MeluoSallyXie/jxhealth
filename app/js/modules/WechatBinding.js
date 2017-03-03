@@ -3,6 +3,8 @@
  */
 import React from 'react'
 import { router } from 'react-router'
+require('../../css/LArea.css');
+require('../lib/LArea');
 require("../lib/util");
 let jsonp = require('../lib/jsonp');
 
