@@ -110,7 +110,7 @@ export default React.createClass({
                     addressvalue: "",
                     shipping_address_1: "",
                     shipping_date:"",
-                    countPrice: data.data.product.price,
+                    countPrice: data.data.price,
                     service_tel: data.data.service_tel
                 });
             }
