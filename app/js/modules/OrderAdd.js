@@ -42,13 +42,23 @@ export default React.createClass({
             'getBrandWCPayRequest', this.state.wxpay, function (res) {
                 WeixinJSBridge.log(res.err_msg);
                 if (res.err_msg == "get_brand_wcpay_request:ok") {
-                    var url = 'index.php?route=wechat/orderStatusUpdate&order_id=<?php echo $order_id; ?>';
-                    window.location.href = url;
+                    this.updateOrder();
                 } else if (res.err_msg == "get_brand_wcpay_request:cancel") {
                     alert("返回");
                 }
             }
         );
+    },
+    updateOrder:function(){
+        var postData = {"order_id": this.props.params.id};
+        jsonp("/wechat/orderStatusUpdate", postData, "POST", function (data) {
+            if (data.code == 0) {
+                this.context.router.push("/orderadd/"+this.props.params.id);
+            }
+            else {
+                console.error(data.message)
+            }
+        }.bind(this));
     },
     componentDidMount: function () {
         var postData = {"order_id": this.props.params.id};
