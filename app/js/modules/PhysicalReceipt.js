@@ -30,7 +30,7 @@ export default React.createClass({
                                     <td>
                                         <label>心脏病</label>
                                     </td>
-                                    <td align="right">
+                                    <td style={{textAlign:"right"}}>
                                         <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]" value="heart" id="heart" data-num="1" />
                                     </td>
                                 </tr>
@@ -86,7 +86,7 @@ export default React.createClass({
                                     <td>
                                         <label>高血压</label>
                                     </td>
-                                    <td align="right">
+                                    <td style={{textAlign:"right"}}>
                                         <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]" value="hyper" id="hyper" data-num="2" />
                                     </td>
                                 </tr>
@@ -120,7 +120,7 @@ export default React.createClass({
                                     <td>
                                         <label>糖尿病</label>
                                     </td>
-                                    <td align="right">
+                                    <td style={{textAlign:"right"}}>
                                         <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]" value="GI" id="GI" data-num="3" />
                                     </td>
                                 </tr>
@@ -188,7 +188,7 @@ export default React.createClass({
                                     <td>
                                         <label>肾病</label>
                                     </td>
-                                    <td align="right">
+                                    <td style={{textAlign:"right"}}>
                                         <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]" value="neph" id="neph" data-num="4" />
                                     </td>
                                 </tr>
@@ -235,7 +235,7 @@ export default React.createClass({
                                     <td>
                                         <label>肝病</label>
                                     </td>
-                                    <td align="right">
+                                    <td style={{textAlign:"right"}}>
                                         <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]" value="hepa" id="hepa" data-num="5" />
                                     </td>
                                 </tr>
@@ -308,7 +308,7 @@ export default React.createClass({
                                     <td>
                                         <label>甲状腺功能异常</label>
                                     </td>
-                                    <td align="right">
+                                    <td style={{textAlign:"right"}}>
                                         <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]" value="thy" id="thy" data-num="6" />
                                     </td>
                                 </tr>
@@ -355,7 +355,7 @@ export default React.createClass({
                                     <td>
                                         <label>血液疾病系统</label>
                                     </td>
-                                    <td align="right">
+                                    <td style={{textAlign:"right"}}>
                                         <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]"  value="bloods" id="bloods" data-num="7" />
                                     </td>
                                 </tr>
@@ -416,7 +416,7 @@ export default React.createClass({
                                     <td>
                                         <label>其他</label>
                                     </td>
-                                    <td align="right">
+                                    <td style={{textAlign:"right"}}>
                                         <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]"  value="otherelse" id="otherelse" data-num="8" />
                                     </td>
                                 </tr>
