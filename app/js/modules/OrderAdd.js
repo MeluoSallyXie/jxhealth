@@ -149,7 +149,7 @@ export default React.createClass({
                     })()}
 
                     {(() => {
-                        if (this.state.order_status_id && this.state.order_status_id) {
+                        if (this.state.order_status_id && this.state.order_status_id=="1") {
                             return (
                                 <div className="order_detail info1" onClick={this.callpay}>
                                     <span className="whitebtn active"
