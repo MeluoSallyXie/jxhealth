@@ -65,7 +65,7 @@ render((
         <Route path="/register" component={Register}/>
         <Route path="/registersuccess" component={RegisterSuccess}/>
         <Route path="/registerterms" component={RegisterTerms}/>
-        <Route path="/wechat/physicalreceipt/submit" component={PhysicalReceipt}/>
+        <Route path="/physicalreceipt" component={PhysicalReceipt}/>
         <Route path="/edituser" component={EditUser}/>
         <Route path="/repos" component={Repos}/>
     </Router>
