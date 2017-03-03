@@ -131,7 +131,7 @@ export default React.createClass({
                                     <tbody>
                                     <tr>
                                         <td width="10%">
-                                            <input type="radio" name="cure" value="未使用任何药物" checked="checked" />
+                                            <input type="radio" name="cure" value="未使用任何药物"  />
                                         </td>
                                         <td width="40%" className="checktd">
                                             <label>未使用任何药物</label>
