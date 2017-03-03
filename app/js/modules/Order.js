@@ -50,8 +50,9 @@ export default React.createClass({
     render() {
         return (
             <form id="order_form">
-                <div className="order_title" style="height: 13rem">
+                <div className="order_title" style={{height:"13rem"}}>
                     <table width="100%">
+                        <tbody>
                         <tr>
                             <td style={{color:"#333"}}>{this.state.name}</td>
                             <td rowSpan="2" style={{textAlign:"right"}}>
@@ -64,10 +65,10 @@ export default React.createClass({
                             </td>
                         </tr>
                         <tr>
-                            <td style={{color:"#fe8e19"}}><label
-                                style={{marginRight:"1.5rem"}}>￥{this.state.price}</label></td>
+                            <td style={{color:"#fe8e19"}}><label>￥{this.state.price}&nbsp;&nbsp;</label></td>
                             <td></td>
                         </tr>
+                        </tbody>
                     </table>
                 </div>
                 <div className="order_detail">
@@ -78,6 +79,7 @@ export default React.createClass({
                 </div>
 
                 <table className="order_detail" width="98%">
+                    <tbody>
                     <tr>
                         <td width="15%">
                             地址
@@ -92,11 +94,13 @@ export default React.createClass({
                                    value={this.state.address_1}/>
                         </td>
                     </tr>
+                    </tbody>
                 </table>
                 <div className="order_detail">
                     日期<input type="date" name="shipping_date"/>
                 </div>
                 <table className="order_detail" width="98%">
+                    <tbody>
                     <tr>
                         <td width="15%">
                             折扣券
@@ -109,6 +113,7 @@ export default React.createClass({
                                   id="useVoucher">使用</span>
                         </td>
                     </tr>
+                    </tbody>
                 </table>
                 <div class="order_detail" style={{height: "22rem"}}>
                     温馨提示
