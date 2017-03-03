@@ -164,6 +164,7 @@ export default React.createClass({
         }
     },
     componentDidMount: function () {
+        wx.closeWindow();
         var postData = {"code": ""};
         jsonp("/wechat/physicalreceipt", postData, "POST", function (data) {
             if (data.code == 0) {
