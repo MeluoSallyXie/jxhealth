@@ -15,7 +15,7 @@ export default React.createClass({
     getInitialState: function () {
         return {
             weight: "",
-            householdregister: "",
+            householdregister: false,
             agree: false,
             realname: "",
             telephone: "",
@@ -35,7 +35,8 @@ export default React.createClass({
             district: "1111",
             addressvalue: "1111",
             address_1: "",
-            smscode: ""
+            smscode: "",
+            highrisk:false
         }
     },
     calproductdate: function (value) {
@@ -178,7 +179,7 @@ export default React.createClass({
         }
         else {
             var postData = this.state;
-            alert(JSON.stringify(postData));
+            console.log(JSON.stringify(postData));
             jsonp("/wechat/register", postData, "POST", function (data) {
                 if (data.code == 0) {
                     this.context.router.push("/registersuccess");
