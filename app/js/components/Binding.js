@@ -38,7 +38,7 @@ class Binding extends React.Component {
         else if (this.state.smscode.trim().length != 6) {
             alert("验证码格式不正确")
         }
-        else if (this.state.addressvalue.trim().length < 1) {
+        else if (document.getElementById("addressvalue").value.trim().length < 1) {
             alert("服务区域不能为空")
         }
         else if (this.state.address_1.trim().length < 1) {
