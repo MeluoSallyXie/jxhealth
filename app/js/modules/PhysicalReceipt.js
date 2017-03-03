@@ -4,9 +4,9 @@
 import React from 'react'
 import { Link,History } from 'react-router'
 require('../../css/mui-switch.css');
-require('http://res.wx.qq.com/open/js/jweixin-1.0.0.js');
+require('../lib/jweixin-1.0.0');
 let jsonp = require('../lib/jsonp');
-
+//http://res.wx.qq.com/open/js/jweixin-1.0.0.js
 export default React.createClass({
     getInitialState: function () {
         return {
@@ -16,108 +16,108 @@ export default React.createClass({
     handleSubmit: function (event) {
         event.preventDefault();
         var countCheckXzbFalse = 0;
-        if(document.getElementById("heart").checked){
-            for(var i=0;i<document.getElementsByName("heartdisease[]").length;i++){
-                if(document.getElementsByName("heartdisease[]")[i].checked){
+        if (document.getElementById("heart").checked) {
+            for (var i = 0; i < document.getElementsByName("heartdisease[]").length; i++) {
+                if (document.getElementsByName("heartdisease[]")[i].checked) {
                     countCheckXzbFalse++;
                 }
             }
         }
         var countCheckSbFalse = 0;
-        if(document.getElementById("neph").checked){
-            for(var i=0;i<document.getElementsByName("nephropathy[]").length;i++){
-                if(document.getElementsByName("nephropathy[]")[i].checked){
+        if (document.getElementById("neph").checked) {
+            for (var i = 0; i < document.getElementsByName("nephropathy[]").length; i++) {
+                if (document.getElementsByName("nephropathy[]")[i].checked) {
                     countCheckSbFalse++;
                 }
             }
         }
         var countCheckGbFalse = 0;
-        if(document.getElementById("hepa").checked){
-            for(var i=0;i<document.getElementsByName("hepatopathy[]").length;i++){
-                if(document.getElementsByName("hepatopathy[]")[i].checked){
+        if (document.getElementById("hepa").checked) {
+            for (var i = 0; i < document.getElementsByName("hepatopathy[]").length; i++) {
+                if (document.getElementsByName("hepatopathy[]")[i].checked) {
                     countCheckGbFalse++;
                 }
             }
         }
 
         var countCheckJzxFalse = 0;
-        if(document.getElementById("thy").checked){
-            for(var i=0;i<document.getElementsByName("thyroid[]").length;i++){
-                if(document.getElementsByName("thyroid[]")[i].checked){
+        if (document.getElementById("thy").checked) {
+            for (var i = 0; i < document.getElementsByName("thyroid[]").length; i++) {
+                if (document.getElementsByName("thyroid[]")[i].checked) {
                     countCheckJzxFalse++;
                 }
             }
         }
 
         var countCheckBloodFalse = 0;
-        if(document.getElementById("bloods").checked){
-            for(var i=0;i<document.getElementsByName("blood[]").length;i++){
-                if(document.getElementsByName("blood[]")[i].checked){
+        if (document.getElementById("bloods").checked) {
+            for (var i = 0; i < document.getElementsByName("blood[]").length; i++) {
+                if (document.getElementsByName("blood[]")[i].checked) {
                     countCheckBloodFalse++;
                 }
             }
         }
 
         var countCheckOtherFalse = 0;
-        if(document.getElementById("otherelse").checked){
-            for(var i=0;i<document.getElementsByName("others[]").length;i++){
-                if(document.getElementsByName("others[]")[i].checked){
+        if (document.getElementById("otherelse").checked) {
+            for (var i = 0; i < document.getElementsByName("others[]").length; i++) {
+                if (document.getElementsByName("others[]")[i].checked) {
                     countCheckOtherFalse++;
                 }
             }
         }
 
-        if(document.getElementById("heart").checked&&countCheckXzbFalse == 3){
+        if (document.getElementById("heart").checked && countCheckXzbFalse == 3) {
             alert("心脏病必须勾选一项");
         }
-        else if(document.getElementById("xzbcheck").checked&&document.getElementsByName("xzb")[0].value.trim().length==0){
+        else if (document.getElementById("xzbcheck").checked && document.getElementsByName("xzb")[0].value.trim().length == 0) {
             alert("心脏病【其他】不能为空");
         }
-        else if(document.getElementById("xzbcheck").checked&&(document.getElementsByName("gxy")[0].value.trim().length == 0&&typeof(document.getElementsByName("gxy")[0].value)=="number")){
+        else if (document.getElementById("xzbcheck").checked && (document.getElementsByName("gxy")[0].value.trim().length == 0 && typeof(document.getElementsByName("gxy")[0].value) == "number")) {
             alert("血压数值必填且必须为数字");
         }
-        else if(document.getElementById("GI").checked&&(document.getElementsByName("tnb")[0].value.trim().length == 0||typeof(document.getElementsByName("tnb")[0].value)=="number")){
+        else if (document.getElementById("GI").checked && (document.getElementsByName("tnb")[0].value.trim().length == 0 || typeof(document.getElementsByName("tnb")[0].value) == "number")) {
             alert("饭后两小时血糖值必填且必须为数字");
         }
-        else if(document.getElementById("neph").checked&&countCheckSbFalse == 3) {
+        else if (document.getElementById("neph").checked && countCheckSbFalse == 3) {
             alert("肾病必须勾选一项");
         }
-        else if(document.getElementById("hepa").checked&&countCheckGbFalse == 4){
+        else if (document.getElementById("hepa").checked && countCheckGbFalse == 4) {
             alert("肝病必须勾选一项");
         }
-        else if(document.getElementById("hepa").checked&&(document.getElementsByName("alt")[0].value.trim().length == 0||typeof(document.getElementsByName("alt")[0].value)=="number")){
+        else if (document.getElementById("hepa").checked && (document.getElementsByName("alt")[0].value.trim().length == 0 || typeof(document.getElementsByName("alt")[0].value) == "number")) {
             alert("ALT数值必填且为数字");
         }
-        else if(document.getElementById("hepa").checked&&(document.getElementsByName("ast")[0].value.trim().length == 0||typeof(document.getElementsByName("ast")[0].value)=="number")){
+        else if (document.getElementById("hepa").checked && (document.getElementsByName("ast")[0].value.trim().length == 0 || typeof(document.getElementsByName("ast")[0].value) == "number")) {
             alert("AST数值必填且为数字");
         }
-        else if(document.getElementById("thy").checked&&countCheckJzxFalse == 3){
+        else if (document.getElementById("thy").checked && countCheckJzxFalse == 3) {
             alert("甲状腺功能异常必须勾选一项");
         }
-        else if(document.getElementById("bloods").checked&&countCheckBloodFalse == 3){
+        else if (document.getElementById("bloods").checked && countCheckBloodFalse == 3) {
             alert("血液疾病系统必须勾选一项");
         }
-        else if(document.getElementById("bloods").checked&&(document.getElementsByName("hgb")[0].value.trim().length == 0||typeof(document.getElementsByName("hgb")[0].value)=="number")){
+        else if (document.getElementById("bloods").checked && (document.getElementsByName("hgb")[0].value.trim().length == 0 || typeof(document.getElementsByName("hgb")[0].value) == "number")) {
             alert("贫血HGB数值必填且为数字");
         }
-        else if(document.getElementById("blood2").checked&&(document.getElementsByName("xqb")[0].value.trim().length == 0||typeof(document.getElementsByName("xqb")[0].value)=="number")){
+        else if (document.getElementById("blood2").checked && (document.getElementsByName("xqb")[0].value.trim().length == 0 || typeof(document.getElementsByName("xqb")[0].value) == "number")) {
             alert("血小板异常数值必填且为数字");
         }
-        else if(document.getElementById("otherelse").checked&&countCheckOtherFalse == 8){
+        else if (document.getElementById("otherelse").checked && countCheckOtherFalse == 8) {
             alert("其他必须勾选一项");
         }
-        else if(document.getElementById("other1").checked&& $("[name='other']").val().trim().length == 0){
+        else if (document.getElementById("other1").checked && $("[name='other']").val().trim().length == 0) {
             alert("其他必填");
         }
-        else{
+        else {
             document.getElementById("register_form").submit();
         }
     },
-    handleSwitch:function(event){
+    handleSwitch: function (event) {
         var temp = event.target.getAttribute("data-num");
-        if(event.target.checked){
-            document.getElementById("#div"+temp).style.display="block";
-            event.target.value=false;
+        if (event.target.checked) {
+            document.getElementById("#div" + temp).style.display = "block";
+            event.target.value = false;
             document.getElementById("heart").value = "heart";
             document.getElementById("hyper").value = "hyper";
             document.getElementById("GI").value = "GI";
@@ -126,41 +126,41 @@ export default React.createClass({
             document.getElementById("thy").value = "thy";
             document.getElementById("bloods").value = "bloods";
             document.getElementById("otherelse").value = "otherelse";
-        }else {
-            document.getElementById("#div"+temp).style.display="none";
-            event.target.value=true;
+        } else {
+            document.getElementById("#div" + temp).style.display = "none";
+            event.target.value = true;
         }
     },
-    handleHeartdisease:function(event){
+    handleHeartdisease: function (event) {
         event.preventDefault();
-        if(document.getElementById("xzbcheck").checked){
-            document.getElementsByName("xzb")[0].style.disabled=false;
-        }else {
-            document.getElementsByName("xzb")[0].style.disabled=true;
+        if (document.getElementById("xzbcheck").checked) {
+            document.getElementsByName("xzb")[0].style.disabled = false;
+        } else {
+            document.getElementsByName("xzb")[0].style.disabled = true;
         }
     },
-    handleBlood1:function(event){
+    handleBlood1: function (event) {
         event.preventDefault();
-        if(document.getElementById("blood1").checked){
-            document.getElementsByName("hgb")[0].style.disabled=false;
-        }else {
-            document.getElementsByName("hgb")[0].style.disabled=true;
+        if (document.getElementById("blood1").checked) {
+            document.getElementsByName("hgb")[0].style.disabled = false;
+        } else {
+            document.getElementsByName("hgb")[0].style.disabled = true;
         }
     },
-    handleBlood2:function(event){
+    handleBlood2: function (event) {
         event.preventDefault();
-        if(document.getElementById("blood2").checked){
-            document.getElementsByName("xqb")[0].style.disabled=false;
-        }else {
-            document.getElementsByName("xqb")[0].style.disabled=true;
+        if (document.getElementById("blood2").checked) {
+            document.getElementsByName("xqb")[0].style.disabled = false;
+        } else {
+            document.getElementsByName("xqb")[0].style.disabled = true;
         }
     },
-    handleOther1:function(event){
+    handleOther1: function (event) {
         event.preventDefault();
-        if(document.getElementById("other1").checked){
-            document.getElementsByName("other")[0].style.disabled=false;
-        }else {
-            document.getElementsByName("other")[0].style.disabled=true;
+        if (document.getElementById("other1").checked) {
+            document.getElementsByName("other")[0].style.disabled = false;
+        } else {
+            document.getElementsByName("other")[0].style.disabled = true;
         }
     },
     componentDidMount: function () {
@@ -168,19 +168,19 @@ export default React.createClass({
         var postData = {"code": ""};
         jsonp("/wechat/physicalreceipt", postData, "POST", function (data) {
             if (data.code == 0) {
-                document.getElementsByClassName("back_divcontent").style.display="none";
-                document.getElementsByName("xzb")[0].style.disabled=true;
-                document.getElementsByName("hgb")[0].style.disabled=true;
-                document.getElementsByName("xqb")[0].style.disabled=true;
-                document.getElementsByName("other")[0].style.disabled=true;
+                document.getElementsByClassName("back_divcontent").style.display = "none";
+                document.getElementsByName("xzb")[0].style.disabled = true;
+                document.getElementsByName("hgb")[0].style.disabled = true;
+                document.getElementsByName("xqb")[0].style.disabled = true;
+                document.getElementsByName("other")[0].style.disabled = true;
 
             }
             else {
-                switch (data.code){
+                switch (data.code) {
                     case 1011:
                         alert(data.message);
                         //alert('如果您是孕妇用户，请注册后使用本功能，如果您是非孕妇用户，请直接访问健康服务', "去注册", "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5ce715491b2cf046&redirect_uri=http://opencart.meluo.net/index.php?route=wechat/register&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect");
-                        location.href=data.data[0].url;
+                        location.href = data.data[0].url;
                         break;
                     case 1012:
                         alert(data.message);
@@ -216,7 +216,8 @@ export default React.createClass({
     },
     render: function () {
         return (
-            <form action="/wechat/physicalreceipt/submit" method="post" encType="multipart/form-data" className="form-horizontal" id="register_form">
+            <form action="/wechat/physicalreceipt/submit" method="post" encType="multipart/form-data"
+                  className="form-horizontal" id="register_form">
                 <div>
                     <div>
                         <div className="back_div">
@@ -227,7 +228,8 @@ export default React.createClass({
                                         <label>心脏病</label>
                                     </td>
                                     <td style={{textAlign:"right"}}>
-                                        <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]" onClick={this.handleSwitch}
+                                        <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]"
+                                               onClick={this.handleSwitch}
                                                value="heart" id="heart" data-num="1"/>
                                     </td>
                                 </tr>
@@ -238,7 +240,8 @@ export default React.createClass({
                                     <tbody>
                                     <tr>
                                         <td width="10%">
-                                            <input type="checkbox" name="heartdisease[]" value="心率失常" onClick={this.handleHeartdisease}/>
+                                            <input type="checkbox" name="heartdisease[]" value="心率失常"
+                                                   onClick={this.handleHeartdisease}/>
                                         </td>
                                         <td width="22%" className="checktd">
                                             <label >心率失常</label>
@@ -249,7 +252,8 @@ export default React.createClass({
                                     </tr>
                                     <tr>
                                         <td >
-                                            <input type="checkbox" name="heartdisease[]" value="心功能异常" onClick={this.handleHeartdisease}/>
+                                            <input type="checkbox" name="heartdisease[]" value="心功能异常"
+                                                   onClick={this.handleHeartdisease}/>
                                         </td>
                                         <td className="checktd">
                                             <label>心功能异常</label>
@@ -259,7 +263,8 @@ export default React.createClass({
                                     </tr>
                                     <tr>
                                         <td >
-                                            <input type="checkbox" name="heartdisease[]" id="xzbcheck" value="其它" onClick={this.handleHeartdisease}/>
+                                            <input type="checkbox" name="heartdisease[]" id="xzbcheck" value="其它"
+                                                   onClick={this.handleHeartdisease}/>
                                         </td>
                                         <td className="checktd">
                                             <label>其它</label>
@@ -283,7 +288,8 @@ export default React.createClass({
                                         <label>高血压</label>
                                     </td>
                                     <td style={{textAlign:"right"}}>
-                                        <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]" onClick={this.handleSwitch}
+                                        <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]"
+                                               onClick={this.handleSwitch}
                                                value="hyper" id="hyper" data-num="2"/>
                                     </td>
                                 </tr>
@@ -318,7 +324,8 @@ export default React.createClass({
                                         <label>糖尿病</label>
                                     </td>
                                     <td style={{textAlign:"right"}}>
-                                        <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]" onClick={this.handleSwitch}
+                                        <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]"
+                                               onClick={this.handleSwitch}
                                                value="GI" id="GI" data-num="3"/>
                                     </td>
                                 </tr>
@@ -387,7 +394,8 @@ export default React.createClass({
                                         <label>肾病</label>
                                     </td>
                                     <td style={{textAlign:"right"}}>
-                                        <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]" onClick={this.handleSwitch}
+                                        <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]"
+                                               onClick={this.handleSwitch}
                                                value="neph" id="neph" data-num="4"/>
                                     </td>
                                 </tr>
@@ -435,7 +443,8 @@ export default React.createClass({
                                         <label>肝病</label>
                                     </td>
                                     <td style={{textAlign:"right"}}>
-                                        <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]" onClick={this.handleSwitch}
+                                        <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]"
+                                               onClick={this.handleSwitch}
                                                value="hepa" id="hepa" data-num="5"/>
                                     </td>
                                 </tr>
@@ -509,7 +518,8 @@ export default React.createClass({
                                         <label>甲状腺功能异常</label>
                                     </td>
                                     <td style={{textAlign:"right"}}>
-                                        <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]" onClick={this.handleSwitch}
+                                        <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]"
+                                               onClick={this.handleSwitch}
                                                value="thy" id="thy" data-num="6"/>
                                     </td>
                                 </tr>
@@ -557,7 +567,8 @@ export default React.createClass({
                                         <label>血液疾病系统</label>
                                     </td>
                                     <td style={{textAlign:"right"}}>
-                                        <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]" onClick={this.handleSwitch}
+                                        <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]"
+                                               onClick={this.handleSwitch}
                                                value="bloods" id="bloods" data-num="7"/>
                                     </td>
                                 </tr>
@@ -568,7 +579,8 @@ export default React.createClass({
                                     <tbody>
                                     <tr>
                                         <td width="10%">
-                                            <input type="checkbox" name="blood[]" value="贫血HGB数值" id="blood1" onClick={this.handleBlood1}/>
+                                            <input type="checkbox" name="blood[]" value="贫血HGB数值" id="blood1"
+                                                   onClick={this.handleBlood1}/>
                                         </td>
                                         <td className="checktd">
                                             <label>贫血</label>
@@ -584,7 +596,8 @@ export default React.createClass({
                                     </tr>
                                     <tr>
                                         <td >
-                                            <input type="checkbox" name="blood[]" value="血小板异常数值" id="blood2" onClick={this.handleBlood2}/>
+                                            <input type="checkbox" name="blood[]" value="血小板异常数值" id="blood2"
+                                                   onClick={this.handleBlood2}/>
                                         </td>
                                         <td className="checktd">
                                             <label>血小板异常</label>
@@ -621,7 +634,8 @@ export default React.createClass({
                                         <label>其他</label>
                                     </td>
                                     <td style={{textAlign:"right"}}>
-                                        <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]" onClick={this.handleSwitch}
+                                        <input className="mui-switch mui-switch-animbg" type="checkbox" name="switch[]"
+                                               onClick={this.handleSwitch}
                                                value="otherelse" id="otherelse" data-num="8"/>
                                     </td>
                                 </tr>
@@ -632,7 +646,7 @@ export default React.createClass({
                                     <tbody>
                                     <tr>
                                         <td width="10%">
-                                            <input type="checkbox" name="others[]" value="精神疾病" />
+                                            <input type="checkbox" name="others[]" value="精神疾病"/>
                                         </td>
                                         <td width="30%" className="checktd">
                                             <label>精神疾病</label>
@@ -713,7 +727,8 @@ export default React.createClass({
                                     <tbody>
                                     <tr>
                                         <td width="10%">
-                                            <input type="checkbox" name="others[]" value="其它" id="other1" onClick={this.handleOther1} />
+                                            <input type="checkbox" name="others[]" value="其它" id="other1"
+                                                   onClick={this.handleOther1}/>
                                         </td>
                                         <td width="15%" className="checktd">
                                             <label>其它</label>
