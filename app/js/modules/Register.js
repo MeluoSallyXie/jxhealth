@@ -578,7 +578,7 @@ export default React.createClass({
                     </label>
                     </div>
                     <div style={{textAlign:"center"}}>
-                        <span className="whitebtn active" style={{margin:"3rem"}} onClick={this.handleSubmit()}
+                        <span className="whitebtn active" style={{margin:"3rem"}}
                               id="register_submitbtn">提交</span>
                     </div>
                 </div>
