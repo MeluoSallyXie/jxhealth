@@ -19,7 +19,9 @@ export default React.createClass({
         }
     },
     contextTypes:function(){
-        router: React.PropTypes.object.isRequired
+        return {
+            router: React.PropTypes.object.isRequired
+        }
     },
     handleChange:function(event) {
         const target = event.target;
