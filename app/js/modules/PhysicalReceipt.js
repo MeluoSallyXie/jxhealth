@@ -22,7 +22,7 @@ export default React.createClass({
         var countCheckXzbFalse = 0;
         if (document.getElementById("heart").checked) {
             for (var i = 0; i < document.getElementsByName("heartdisease[]").length; i++) {
-                if (document.getElementsByName("heartdisease[]")[i].checked) {
+                if (!document.getElementsByName("heartdisease[]")[i].checked) {
                     countCheckXzbFalse++;
                 }
             }
@@ -30,7 +30,7 @@ export default React.createClass({
         var countCheckSbFalse = 0;
         if (document.getElementById("neph").checked) {
             for (var i = 0; i < document.getElementsByName("nephropathy[]").length; i++) {
-                if (document.getElementsByName("nephropathy[]")[i].checked) {
+                if (!document.getElementsByName("nephropathy[]")[i].checked) {
                     countCheckSbFalse++;
                 }
             }
@@ -38,7 +38,7 @@ export default React.createClass({
         var countCheckGbFalse = 0;
         if (document.getElementById("hepa").checked) {
             for (var i = 0; i < document.getElementsByName("hepatopathy[]").length; i++) {
-                if (document.getElementsByName("hepatopathy[]")[i].checked) {
+                if (!document.getElementsByName("hepatopathy[]")[i].checked) {
                     countCheckGbFalse++;
                 }
             }
@@ -47,7 +47,7 @@ export default React.createClass({
         var countCheckJzxFalse = 0;
         if (document.getElementById("thy").checked) {
             for (var i = 0; i < document.getElementsByName("thyroid[]").length; i++) {
-                if (document.getElementsByName("thyroid[]")[i].checked) {
+                if (!document.getElementsByName("thyroid[]")[i].checked) {
                     countCheckJzxFalse++;
                 }
             }
@@ -56,7 +56,7 @@ export default React.createClass({
         var countCheckBloodFalse = 0;
         if (document.getElementById("bloods").checked) {
             for (var i = 0; i < document.getElementsByName("blood[]").length; i++) {
-                if (document.getElementsByName("blood[]")[i].checked) {
+                if (!document.getElementsByName("blood[]")[i].checked) {
                     countCheckBloodFalse++;
                 }
             }
@@ -65,7 +65,7 @@ export default React.createClass({
         var countCheckOtherFalse = 0;
         if (document.getElementById("otherelse").checked) {
             for (var i = 0; i < document.getElementsByName("others[]").length; i++) {
-                if (document.getElementsByName("others[]")[i].checked) {
+                if (!document.getElementsByName("others[]")[i].checked) {
                     countCheckOtherFalse++;
                 }
             }
