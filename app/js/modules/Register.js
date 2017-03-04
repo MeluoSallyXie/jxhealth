@@ -264,7 +264,12 @@ export default React.createClass({
         document.getElementById("title1").style.top = top + "px";
         var top2 = document.getElementById("hr2").offsetTop - document.getElementById("title2").offsetHeight / 2;
         document.getElementById("title2").style.top = top2 + "px";
-        var postData = null;
+        var code = "";
+        if (typeof(this.props.location.query.code) == "string") {
+            code = this.props.location.query.code;
+        }
+        var postData = {"code": code};
+        console.log("postData"+JSON.stringify(postData));
         jsonp("/wechat/wechatbinding/getAddress", postData, "POST", function (data) {
             if (data.code == 0) {
                 var provs_data = data.data.province;

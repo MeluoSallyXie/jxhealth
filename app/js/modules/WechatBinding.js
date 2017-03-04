@@ -68,7 +68,12 @@ export default React.createClass({
         }
     },
     componentDidMount:function() {
-        var postData = null;
+        var code = "";
+        if (typeof(this.props.location.query.code) == "string") {
+            code = this.props.location.query.code;
+        }
+        var postData = {"code": code};
+        console.log("postData"+JSON.stringify(postData));
         jsonp("/wechat/wechatbinding/getAddress", postData, "POST", function (data) {
             if (data.code == 0) {
                 var provs_data = data.data.province;
