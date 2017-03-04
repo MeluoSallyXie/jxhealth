@@ -114,7 +114,85 @@ export default React.createClass({
             alert("其他必填");
         }
         else {
-            document.getElementById("register_form").submit();
+            var switchBtn=new Array();
+            var switchObj=document.getElementsByName("switch[]");
+            for(var i=0;i<switchObj.length;i++){
+                if(switchObj[i].checked){
+                    switchBtn.push(switchObj[i].value);
+                }
+            }
+
+            var heartdiseaseBtn=new Array();
+            var heartdiseaseObj=document.getElementsByName("heartdisease[]");
+            for(var i=0;i<heartdiseaseObj.length;i++){
+                if(heartdiseaseObj[i].checked){
+                    heartdiseaseBtn.push(heartdiseaseObj[i].value);
+                }
+            }
+
+            var cureBtn="";
+            var cureObj=document.getElementsByName("cure");
+            for(var i=0;i<cureObj.length;i++){
+                if(cureObj[i].checked){
+                    cureBtn=cureObj[i].value;
+                }
+            }
+
+            var nephropathyBtn=new Array();
+            var nephropathyObj=document.getElementsByName("nephropathy[]");
+            for(var i=0;i<nephropathyObj.length;i++){
+                if(nephropathyObj[i].checked){
+                    nephropathyBtn.push(nephropathyObj[i].value);
+                }
+            }
+
+            var hepatopathyBtn=new Array();
+            var hepatopathyObj=document.getElementsByName("hepatopathy[]");
+            for(var i=0;i<hepatopathyObj.length;i++){
+                if(hepatopathyObj[i].checked){
+                    hepatopathyBtn.push(hepatopathyObj[i].value);
+                }
+            }
+
+            var bloodBtn=new Array();
+            var bloodObj=document.getElementsByName("blood[]");
+            for(var i=0;i<bloodObj.length;i++){
+                if(bloodObj[i].checked){
+                    bloodBtn.push(bloodObj[i].value);
+                }
+            }
+
+            var othersBtn=new Array();
+            var othersObj=document.getElementsByName("others[]");
+            for(var i=0;i<othersObj.length;i++){
+                if(othersObj[i].checked){
+                    othersBtn.push(othersObj[i].value);
+                }
+            }
+
+            var postData = {
+                "switch": switchBtn,
+                "heartdisease": heartdiseaseBtn,
+                "xzb": document.getElementsByName("xzb")[0].value,
+                "gxy": document.getElementsByName("gxy")[0].value,
+                "cure": cureBtn,
+                "tnb": document.getElementsByName("tnb")[0].value,
+                "nephropathy": nephropathyBtn,
+                "hepatopathy": hepatopathyBtn,
+                "alt": document.getElementsByName("alt")[0].value,
+                "blood": bloodBtn,
+                "xqb": document.getElementsByName("xqb")[0].value,
+                "others": othersBtn,
+                "other": document.getElementsByName("pregnant")[0].value
+            };
+            jsonp("/wechat/physicalreceipt/submit", postData, "POST", function (data) {
+                if (data.code == 0) {
+                    window.location.reload();
+                }
+                else {
+                    errorMsg(data);
+                }
+            }.bind(this));
         }
     },
     handleSwitch: function (event) {
@@ -225,7 +303,7 @@ export default React.createClass({
                         }
                     })()}
                 </div>
-                <form action="/wechat/physicalreceipt/submit" method="post" encType="multipart/form-data"
+                <form action="" method="post" encType="multipart/form-data"
                       className="form-horizontal" id="register_form">
                     <div>
                         <div>
