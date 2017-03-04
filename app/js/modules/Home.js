@@ -15,12 +15,16 @@ export default React.createClass({
             imgUrls: []
         };
     },
-    componentWillMount:function(){
+    componentWillMount: function () {
         document.title = '金杏健康';
     },
     componentDidMount: function () {
-        var postData = {"code": this.props.location.query.code};
-        console.log("postData"+JSON.stringify(postData));
+        var code = "";
+        if (typeof(this.props.location.query.code) == "string") {
+            code = this.props.location.query.code;
+        }
+        var postData = {"code": code};
+        console.log("postData" + JSON.stringify(postData));
         jsonp("/common/homem", postData, "POST", function (data) {
             if (data.code == 0) {
                 var imgArray = new Array();
