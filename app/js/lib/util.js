@@ -14,7 +14,6 @@ window.hasClass=function(elem, cls){
 window.errorMsg=function(data){
     switch (data.code){
         case 1001:alert(data.message);
-            location.href=data.data[0].url;
             break;
         case 1011:alert(data.message);
             location.href=data.data[0].url;
