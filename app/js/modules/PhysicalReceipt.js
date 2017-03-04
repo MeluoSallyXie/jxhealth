@@ -110,7 +110,7 @@ export default React.createClass({
         else if (document.getElementById("otherelse").checked && countCheckOtherFalse == 8) {
             alert("其他必须勾选一项");
         }
-        else if (document.getElementById("other1").checked && $("[name='other']").val().trim().length == 0) {
+        else if (document.getElementById("other1").checked && document.getElementsByName("other")[0].value.trim().length == 0) {
             alert("其他必填");
         }
         else {
