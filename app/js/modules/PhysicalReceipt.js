@@ -183,7 +183,7 @@ export default React.createClass({
                 "blood": bloodBtn,
                 "xqb": document.getElementsByName("xqb")[0].value,
                 "others": othersBtn,
-                "other": document.getElementById("otherelse").value
+                "other": document.getElementsByName("other")[0].value
             };
             console.log(JSON.stringify(postData));
             jsonp("/wechat/physicalreceipt/submit", postData, "POST", function (data) {
