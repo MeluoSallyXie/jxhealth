@@ -188,7 +188,7 @@ export default React.createClass({
             console.log(JSON.stringify(postData));
             jsonp("/wechat/physicalreceipt/submit", postData, "POST", function (data) {
                 if (data.code == 0) {
-                    window.location.reload();
+                    alert("回访调查成功！");
                 }
                 else {
                     errorMsg(data);
