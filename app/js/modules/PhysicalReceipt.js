@@ -186,14 +186,14 @@ export default React.createClass({
                 "other": document.getElementById("otherelse").value
             };
             console.log(JSON.stringify(postData));
-            /*jsonp("/wechat/physicalreceipt/submit", postData, "POST", function (data) {
+            jsonp("/wechat/physicalreceipt/submit", postData, "POST", function (data) {
                 if (data.code == 0) {
                     window.location.reload();
                 }
                 else {
                     errorMsg(data);
                 }
-            }.bind(this));*/
+            }.bind(this));
         }
     },
     handleSwitch: function (event) {
@@ -236,7 +236,6 @@ export default React.createClass({
         }
     },
     handleOther1: function (event) {
-        event.preventDefault();
         if (document.getElementById("other1").checked) {
             document.getElementsByName("other")[0].style.disabled = false;
         } else {
