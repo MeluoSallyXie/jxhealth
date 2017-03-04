@@ -11,7 +11,7 @@
         var querystring = require('querystring');
         var postData = data;
         var options = {
-            hostname: 'test.jinxingjk.com',
+            hostname: 'be.jinxingjk.com',
             port: 80,
             path: url,
             method: method,
