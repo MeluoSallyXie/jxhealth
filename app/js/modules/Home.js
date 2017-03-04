@@ -20,6 +20,7 @@ export default React.createClass({
     },
     componentDidMount: function () {
         var postData = {"code": this.props.location.query.code};
+        console.log("postData"+JSON.stringify(postData));
         jsonp("/common/homem", postData, "POST", function (data) {
             if (data.code == 0) {
                 var imgArray = new Array();
