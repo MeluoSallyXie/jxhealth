@@ -41,7 +41,11 @@ export default React.createClass({
         document.title = '投诉建议';
     },
     componentDidMount: function () {
-        var postData = {"code": this.props.location.query.code};
+        var code = "";
+        if (typeof(this.props.location.query.code) == "string") {
+            code = this.props.location.query.code;
+        }
+        var postData = {"code": code};
         console.log("postData"+JSON.stringify(postData));
         jsonp("/wechat/advise/show", postData, "POST", function (data) {
             if (data.code == 0) {

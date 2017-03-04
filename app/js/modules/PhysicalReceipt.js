@@ -243,7 +243,11 @@ export default React.createClass({
         }
     },
     componentDidMount: function () {
-        var postData = {"code": this.props.location.query.code};
+        var code = "";
+        if (typeof(this.props.location.query.code) == "string") {
+            code = this.props.location.query.code;
+        }
+        var postData = {"code": code};
         var divObj = document.getElementsByClassName("back_divcontent");
         for (var i = 0; i < divObj.length; i++) {
             divObj[i].style.display = "none";

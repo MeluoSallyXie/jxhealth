@@ -18,7 +18,11 @@ export default React.createClass({
     },
     componentDidMount: function () {
         document.body.style.backgroundColor = "#eee";
-        var postData = {"code": this.props.location.query.bar};
+        var code = "";
+        if (typeof(this.props.location.query.code) == "string") {
+            code = this.props.location.query.code;
+        }
+        var postData = {"code": code};
         jsonp("/wechat/personalinfo", postData, "POST", function (data) {
             if (data.code == 0) {
             }
