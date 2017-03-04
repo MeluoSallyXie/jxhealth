@@ -185,14 +185,15 @@ export default React.createClass({
                 "others": othersBtn,
                 "other": document.getElementById("otherelse").value
             };
-            jsonp("/wechat/physicalreceipt/submit", postData, "POST", function (data) {
+            console.log(JSON.stringify(postData));
+            /*jsonp("/wechat/physicalreceipt/submit", postData, "POST", function (data) {
                 if (data.code == 0) {
                     window.location.reload();
                 }
                 else {
                     errorMsg(data);
                 }
-            }.bind(this));
+            }.bind(this));*/
         }
     },
     handleSwitch: function (event) {
