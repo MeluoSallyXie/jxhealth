@@ -31,6 +31,7 @@ export default React.createClass({
                 var bannerLen = data.data.banners.length;
                 for (var i = 0; i < bannerLen; i++) {
                     var bannerObj = data.data.banners[i];
+                    console.log("imgurl"+global.ImgUrl + bannerObj.image);
                     imgArray.push({"url": global.ImgUrl + bannerObj.image});
                 }
                 this.setState({imgUrls: imgArray});
