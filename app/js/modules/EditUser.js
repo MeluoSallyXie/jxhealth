@@ -258,6 +258,7 @@ export default React.createClass({
                     address_1:data.data.address_1,
                     district:data.data.district
                 });
+
             }
             else {
                 console.error(data.message)

@@ -46,4 +46,4 @@ window.errorMsg=function(data){
             break;
     }
 }
-global.ImgUrl="http://test.jinxingjk.com/";
+global.ImgUrl="http://be.jinxingjk.com/";

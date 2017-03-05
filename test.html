@@ -1,16 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-    <script>
-        function close(){
-            wx.closeWindow();
-        }
-    </script>
+    <meta charset="UTF-8"/>
+    <title>Hello React!</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+    <link rel="stylesheet" href="app/css/LArea.css">
+    <script src="app/js/lib/LArea.js"></script>
 </head>
 <body>
-<input value="测试" type="button" onclick="close()" />
+<div id="example"></div>
+<script type="text/babel">
+    var CommentBox = React.createClass({
+        componentDidMount: function () {
+            var provs_data = [{
+                "text": "省",
+                "value": "1"
+            }, {
+                "text": "省",
+                "value": "2"
+            }];
+            var citys_data = {
+                "1": [{
+                    "text": "市",
+                    "value": "11"
+                }, {
+                    "text": "市",
+                    "value": "12"
+                }],
+                "2": [{
+                    "text": "市",
+                    "value": "21"
+                }, {
+                    "text": "市",
+                    "value": "22"
+                }]
+            };
+            var dists_data = {
+                "11": [{
+                    "text": "区",
+                    "value": "111"
+                }, {
+                    "text": "区",
+                    "value": "112"
+                }],
+                "21": [{
+                    "text": "区",
+                    "value": "211"
+                }, {
+                    "text": "区",
+                    "value": "212"
+                }]
+            };
+            var area = new LArea();
+            area.init({
+                'trigger': '#demo1',//触发选择控件的文本框，同时选择完毕后name属性输出到该位置
+                'valueTo':'#value1',//选择完毕后id属性输出到该位置
+                'keys':{id:'id',name:'name'},//绑定数据源相关字段 id对应valueTo的value属性输出 name对应trigger的value属性输出
+                'type':1,//数据源类型
+                'data':LAreaData//数据源
+            });
+        },
+        render: function () {
+            return (
+            <input id="demo1" type="text" readOnly="" name="input_area" placeholder="城市选择特效"/>
+            );
+        }
+    });
+    ReactDOM.render(
+    < CommentBox / >,
+            document.getElementById('example')
+    );
+</script>
 </body>
 </html>
