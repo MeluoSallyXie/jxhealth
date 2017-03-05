@@ -259,6 +259,31 @@ export default React.createClass({
                     district:data.data.district
                 });
 
+                if(this.state.highrisk == "是"){
+                    document.getElementById("dangerousreason").style.disabled=false;
+                    document.getElementById("highrisk").value = "是";
+                    document.getElementById("risk").className += " " + "active";
+                    var reg = new RegExp('(\\s|^)' + "active" + '(\\s|$)');
+                    document.getElementById("norisk").className = document.getElementById("norisk").className.replace(reg, ' ');
+
+                }else {
+                    document.getElementById("dangerousreason").style.disabled=true;
+                    document.getElementById("dangerousreason").value = "";
+                    document.getElementById("highrisk").value = "否";
+                    var reg = new RegExp('(\\s|^)' + "active" + '(\\s|$)');
+                    document.getElementById("risk").className = document.getElementById("risk").className.replace(reg, ' ');
+                    document.getElementById("norisk").className += " " + "active";
+                }
+
+                if(this.state.householdregister == "是"){
+                    var reg = new RegExp('(\\s|^)' + "active" + '(\\s|$)');
+                    document.getElementById("nonative").className = document.getElementById("nonative").className.replace(reg, ' ');
+                    document.getElementById("native").className += " " + "active";
+                }else {
+                    var reg = new RegExp('(\\s|^)' + "active" + '(\\s|$)');
+                    document.getElementById("native").className = document.getElementById("native").className.className.replace(reg, ' ');
+                    document.getElementById("nonative").className += " " + "active";
+                }
             }
             else {
                 console.error(data.message)
