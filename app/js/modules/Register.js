@@ -310,7 +310,7 @@ export default React.createClass({
 
         return (
             <form id="register_form">
-                <div className="register_title" id="title1">您的个人资料</div>
+                <div className="register_title" id="title1">您的个人资料1</div>
                 <hr className="register_hr" id="hr1"/>
                 <table className="register_outer" style={{marginBottom: "-1rem"}}>
                     <tbody>
