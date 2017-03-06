@@ -382,9 +382,9 @@ export default React.createClass({
                             保健科室
                         </td>
                         <td>
-                            <input id="department" className="formcontroller" type="text" readOnly="readonly"
+                            <input id="department" className="formcontroller" type="text" readOnly="readonly" name="department"
                                    value={this.state.department} placeholder="选择科室" onChange={this.handleChange}/>
-                            <input id="departmentvalue" type="hidden" name="department"
+                            <input id="departmentvalue" type="hidden" name="departmentvalue"
                                    value={this.state.departmentvalue} onChange={this.handleChange}/>
                         </td>
                     </tr>
