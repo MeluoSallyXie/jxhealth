@@ -89,7 +89,7 @@ export default React.createClass({
         }
     },
     handleHousehold: function (event) {
-        event.preventDefault();
+        //event.preventDefault();
         var reg = new RegExp('(\\s|^)' + "active" + '(\\s|$)');
         document.getElementsByName("household")[0].className = event.target.className.replace(reg, ' ');
         document.getElementsByName("household")[1].className = event.target.className.replace(reg, ' ');
@@ -103,7 +103,7 @@ export default React.createClass({
         }
     },
     handleIsrisk: function (event) {
-        event.preventDefault();
+        //event.preventDefault();
         var reg = new RegExp('(\\s|^)' + "active" + '(\\s|$)');
         document.getElementsByName("isrisk")[0].className = event.target.className.replace(reg, ' ');
         document.getElementsByName("isrisk")[1].className = event.target.className.replace(reg, ' ');
