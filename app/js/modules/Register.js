@@ -21,7 +21,7 @@ export default React.createClass({
             telephone: "",
             barcode: "",
             birthday: "",
-            department: "",
+            department: "111",
             departmentvalue: "",
             height: "",
             lastmenstrualdate: "",
